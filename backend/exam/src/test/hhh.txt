@@ -1,0 +1,717 @@
+Question #:1  Give this compartment structure:
+You want to move a compute instance that is in 'Compute' compartment to 'SysTes-Team'.
+You login to your Oracle Cloud Infrastructure (OCI)account and use the 'Move Resource' option. What will happen when you attempt moving the compute resource?
+A. The move will fail and you will be prompted to move the VCN first. Once VCN is moved to the target compartment, the Compute instance can be moved.
+B. The move will be successful though Compute Instance and its Public and Private IP address will stay the same. The Compute Instante VNIC will need to be moved separately. The Compute instance will still be associated with the original VCN.
+C. The move will be successful though Compute Instance and its Public and Private IP address will stay the same. The Compute instance will still be associated with the original VCN.
+D. The move will be successful though Compute Instance Public and Private IP address changed, and it will be associated to the lust VCN in t1 target compartment.
+Answer: C
+
+Question #:2  You have designed and deployed your Autonomous Data Warehouse (ADW) such that it is accessible from your on-premises data center and servers running on both private and public networks in Oracle Cloud Infrastructure (OCI).
+As you are testing the connectivity to your ADW database from the different access paths, you notice that the sewer lunninq on the private network is unable to connect to ADW.
+Which two steps do you need to take to enable connectivity from the server on the private network to ADW?
+A. Add an entry in the Security List of the ADW allowing ingress traffic for C10R block 10.2.2.0/24
+B. Add an entry in the route table (associated with the private subnet) with destination of 0.0.0.0/: target type of NAT Gateway, add a stateful egress rule to the security list (associated with the private subnet) with destination of 0.0.0.0./0 and for all IP protocols.
+C. Add an entry in the access table list of ASW for CIDR block 10.2.2.0/24.
+D. Add an entry in the route table (associated with the private subnet) with destination of 0.0.0.0./0; target type of internet Gateway, add a stateful egress in the security list (associated with the private subnet) with destination of 0.0.0.0/0 and for all IP protocols.
+E. Add an entry in the access control list of ADW for IP address 129.146.160.11
+Answer: B E
+
+Question #:3   You are designing the network infrastructure for two application servers: appserver-1 and appserver-2 running in two different subnets inside the same Virtual Cloud Network (VCN) Oracle Cloud Infrastructure (OCI).
+You have a requirement where your end users will access appserver-1 from the internet and appserver-2 from the on-premises network. The on-premises network is connected to your VCN over a FastConnect virtual circuit.
+How should you design your routing configuration to meet these requirements?
+A. Configure a single routing table (Route Table-1) that has two set of rules. One that has route to internet via the internet Gateway and another that propagate specific routes for the on-premise network via the Dynamic Routing Gateway. Associate the routing table with all the VCN subnets.
+B. Configure a single routing table (Routing Table-1) that has two set of rules: one that has route to internet via the Internet Gateway and another that propagates specific routes for the on-premises network via Dynamic Routing Gateway (DRG). Associate the routing table with the VCN.
+C. Configure two routing tables: Route Table-1 that has a route to internet via the Internet gateway. Associate this route table to the subnet containing appserver-1. Route Table-2 that propagate specific routes for the on-premises network via the Dynamic Routing Gateway (DRG) Associate this route table to subnet containing appserver-2.
+D. Configure two routing table (Route table-1 Route Table-2) that have rule to route all traffic via the Dynamic Routing Gateway (DRG) Associate the two routing tables with all the VCN subnets.
+Answer: C
+
+Question #:4  A large financial company has a web application hosted in their on-premises data center. They are migrating their application to Oracle Cloud Infrastructure (OCI) and require no downtime while the migration is
+on-going. In order to achieve this, they have decided to divert only 30% of the application works fine, they divert all traffic to OCI.
+As a solution architect working with this customer, which suggestion should you provide them?
+A. Use OCI Traffic management with failover steering policy and distribute the traffic between OC1 and on premises infrastructure.
+B. Use OCI Traffic management with Load Balancing steering policy and distribute the traffic between OCI and on premises infrastructure.
+C. Use an OCI load Balancer and distribute the traffic between OCI and on premises infrastructure.
+D. Use VPN connectivity between on premises Infrastructure and OCI, and create routing tables to distribute the traffic between them.
+Answer: B
+
+Question #:5  A company has an urgent requirement to migrate 300 TB of data to Oracle Cloud Infrastructure (OCI) In two weeks. Their data center has been recently struck by a massive hurricane and the building has been badly damaged, although still operational. They have a 100 Mbps Internet line but the connection is Intermittent due to the damages caused to the electrical grid
+in this scenario, what is the most effective service to use to migrate the data to OCI given the time constraints?
+A. Setup a OCI Storage Gateway to connect your data center and your VCN. Once the connection has been established, upload all data to OCI using OCI Storage Gateway Cloud Sync tool.
+B. Setup a hybrid network by launching aIGbpsFastConnect virtual circuit between your data center and OCI. Use OCI Object storage multipart upload tool to automate the migration of your data to OCI.
+C. Use multiple OCI Data Transfer Appliances to transfer data to OCI.
+D. Upload the data to OCI using OCI Object Storage multipart upload tool.
+E. Storage Gateway to connect your data center and your VCN. Once the connection has been established, upload all data to OCI.
+Answer: C
+
+Question #:6  As a part of migration exercise for an existing on premises application to Oracle Cloud Infrastructure (OCT), yon ore required to transfer a 7 TB file to OCI Object Storage. You have decided to upload functionality of Object Storage.
+Which two statements are true?
+A. Active multipart upload can be checked by listing all parts that have been uploaded, however It Is not possible to list information for individual object part in an active multipart upload
+B. It is possible to spill this fileInto multiple parts using the APIs provided by Object Storage.
+C. It is possible to split this file into multiple parts using rclone tool provided by Object Storage.
+D. After initiating a multipart upload by making a CreateMultlPartUpload RESI API Call, the upload remains active until you explicitly commit it or abort.
+E. Contiguous numbers need to be assigned for each part so that Object Storage constructs the object by ordering, part numbers in ascending order
+Answer: A D
+
+Question #:7  A data analytics company has been building Its now generation big data and analytics platform on Oracle Cloud Infrastructure (OCI). They need a storage service that provide the scale and performance that their big data applications require such as high throughput to compute nodes with low latency file operations in addition, their data needs to be stored redundantly across multiple nodes In a single availability domain and allows concurrent connections from multiple compute Instances hosted on multiple availability domains.
+Which OCI storage service can you use to meet i his requirement?
+A. Object Storage
+B. File System Storage
+C. Archive storage
+D. Block Volume
+Answer: B
+
+Question #:8  An online registration system Is currently hosted on one large Oracle Cloud Infrastructure (OCT) Bare metal compute Instance with attached block volume to store of the users' data. The registration system accepts the Information from the user, Including documents and photos then performs automated verification and processing to check it the user is eligible for registration.
+The registration system becomes unavailable at tunes when there is a surge of users using the system the existing architecture needs improvement as it takes a long time for the system to complete the processing and the attached block volumes are not large enough to use data being uploaded by the users.
+Which Is the most effective option to achieve a highly scalable solution?
+A. Attach more Block volumes as the data volume increase, use Oracle Notification Service (ONS) to distribute tasks to a pool of compute instances working In parallel, and Auto Scaling to dynamically size the pool of Instances depending on the number of notifications received from the Notification Service. Use Resource Manager stacks to replicate your architecture to another region.
+B. Change your architecture to use an OCI Object Storage standard tier bucket, replace the single bare metal instance with a Oracle Streaming Service (OSS) to ingest the Incoming requests and distribute the tasks to a group of compute Instances with Auto Scaling
+C. Upgrade your architecture to use a pool of Bare metal servers and configure them to use their local SSDs for faster data access Set up Oracle Streaming Service (OSS) to distribute the tasks to the pool of Bare metal Instances with Auto Scaling to dynamically increase or decrease the pool of compute instances depending on the length of the Streaming queue.
+D. Upgrade your architecture to use more Block volumes as the data volume Increases. Replace the single bare metal instance with a group of compute instances with Auto Scaling to dynamically increase or decrease the compute instance pools depending on the traffic.
+Answer: D
+
+Question #:9  You have provisioned a new VM.DeselO2.24 compute instance with local NVMe drives. The compute instance is running production application. This is a write heavy application, with a significant Impact to the business it the application goes down.
+What should you do to help maintain writ.- performance and protect against NVMe devices failure
+A. NVMe drive;; have bull! in capability to recover themself so no other actions are required
+B. Configure RAID 6 for NVMe devices.
+C. Configure RAID I for NVMe devices.
+D. Configure RAID 10 for NVMe devices.
+Answer: D
+
+Question #:10
+A global retailer is setting up the cloud architecture to be deployed in Oracle Cloud infrastructure (OCI) which will have thousands of users from two major geographical regions: North America and Asia Pacific. The requirements of the services are:
+* Service needs to be available 27/7 to avoid any business disruption
+* North American customers should be served by application running In North American regions
+* Asia Pacific customers should be served by applications running In Asia Pacific regions
+* Must be resilient enough to handle the outage of an entire OCI region
+A. OCl DNS, Traffic Management with Failover steering policy
+B. OCl DNS, Traffic Management with Geolocation steering policy. Health Checks
+C. OCl DNS, Traffic Management with Geolocation steering policy
+D. OCl DNS,' Traffic Management with Load Balancer steering policy, Health Checks
+Answer: B
+
+Question #:11
+A digital marketing company is planning to host a website on Oracle Cloud Infrastructure (OCI) and leverage OCI Container Engine for Kubernetes (OKE). The web server will make API calls to access OCI Object Storage to store all images uploaded by users.
+For security purposes, your manager instructed you to ensure that the credentials used by the web server to allow access not stored locally on the compute instance.
+What solution results in an Implementation with the least effort for this scenario?
+A. Configure the credentials using Instance Principal to allow the web server to make API calls to OCl Object Storage
+B. Configure the credentials using OCI Registry (OC1R) which will automatically connect with OKE allowing the web server to make API calls to OCI Object Storage.
+C. Configure the credentials to use Transparent Data Encryption (TDE) which will automatically allow the web server to make API calls to OCl Object Storage.
+D. Configure the credentials using OCI Key Management to allow an instance to make API calls and grant access to OCl Object Storage.
+Answer: A
+
+Question #:12
+You are working with a social media company as a solution architect. The media company wants to collect and analyze large amounts of data being generated from their websites and social media feeds to gain insights and continuously improve the user experience. In order to meet this requirement, you have developed a microservices application hosted on Oracle Container Engine for Kubernetes. The application will process the data and store the result to an Autonomous Data Warehouse (ADW) instance.
+Which Oracle Cloud Infrastructure (OCI) service can you use to collect and process a large volume of unstructured data in real time?
+A. OCI Events
+B. OCI Streaming
+C. OCI Resource Manager
+D. OCI Notifications
+Answer: B
+
+Question #:13
+You are working as a cloud engineer for an IoT startup company which is developing a health monitoring pet collar for dogs and cats. The company collects biometric Information of the pet every second and then sends it to Oracle Cloud Infrastructure (OCI)
+Your task is to come up with an architecture which will accept and process the monitoring data as well as provide complete trends and health reports to the pet owners. The portal should be highly available, durable, and scalable with an additional feature for showing real time biometric data analytics.
+which architecture will help you meet this requirement?
+A. Use OCI Streaming Service to collect the incoming biometric data. Use Oracle Functions to process the date and show the results on a real-time dashboard and store the results lo OCI Object Storage Store the data In OCI Autonomous Data warehouse (ADW) to handle analytics.
+B. Launch an open source Hadoop cluster to collect the Incoming biometrics data Use an Open source Fluentd cluster to analyze the- data me results to OCI Autonomous Transaction Processing (ADW)to handle complex analytics
+C. Create an OCI Object Storage bucket to collect the incoming biometric data from the smart pet collar Fetch the data horn OC\ Object storage to OCI Autonomous Data Warehouse (ADW) every day and run analytics Jobs with it
+D. Use OCI Streaming Service to collect the incoming biometric data. Use an open source Hadoop cluster to analyze the data horn streaming service. Store the results to OCI Autonomous Data warehouse (ADW) to handle complex analytics.
+Answer: A
+
+Question #:14
+A large London based eCommerce company is running Oracle DB System Virtual RAC database on Oracle Cloud Infrastructure (OCI) for their eCommerce application activity. They are launching a new product soon, which is expected to sell in large quantities all over the world.
+The application architecture should have minimal cost, no data loss, no performance impacts during the database backup windows and should have minimal downtime.
+A. Launch a new VM RAC database in another availability domain, launch a compute instance, deploy Oracle GoldenGate on it and then configure it to replicate the data from the eCommerce Database over to the new RAC database using GoldenGate. Take backups from the new VM RAC database.
+B. Turn off automated backups from the eCommerce database, implement Oracle Data Guard with the Standby database deployed on another availability domain, take backups from the standby database.
+C. Launch a new VM RAC database in another availability domain, launch a compute instance, deploy Oracle GoldenGate on it and then configure bi-directional replication from the eCommerce Database over to the new VM RAC database using GoldenGate. Take backups from the new VM RAC database.
+D. Turn off automatic backups from the eCommerce database, implement Oracle Active Data Guard with the standby database deployed on another availability domain, and take backups from the standby database.
+Answer: C
+
+Question #:15
+All three Data Guard Configuration are fully supported on Oracle Cloud infrastructure (OCI). You want to deploy a maximum availability architecture (MAA) for database workload.
+Which option should you consider while designing your Data Guard configuration to ensure best RTO and PRO without causing any data loss?
+A. Configure "Maximum Protection" mode which provides zero data loss If the primary database fails.
+B. Configure "Maximum Performance" mode In SYNC mode between two availability domains (same region) which provides, the highest level of data protection that is possible without affecting the performance of the primary database.
+C. Configure ''Maximum Scalability" mode which provides the highest level of scalability without compromising the availability of the primary database.
+D. Configure ''Maximum Availability" mode in SYNC mode between two availability domains (same region), and use the Maximum Availability mode in SYNC mode between two regions.
+Answer: D
+
+Question #:16
+A cost conscious fashions design company which sells bags, clothes, and other luxury items has recently decided to more all of the their on-premises infrastructure Oracle Cloud Infrastructure (OCI), One of their
+on-premises application is running on an NGINX server and the Oracle Database is running in a 2 node Oracle Real Application Clusters (RAC) configuration.
+Based on cost considerations, what is an effective mechanism to migrate the customer application to OCI and set up regular automated backups?
+A. Launch a Compute instance and run an NGINX Serve to host the application. Deploy a 2 node VM DB Systems with Oracle RAC enabled Import the on premises database to OCI VM DB Systems using data pump and then enable automatic backup- Also, enable Oracle Data Guard on the database server
+B. Launch a compute Instance and run an run an NGINX server to host the application Deploy a 2 node VM DB Systems with oracle RAC enabled import the on premises database to OCI VM DB Systems using oracle Data Pump and then enable automatic backups.
+C. Launch a compute Instance and run an NGINX server to host the application. Deploy Exadata Quarter Rack, enable automatic backups and import the database using Oracle Data Pump.
+D. Launch a compute Instance for both the NGINX application server and the database server. Attach block volumes on the database server compute instance and enable backup policy to backup the block volumes.
+Answer: B
+
+Question #:17
+An automobile company wants to deploy their CRM application for Oracle Database on Oracle Cloud Infrastructure (OC1) DB Systems for one of major clients. In compliance with the Business Continuity Program of the client, they need to provide a Recovery Point objective (RPO) of 24 hours and a Recovery time
+objective (RTO) of 24 hours and Recovery Time Objective (RTO) of 1 hour.
+The CRM application should be available oven in me event that an entire on Region is down. Which approach Is the most suitable and cost effective configuration for this scenario?
+A. Deploy a 1 node VM Oracle database in one region and replicate the database to a 1 node VM Oracle database in another region using a manual setup and configuration of Oracle Data Guard.
+B. Deploy a 2 node Virtual Machine (VM) Oracle RAC database in one region and replicate the database to a 2 node VM Oracle RAC database in another region using a manual setup and configuration of Oracle Data Guard.
+C. Deploy a 1 node VM Oracle database in one region. Manual Configure a Recovery Manager (RMAN) database backup schedule to take hourly database backups. Asynchronously copy the database backups to object storage in another OCI region, If the primary OCI region is unavailable launch a new 1 new VM Database in the other OCI region restore the production database from the backup.
+D. Deploy an Autonomous Transaction Processing (Serverless) database in one region and replicate it to an Autonomous Transaction Processing (Serverless) database in another region Oracle GoldenGate.
+Answer: A
+
+Question #:18
+You are working as a cloud consultant for a major media company. In the US and your client requested to consolidate all of their log streams, access logs, application logs, and security logs into a single system.
+The client wants to analyze all of their logs In real-time based on heuristics and the result should be validated as well. This validation process requires going back to data samples extracted from the last 8 hours.
+What approach should you take for this scenario?
+A. Create an auto scaling pool of syslog-enabled servers using compute instances which will store the logs In Object storage, then use map reduce jobs to extract logs from Object storage, and apply heuristics on the logs.
+B. Create a bare-metal instance big enough to host a syslog enabled server to process the logs and store logs on the locally attached NVMe SSDs for rapid retrieval of logs when needed.
+C. Set up an OCI Audit service and ingest all the API arils from Audit service pragmatically to a client side application to apply heuristics and save the result in an OCI Object storage.
+D. Stream all the logs and cloud events of Events service to Oracle Streaming Service. Build a client process that will apply heuristics on the logs and store them in an Object Storage.
+Answer: D
+
+Question #:19
+You are the Solution Architect that designed this Oracle Cloud Infrastructure (OCI) compartment layout for your organization:
+The development team has deployed quite a few instances under 'Compute' Compartment and the operations team needs to list the Instances under the same compartment for their testing. Both teams, development and operations are part of a group called 'Eng-group'
+You have been looking for an option to allow the operations team to list the instances without access any confidential information or metadata of resources.
+Which IAM policy should you write based on these requirements?
+A. Allow group Eng-group to inspect instance-family in compartment Dev-Team: Compute and attach the policy to ‘SysTest Team’ Compartment.
+B. Allow group Eng-group to read instance-family in compartment Compute and attach the policy to ‘Engineering’ Compartment.
+C. Allow group Eng-group to read instance-family in compartment Dev-Team-.Compute and attach the policy to ‘Dev-Team’
+D. Allow group Eng-group to inspect instance-family in compartment Dev-Team:Compute and attach the policy to ‘Engineering’ Compartment.
+Answer: D
+
+Question #:20
+A retail company has several on-premises data centers which span multiple geographical locations. They plan to move some of their applications from on-premises data centers to Oracle Cloud Infrastructure (OCI). For these applications running in OCI, they still need to interact with applications running on their on-premises data centers to Oracle Cloud Infrastructure (OCI). for these applications running in OCI. they still need to interact with applications running on their on-premises data centers. These applications require highly available, fault-tolerant network connections between on premises data centers and OCI.
+Which option should you recommend to provide the highest level of redundancy?
+A. Oracle cloud Infrastructure provides network redundancy by default so that no other operations are
+required
+B. If your data centers span multiple, geographical locations, use only the specific IP address as a static route for the specific geographical location
+C. Set up both IPSec VPN and I ListConnect to connect your on premises data centers to Oracle Cloud Infrastructure.
+D. Use FastConnect private peering only to ensure secure access from your data center to Oracle Cloud Infrastructure
+E. Set up a single IPSec VPN connection (rom your data center to Oracle Cloud Infrastructure since It is cost effective
+Answer: B
+
+Question #:21
+Which three options are available to migrate an Oracle database 12.x from an on-premises environment to Oracle Cloud Infrastructure (OCI)?
+A. Leverage OCI Storage Gateway asynchronous database migration option.
+B. Use Oracle Data Pump Export/Import to migrate the database.
+C. Configure RMAN cross-platform transportable tablespace backup sets.
+D. Setup OCI schema and data transfer tool with Bare Metal DB Systems as the target.
+E. Create a backup of your on-premises database In OCI DB Systems.
+Answer: B C E
+
+Question #:22
+Your customer has gone through a recent departmental restructure. As part of this change, they are organizing their Oracle Cloud Infrastructure (OCI) compartment structure to align with the company's new organizational structure.
+They have made the following change:
+Compartment x Is moved, and its parent compartment is now compartment c.
+Policy defined in compartment A: Allow group networkadmins to manage subnets in compartment X Policy defined in root compartment: Allow group admins to read subnets in compartment Finance:A:X
+After the compartment move, which action will provide users of group networkadmins and admins with similar privileges as before the move?
+A. Define a policy in Compartment C as follows: Allow group networkadmins to manage subnets in compartment X.
+B. Define a policy in compartment C as follows: Allow group admins to read subnets in compartment HR-: C:X
+C. Define a policy in compartment HR as follows: Allow group networkadmins to manage subnets in compartment X.
+Define a policy in compartment C as follows Allow group admins to read subnets in compartment HR: C:X
+D. No change in any policy statement is required as compartments move automatically moves alt the policy statements associated with compartments as well.
+Answer: A
+
+Question #:23
+By copying block volume backups to another region at regular intervals, it makes it easier for you to rebuild applications and data in the destination region if a region-wide disaster occurs in the source region.
+Which IAM Policy statement allows the VolumeAdmins group to copy volume backups between regions '
+A. Allow group VolumeAdmins to use volumes in tenancy
+B. Allow group VolumeAdmins to copy volume' backups in tenancy
+C. Allow group VolumeAdmins to manage volume-family In tenancy
+D. Allow group VolumeAdmins to inspect volumes in tenancy
+Answer: C
+
+Question #:24
+Your company has recently deployed a new web application that uses Oracle functions Your manager Instructed you to Implement major manage your systems more effectively. You know that Oracle functions automatically monitors functions on your behalf reports metrics through Service Metrics.
+Which two metrics are collected and made available by this feature?
+A. length of time a function runs
+B. number of times a function is removed
+C. number of times a function is invoked
+D. amount of CPU used by a function
+E. number of concurrent connections
+Answer: A C
+
+Question #:25
+You are working as a solution architect with a global automotive provider who is looking to create a
+multi-cloud solution
+They want to run their application tier in Microsoft Azure while utilizing the Oracle DB Systems In the Oracle Cloud Infrastructure (OCI).
+What is the most fault tolerant and secure solution for this customer?
+A. Create an Oracle database in OCI Virtual Cloud Network (VCN) and connect to the application tier running In Microsoft Azure over the Internet.
+B. Create a FastConnect virtual circuit and choose Microsoft Azure from the list of providers available to setup Network connectivity between application tier running in Microsoft Azure Virtual Network and Oracle Databases running In OCI Virtual Cloud (VCN)
+C. Use OCI Virtual Cloud Network remote peering connection to create connectivity among application tier running in Microsoft Azure Virtual Network and Oracle Databases running in OCI Virtual Cloud
+Network(VCN).
+D. Create a VPN connection between the application tie, running in Azure Virtual Network and Oracle Databases running In OCI Virtual Cloud Network (VCN).
+Answer: B
+
+
+Question #:26
+Your customer recently ordered for a 1-Gbps Fast Connect connection In .ap-tokyo -1 region of Oracle Cloud Infrastructure (OCI). They will us this i to one Virtual cloud Network (VCN) in their production (OC1) tenancy and VCN In their development OC1 tenancy
+As a Solution Architect, how should yon configure and architect the connectivity between on premises and VCNs In OCI?
+Create two private virtual circuits on the FastConnect link. Create two Dynamic Routing Gateways, one for each VCNs. Attach the virtual circuits to the dynamic routing gateways.
+A. You cannot achieve connectivity using single FastConnect link as the production and the development VCNs-are in separate tenancies. Request one more FastConnect connection.
+B. Create a single private virtual circuit over fastConnect and attach FastConnect to either of the VCN's-are in separate tenancies. Request one more fastConnect connection.
+C. Create a single private virtual circuit over FastConnect and attach fastConnect and the development VCNs-are in separate tenancies. Request one more FastConnect connection.
+D. Create a hub-VCN that uses Dynamic Routing Gateway (DRG) to communicate with on-premises network over FastConnect. Connect the hub-VCN to the production VCN spoke and with development VCN spoke, each peered via their respective local Peering Gateway (LPG)
+Answer: D
+
+Question #:27 An online Stock trading application is deployed to multiple Availability Domains in the us phoenix-1 region.
+Considering the high volume of transactions that the trading application handles, the company has hired you to ensure that the data stored by the application available, and disaster resilient. In the event of failure, the Recovery lime Objective (UK)) must be less than 2 hours to meet regulator requirements.
+Which Disaster Recovery strategy should be used to achieve the RTO requirement In the event of system failure?
+A. Configure hourly block volumes backups through the Storage Gateway service.
+B. Configure hourly block volumes backups using the Oracle Cloud Infrastructure (OCI) Command Line Interface (CLI)
+C. Store hourly block volumes backup to NVMe device under a compute instance and generate a custom Image every 5 minutes.
+D. Configure your application to use synchronous master slave data replication between Availability Domains.
+Answer: B
+
+Question #:28
+Which three scenarios are suitable for the Oracle Infrastructure (OCI) Autonomous transaction Processing Server less (ATP-S) deployment?
+A. A developer working on an Internal project needs to use .1 database during work hours but doesnot need It during nights or weekends the project budget requires her to keep costs low.
+B. A midsize company is considering migrating its, legacy on premises MongoDB database to Oracle Cloud Infrastructure (OCI). The database has significantly higher workloads on weekends than weekdays
+C. A small startup is deploying a now application fen eCommerce and it requires database to store customers' transactions the team b of what the load will look like since it Is a new application.
+D. A well established, online auction marketplace is running an application where there is database usage 24×7 but also has peaks of activity that the hard to predict when the peaks happen, the total activities may reach 3 times the normal activity level
+E. A manufacturing company is running Oracle E-Business Suite application on premises. They are looking to move this application to OCA and they want to use a managed database offering for their database tier.
+Answer: A C D
+
+Question #:29
+Multiple departments In your company use a shared Oracle Cloud Infrastructure (OCI) tenancy to Implement their projects. You are in charge of managing the cost of OCI resources in the tenancy and need to obtain better Insights Into department's usage.
+Which three options can you implement together to accomplish this?
+A. Create a budget that matches your commitment amount and an alert at 100 percent of the forecast
+B. Use the billing cost tracking report to analyze costs.
+C. Set up a consolidated budget tracking lags to analyze costs in ,1 granular manner
+D. Set up different compartments for each department then track and analyze cost per compartment
+E. Set up a tag default that automatically applies tags to all specified resources created In a compartment then use these tags for cost analysis.
+Answer: A D E
+
+Question #:30
+You work for a German company as the Lead Oracle Cloud Infrastructure architect. You have designed a highly scalable architecture for your company's business critical application which uses the Load Balancer service auto which uses the Load Balancer service, autoscaling configuration for the application servers and a 2 Node VM Oracle RAC database. During the peak utilization period of the- application yon notice that the application is running slow and customers are complaining. This is resulting in support tickets being created for API timeouts and negative sentiment from the customer base.
+What are two possible reasons for this application slowness?
+A. Autoscaling configuration for the application servers didn't happen due to 1AM policy that's blocking access to the application server compartment
+B. The Load Balancer configuration is not sending traffic to the listener of the application servers.
+C. Autoscaling configuration for the application servers didn't happen due to compartment quota breach of the VM shapes used by the application servers.
+D. Autoscaling configuration for the application servers didn't happen due to service limit breach of the VM shapes used by the application servers
+E. The Load Balancer doesn't have a Network Security Group to allow traffic to the application servers.
+Answer: C D
+
+Question #:31
+You have deployed a web application targeting a global audience across multiple Oracle Cloud Infrastructure (OCI) regions.
+You decide to use Traffic Management Geo-Location based Steering Policy to serve web requests to users from the region closets to the user. Within each region you have deployed a public load balancer with 4 servers in a backend set. During a DR test disable all web servers in one of the regions however, traffic Management does not automatically direct all users to the other region.
+Which two are possible causes?
+A. You did not correctly setup the Load Balancer HTTP health check policy associated with me backend set
+B. One of the two working web servers In the other region did not pass Its HTTP health check
+C. You did not setup a Route I able associated with load Balancer's subnet
+D. You did not setup an HTTP Health Check associated with Load Balancer public IP in the disabled region.
+E. Rather than using Geo-Location based Steering Policy, you should use Failover Policy Type to serve traffic.
+Answer: A D
+
+Question #:32
+You are a solutions architect for a global health care company which has numerous data centers around the globe. Due to the ever growing data that your company is storing, you were Instructed to set up a durable, cost effective solution to archive you data from your existing on-premises tape based backup Infrastructure to Oracle Cloud Infrastructure (OCI).
+What is the most-effective mechanism to Implement this requirement?
+A. Setup an on premises OCI Storage Gateway which will back up your data to OCI object Storage Standard tier. Use Object Storage life cycle policy management to move any data older than 30 days from Standard to Archive tier.
+B. Setup fastConnect to connect your on premises network to your OCI VCN and use rsync tool to copy your data to OCI Object Storage Archive tier.
+C. Use the File Storage Service in OCI and copy the data from your existing tape based backup to the shared file system
+D. Setup an on-promises OCI Storage Gateway which will back up your data to OCI Object Storage Standard
+E. Setup an on premises OCI Storage Gateway which will back up your data to OCI Object Storage Archive tier.
+Answer: E
+
+Question #:33
+A large financial services company has used 2 types of Oracle DB Systems. In Oracle Cloud Infrastructure (OCI) to store user data. One is running on a VM.Standard2.8 shape and the other on a VM.Standard 2.4 shape.
+As business grows, data is growing rapidly on both the databases and performance is also degrading. The company wants to address this problem with a viable and economical solution.
+As the solution architect for that company you have suggested that they move their databases to Autonomous Transaction Processing Serverless (ATP-S) database.
+Which two factors should you consider before you arrived at that recommendation?
+A. You verified that ATP S supports the database features and options currently being used by the 2 databases.
+B. Validate that ATP-S will support the storage and processing requirements for the 2 databases over the life cycle of the business applications.
+C. Confirm that ATP-S allows customers to compress tablespaces to reduce storage costs
+D. Upon provisioning, ATP-S automatically scales up CPU to meet the application's processing requirements.
+Answer: A B
+
+Question #:34
+You have an Oracle database system in a virtual cloud network (VCN) that needs to be accessible on port 1521 from your on-premises network CIDR 172.17.0.0/24.
+You have the following configuration currently.
+Virtual cloud network (VCD) is associated with a Dynamic Routing Gateway (DRG), and DRG has an active IPSec connection with your on-premises data center.
+Oracle database system is hosted in a private subnet
+The private subnet route table has the following configuration The private subnet route table has following configuration.
+However, you are still unable to connect to the Oracle Database system. Which action will resolve this issue?
+A. Add an EGRESS rule in network security group as following.
+B. Add a route rule in the private subnet route table as following.
+C. Add an EGRESS rule in private subnet scurity list as following.
+D. Add an EGRESS rule in private subnet security list as following.
+Answer: B
+
+Question #:35
+You are responsible for migrating your on premises legacy databases on 11.2.0.4 version to Autonomous Transaction Processing Dedicated (ATP-D) In Oracle Cloud Infrastructure (OCI). As a solution architect, you need to plan your migration approach.
+Which two options do you need to implement together to migrate your on premises databases to OCI?
+A. Use Oracle Data Guard to keep on premises database always active during migration
+B. Retain changes to Oracle shipped privileges, stored procedures or views In the on-premises databases.
+C. Use Oracle GoldenGate replication to keep on premises database online during migration.
+D. Convert on-premises databases to PDB, upgrade to 19c, and encrypt Migration.
+E. Retain all legacy structures and unsupported features (e.g. taw U>Bs) In the onuses databases for
+migration.
+Answer: C D
+
+Question #:36
+You are working as a solution architect for an online retail store to create a portal to allow the users to pay for their groceries using credit cards. Since the application is not fully compliant with the Payment Card Industry Data Security Standard (PCI DSS), your company is looking to use a third party payment service to process credit card payments.
+The third party service allows a maximum of Spelunk IP addresses 5 public IP addresses at a time However, your website is using Oracle Cloud Infrastructure (OCI) Instance Pool Auto Scaling policy to create up to createup to 15 Instances during peak traffic demand, which are launched In VCN private in VCN private subnets and attached to an OCI public Load Balancer. Upon user payment, the portal connects to the payment service over the Interne! to complete the transaction
+What solution can you implement to make sure that all compute Instances can connect to the third party system to process the payments aw peak traffic demand?
+A. Route credit card payment request from the compute instances through the NAT Gateway. On the third-party services, whitest the public IP associated with the NAT Gateway.
+B. Whitelist the Internet Gateway Public IP on the third party service and route all payment requests through the Internet Gateway.
+C. Create an OCI Command Line Interface (CLI) script to automatically reserve public IP address for the compute instances. On the third services, whitelist the Reserved public IP.
+D. Route payment request from the compute instances through the OCI Load Balancer, which will then be routed to the third party service.
+Answer: D
+
+Question #:37
+An Oracle Cloud Infrastructure (OCI) Public Load Balancer's SSL certificate is expiring soon. You noticed the Load Balancer is configured with SSL Termination only. When the certificate expires, data traffic can be interrupted and security compromised.
+What steps do you need to take to prevent this situation?
+A. Add the new SSL certificate to the Load Balancer, update backend servers to work with a new certificate and edit listeners so they can use the new certificate bundle.
+B. Add the new SSL certificate to the Load Balancer, update listeners and backend sets so they can use the new certificate bundle.
+C. Add the new SSL certificate to the Load Balancer and implement end to end SSL so it can encrypt the
+traffic from clients all the way to the backend servers.
+D. Add the new SSL certificate to the Load Balancer and update backend servers to use the new certificate bundle.
+E. Add the new SSL certificate to the Load Balancer and update listeners to use the new certificate bundle.
+Answer: A
+
+Question #:38
+A retail company has recently adopted a hybrid architecture. They have the following requirements for their end-to-end Connectivity model between their on-premises data center and Oracle Cloud Infrastructure (OC1) region
+* Highly available connection with service level redundancy
+* Dedicated network bandwidth with low latency
+Which connectivity setup is the most cost effective solution for this scenario?
+A. Setup IPsec VPN as your primary connection, and a FastConnect virtual circuit as a backup connection. Use separate edge devices in your on-premises data canter for each connection from your edge devices, advertise more specific routes IPSec VPN, and specific routes through the backup FastConnect virtual circuit.
+B. Setup FastConnect virtual circuit as your primary connection, and a second FastConnect virtual circuit as a backup connection. Use separate edge devices in your FastConnect physical connectivity is redundant Use a single edge device in your on premises data center for each connection From yc device, advertise more specific routes via primary FastConnect virtual circuit, and less specific routes through t backup FastConnect circuit.
+C. Setup FastConnect virtual circuit as your primary connection, and an IPSec VPN as a backup connection. Use separate edge devices in your on-premises data center for each connection. From your edge devices, advertise more specific routes through FastConnect virtual circuit, and more specific routes through the backup IPSec VPN path.
+D. Setup IPSec VPN as your primary connection, and a second IPSec VPN as a backup connection. Use separate edge devices in your on p data center for each connection. From your edge devices, advertise more specific routes via primary IPSec VPN. and less specific rod the backup TPSec VPN.
+Answer: C
+
+Question #:39
+You are building a highly available and fault tolerant web application deployment for your company. Similar application delayed by competitors experienced web site attack including DDoS which resulted in web server failing.
+You have decided to use Oracle Web Application Firewall (WAF) to implement an architecture which will provide protection against such attacks and ensure additional configuration will you need to implement to make sure WAF is protecting my web application 24×7.
+Which additional configuration will you need to Implement to make sure WAF Is protecting my web application 24×7?
+A. Configure auto scaling policy and it to WAF instance.
+B. Configure Control Rules to send traffic to multiple web servers
+C. Configure multiple origin servers
+D. Configure new rules based on now vulnerabilities and mitigations
+Answer: C
+
+Question #:40
+You are working as a solutions architect for an online retail store In Frankfurt which uses multiple compute instance VMs spread among three availability domains In the eu-frankfurt-1 region.
+You noticed the website Is having very high traffic, so you enabled autoscaling to sun tee me no f your application but, you observed that one of the availability domains is not receiving any traffic.
+What could be wrong In this situation?
+A. Autoscaling only works with single availability domains.
+B. You have to manually acid all three availability domains to your load balancer configuration.
+C. Autoscaling can be enabled for multiple availability domains only in uklondon t region.
+D. Autoscaling is using an Instance Pool configured to create instances in two availability Domains.
+E. You forgot to attach a load balancer to your instance pool configuration.
+Answer: D
+
+Question #:41
+The Finance department of your company has reached out to you. They have customer sensitive data on compute Instances In Oracle Cloud Infrastructure (OCI) which they want to store in OCI Storage for long term retention and archival.
+To meet security requirements they want to ensure this data is NOT transferred over public internet, even if encrypted.
+which they want to store In OCI Object Storage fin long term retention and archival
+To meet security requirements they want to ensure this data is NOT transferred over public Internet, even it encrypted
+Which option meets this requirements?
+A. Configure a NAT instance and all traffic between compute In Private subnet should use this NAT instance with Private IP as the route target.
+B. Use NAT gateway with appropriate route table when transferring data. Then use NAT gateways' toggle (on/off) once data transfer is complete.
+C. Use Service gateway with appropriate route table.
+D. Use Storage gateway with appropriate firewall rule.
+Answer: C
+
+Question #:42
+A hospital in Austin has hosted its web based medical records portal entirely In Oracle cloud Infrastructure (OCI) using Compute Instances for its web-tier and DB system database for its data tier. To validate compliance with Health Insurance Portability and Accountability (HIPAA), the security professional to check their systems it was found that there are a lot of unauthorized coming requests coming from a set of IP addresses originating from a country in Southeast Asia.
+Which option can mitigate this type of attack?
+A. Block the attacking IP address by creating by Network Security Group rule to deny access to the compute Instance where the web server Is running
+B. Block the attacking IP address by implementing a OCI Web Application Firewall policy using Access Control Rules
+C. Mitigate the attack by changing the Route fable to redirect the unauthorized traffic to a dummy Compute instance
+D. Block the attacking IP address by creating a Security List rule to deny access to the subnet where the web server Is running
+Answer: B
+
+Question #:43
+To serve web traffic for a popular product, your cloud engineer has provisioned four BM.Standard2.52 instances, event spread across two availability domains in the us-asburn-1 region: LoadBalancer is used to deliver the traffic across instances.
+After several months, the product grows even more popular and you need additional compute capacity. As a result, an engineer provisioned two additional VM.Standard2.8 instances.
+You register the two VM. Standard2. 8 Instances with your load Balancer Backend sot and quickly find that the VM Standard2.8 Instances running at 100% of CPU utilization but the BM.Standard2 .52 instances have significant CPU capacity that's unused.
+Which option is the most cost effective and uses instances capacity most effectively?
+A. Configure LoadBalancer with two VM Standard2.8 instances and use Autoscalling Instant pool to add up to two additional VM instances. Shut off BM.Standard2.52 instances.
+B. Route traffic to BM.Standard2.52 and VM Standard2.8 instances directly using DNS and Health Checks. Shut off the load Balances.
+C. Configure Autoscaling instance pool with LoadBalancer to add up to 3 more BM.Standard2.52 Instances when triggered. Shut off VM.Standard2.8 instances.
+D. Configure your Load Balance, with weighted round robin policy to distribute traffic to the compute instances, with more weight assigned to bare metal instances.
+Answer: D
+
+
+Question #:44
+Your company will soon start moving critical systems Into Oracle Cloud Infrastructure (OCI) platform. These systems will reside in the us-phoenix-1and us-ashburn 1 regions. As part of the migration planning, you are reviewing the company's existing security policies and written guidelines for the
+OCI platform usage within the company.
+Which two options ensure compliance with this policy?
+A. When you create a new OCI Object Storage bucket through OCI console, you need to choose "ENCRYPT USING CUSTOMER-MANAGED KEYS" option.
+B. You do not need to perform any additional actions because the OCI Block Volume service always encrypts all block volumes, boot volumes, and volume backups at rest by using the Advanced Encryption Standard (AES) algorithm with 256-bit encryption.
+C. When you create a new compute instance through OCI console, you use the default shape to speed up the process to create this compute instance.
+D. When you create a new block volume through OCI console, select Encrypt using Key Management checkbox and use encryption keys generated and stored in OCI Key Management Service.
+E. When you create a new compute instance through OCI console, you use the default options for "configure boot volume" to speed up the process to create this compute instance.
+Answer: A D
+
+
+Question #:45
+Your team is conducting a root analysis (RCA) following a recent, unplanned outage. One of the block volumes attached to your production WebLogic server was deleted and you have tasked with identifying the source of tge action. You search the Audit logs and find several Delete actions that occurred in the previous 24 hours. Given the sample of this event.
+Which item from the event log helps you identify the individual or service that initiated the DeleteVolume API call?
+A. requestAgent
+B. eventource
+C. principalld
+D. requestOrigin
+E. eventId
+Answer: C
+
+Question #:46 A retail company runs their online shopping platform entirely on Oracle cloud Infrastructure (OCI). This is a
+3- tier web application that Includes a Mbps Load Balancer. Virtual Machine Instances for web and an Oracle DB Systems Virtual Machine Due to unprecedented growth, they noticed an Increase in the Incoming traffic to their website and all users start getting 503 (Service Unavailable) errors.
+What is the potential problem in this scenario?
+A. The Load Balancer health check status Indicates critical situation for half of the backend webservers
+B. All the web servers are too busy and not able to answer any request from users.
+C. The Database Is down hence users can not access the web site
+D. The Traffic Management Policy is not set to load Balancer the traffic to the web servers.
+E. You did not configure a Service Gateway to allow connection between web servers and load Balance
+Answer: B
+
+Question #:47
+After performing maintenance on an Oracle Linux compute instance the system is returned to a running state You attempt to connect using SSH but are unable to do so. You decide to create an instance console connection to troubleshoot the issue.
+Which three tasks would enable you to connect to the console connection and begin troubleshooting?
+A. Use SSH to conned to the public: IP address of the compute Instance and provide the console connection OCID as the username.
+B. Upload an API signing key for console connection authentication.
+C. Edit the Linux boot menu to enable access to console.
+D. Stop the compute Instance using the Oracle cloud Infrastructure (OC1) Command Line interface (CL1).
+E. Use SSH to connect to the service endpoint of the console connection service
+F. Reboot the compute instance using the Oracle Cloud Infrastructure (OCI) Management Console
+Answer: C,E,F
+
+Question #:48
+You have multiple IAM users who launch different types of compute Instances and block volumes every day. As a result, your Oracle cloud Infrastructure (OCF) tenancy quickly hit the service limit and you can no longer create any new instances. As you are cleaning up environment, you notice that the majority of the Instances and block volumes are untagged. Therefore, It is difficult to pinpoint the owner of these resources verify if they are safe to terminate.
+Because of this, your company has issued a new mandate, which requires adding compute instances. Which option is the simplest way to implement this new requirement?
+A. Create a policy to automatically tag a resource with the user name.
+B. Create a policy using 1AM requiring users to tag specific resources. This will allow a user to launch compute instances on\y if certain tags were defined.
+C. Create tag variables to automatically tag a resource with the user name.
+D. Create a default tag for each compartment, which ensure that appropriate tags are applied at resource creation
+E. Create tag variables for each compartment to automatically tag a resource with the user name.
+Answer: C
+
+Question #:49
+You are currently working for a public health care company based in the United Stats. Their existing patient records runs in an on-premises data center and the customer is sending tape backups offsite as part of their recovery planning.
+You have developed an alternative archival solution using Oracle Cloud Infrastructure (OCI) that will save the company a significant amount of mom on a yearly basis. The solution involves storing data in an OCI Object Storage bucket After reviewing your solution with the customer global Compliance (GRC) team they have highlighted the following security requirements:
+• All data less than 1 year old must be accessible within 2 hour.
+• All data must be retained for at least 10 years and be accessible within 48 hours
+• AH data must be encrypted at rest
+• No data may be transmitted across the public Internet
+Which two options meet the requirements outlined by the customer GRC team?
+A. Provision a FastConnect link to the closest OCI region and configure a private peering virtual circuit.
+B. Create an OCI Object Storage Standard tier bucket Configure a lifecycle policy to archive any object that Is older than 365 days
+C. Create a VPN connection between your on premises data center and OCI. Create a Virtual Cloud Network (VCN) along with an OCI Service Gateway for OCI Object Storage.
+D. Provision a FastConnect link to the closest OCI region and configure a public peering virtual circuit
+E. Create an OCI Object Storage Standard tier bucket. Configure a lifecycle policy to delete any object that is older than 7 yes
+Answer: B D
+
+
+Question #:50
+A civil engineering company is running an online portal In which engineers can upload there constructions photos, videos, and other digital files.
+There is a new requirement for you to implement: the online portal must offload the digital content to an Object Storage bucket for a period of 72 hours. After the provided time limit has elapsed, the portal will hold all the digital content locally and wait for the next offload period.
+Which option fulfills this requirement?
+A. Create a pre-authenticated URL for the entire Object Storage bucket to read and list the content with an expiration of 72 hours.
+B. Create a pre authenticated URL lot each object that Is uploaded to the Object Storage bucket with an expiration of 72 hours.
+C. Create a Dynamic Group with matching rule for the portal compute Instance and grant access to the Object Storage bucket for 72 hours.
+D. Create a pre authenticated URL for the entire Object Storage bucket to write content with an expiration of 72 hours.
+Answer: D
+
+Question #:51
+A global retailer has decided to re-design its e-commerce platform to have a micro-services architecture. They would like to decouple application architecture into smaller, independent services using Oracle Cloud Infrastructure (OCI). They have decided to use both containers and serverstechnologies to run these application instances.
+Which option should you recommend to build this new platform?
+A. Install a kubernetes cluster on OCI and use OCI event service.
+B. Use Oracle Container Engine for kubernetes, OCI Registry and OCI Functions.
+C. Use OCI Resource Manager to automate compute Instances provisioning and use OCI Streaming service.
+D. Use OCI functions, OCI object storage and OCI event service.
+Answer: B
+
+Question #:52 An organization has its IT infrastructure in a hybrid setup with an on-premises environment and an Oracle
+Cloud Infrastructure (OCI) Virtual Cloud Network (VCN) in the us-phonix-1 region. The on-premise applications communications with compute instances inside the VPN over a hardware VPN connection. They are looking to implement an Intrusion detected and Prevention (IDS/IPS) system for their OCI environment. This platform should have the ability to scale to thousands of compute of instances running inside the VCN.
+How should they architect their solution on OCI to achieve this goal?
+A. There Is no need to implement an IPS/IDS system as traffic coming over IPSec VPN tunnels Is already encrypt
+B. Set up an OCI Private Load Balance! and configure IDS/IPS related health checks at TCP and/or HTTP level to inspect traffic
+C. Configure autoscaling on a compute Instance pool and set vNIC to promiscuous mode to called traffic across the vcn and send it IDS/IPS platform for inspection.
+D. Configure each host with an agent that collects all network traffic and sends that traffic to the IDS/IPS platform tot inspection
+Answer: D
+
+Question #:53
+A retailer bank is currently hosting their mission critical customer application on-premises. The application has a standard 3 tier architecture -4 application servers process the incoming traffic and store application data in an Oracle Exadata Database Server. The bank has recently has service disruption to other inter applications to they are looking to avoid this issue for their mission critical Customer Application.
+Which Oracle Cloud Infrastructure services should you recommend as part of the DR solution?
+A. OCI DNS Service' Public Load Balancer, Oracle Database Cloud Backup Service, Object Storage Service, Oracle Bare Metal Cloud Service, Oracle Bare Metal Cloud Service with
+GoldenGate, OCI Container Engines for Kubernetes, Oracle IPSec VPN
+B. OCI Traffic Management, Private Load Balancer, Compute instances distributed across multiple Availability Domains and/or Fault Domains, Exadata Cloud Service with Data Guard, Oracle FastConnect, Object Storage, Database Cloud backup module
+C. OCI Traffic Management, Public load Balancer, Compute Instances distributed across multiple Availability Domains and/or Fault domains. Exadata Cloud Service with Data Guard, Oracle FastConnect, Object Storage, Database cloud backup module
+D. OCI DNS Service, Load Balancer as a service using Public Load Balancer distributing traffic Compute Instance across multiple regions, Oracle RAC Database using Virtual Machines, Remote Peering connecting two VCNs in different regions. Exadata Cloud Service with GoldenGate FastConnect, Object Storage, Database Cloud backup module.
+Answer: C
+
+
+
+
+Question #:54
+Your organization is planning on using Oracle Cloud Infrastructure (OCI) File Storage Service (FSS). You will be deploying multiple compute instance in Oracle Cloud Infrastructure(OCI) and mounting the file system to these compute instances.
+The file system will hold payment data processed by a Database instance and utilized by compute instances to create a overall inventory report. You need to restrict access to this data for specific compute instances and must be allowed/blocked per compute instance's CIDR block.
+Which option can you use to secure access?
+A. Use stateless Security List rule to restrict access from known IP addresses only.
+B. Create and configure OCI Web Application Firewall service with built in DNS based intelligent routing.
+C. Create a new VCN security list, choose SOURCE TYPE as Service and SOURCE SERVICE as FSS. Add stateless ingress and egress rules for specific P address and CIDR blocks.
+D. Use 'Export option' feature of FSS to restrict access to the mounted file systems.
+Answer: D
+
+Question #:55
+You have deployed a multi-tier application with multiple compute instances in Oracle Cloud Infrastructure. You want to back up these volumes and have decided to use Volume Group's feature. The Block volume and Compute instances exist in different compartments within your tenancy.
+Periodically. a few child compartments are moved under different parent compartments, and you notice that sometimes volume group backup fails.
+What could be the cause ?
+A. You have the same block volume attached to multiple compute instances; if these compute instances are in different compartments then all concerned compartments must be moved at the same time.
+B. You are exceeding your volume group backup quota configured.
+C. The Identity and Access Management policy allowing backup failed to move when the compartment was moved.
+D. compute instance with multiple block volumes attached cannot move when a compartment is moved.
+Answer: C
+
+
+Question #:56
+the IOT devices fitted to transport vehicles that carry frozen foods. The data should be consumed and processed in real time. The processed data should be archived to OCI Object Storage bucket. and use  Autonomous Data warehouse (ADW) to handle analytics.
+Which architecture will help you meet this requirement?
+A. Use OCI Streaming Service to collect the incoming biometric data. Use Oracle Functions to process the date and show the results on a real-time dashboard and store the results lo OCI Object Storage Store the data In OCI Autonomous Data warehouse (ADW) to handle analytics.
+B. Launch an open source Hadoop cluster to collect the Incoming biometrics data Use an Open source Fluentd cluster to analyze the- data me results to OCI Autonomous Transaction Processing (ADW)to handle complex analytics
+C. Create an OCI Object Storage bucket to collect the incoming biometric data from the smart pet collar Fetch the data horn OC\ Object storage to OCI Autonomous Data Warehouse (ADW) every day and run analytics Jobs with it
+D. Use OCI Streaming Service to collect the incoming biometric data. Use an open source Hadoop cluster to analyze the data horn streaming service. Store the results to OCI Autonomous Data warehouse (ADW) to handle complex analytics
+Answer: A
+
+
+Question #:57
+You want to automate the processing of new Image files to generate thumbnails. the expected rate is 10 new files every hour.
+Which of the following is the most cost effective option to meet this requirement in Oracle Cloud Infrastructure (OCI)?
+A. Upload files to an OCI Object storage bucket. Every time a file is uploaded, trigger an event with an action to provision a compute instance with a cloud-init script to access the file, process it and store it back in an Object storage bucket. Terminate the instance using Autoscaling policy after the processing is finished.
+B. Upload files to an OCI Object storage bucket. Every time a file is uploaded, an event is emitted. Write a rule to filter these events with an action to trigger a function in Oracle Functions. The function processes the image in the file and stores the thumbnails back in an Object storage bucket.
+C. Upload all files to an Oracle Streaming Service (OSS) stream. Set up a cron job to invoke a function in Oracle Functions to fetch data from the stream. Invoke another function to process the image files and generate thumbnails. Store thumbnails in another OSS stream.
+D. Build a web application to ingest the files and save them to a NoSQL Database. Configure OCI Events service to trigger a notification using Oracle Notification Service (ONS). ONS invokes a custom application to process the image files to generate thumbnails. Store thumbnails in a NoSQL Database table.
+Answer: B
+
+
+Question #:58
+A global media organization is working on a project which lets users upload their videos on their site. After upload is complete, the video should be automatically processed by an Al algorithm. The algorithm will try to recognize actions in the videos so that it can be used to show related advertisements in future. The development team wants to focus on writing Al code and don't want to worry about underlying infrastructure for high-availability, scalability, security and monitoring.
+Which OCI services should you recommend for this project?
+A. Use OCI Events service for triggering automatic processing of video, Oracle Container Engine for Kubernetes (OKE) and OCI Digital Assistant
+B. Use Oracle Container Engine for Kubernetes (OKE) for deployment of Al Code, OCI Notifications and  Object Storage
+C. Use OCI Resource Manager to manage the underlying infrastructure, OCI Functions and OCI Events service.
+D. Use Object Storage for storing videos, OCI Events service and OCI Functions
+Answer: D
+
+
+Question #:59
+An upcoming e-commerce company has deployed their online shopping application on OCI. The application was deployed on compute instances with autoscaling configuration for application servers fronted by a load balancer and OCI Autonomous Transaction Processing (ATP) in the backend. In order to promote their e-commerce platform 50% discount was announced on all the products for a limited period. During the day 1 of promotional period it was observed that the application is running slow and company's hotline is flooded with complaints.
+What could be two possible reasons for this situation?
+A. The health check on some of the backend servers has failed and the load balancer was rebooting these servers.
+B. The autoscaling has already scaled to the maximum number of instances specified in the configuration and there is no room of scaling
+C. As part of autoscaling, the load balancer shape has dynamically changed to a larger shape to handle more incoming traffic and the system was slow for a short time during this change
+D. The health check on some of the backend servers has failed and the load balancer has taken those servers temporarily out of rotation
+Answer: B D
+
+Question #:60
+A customer is in a process of shifting their web based Sales application from their own data center located in US West to OCI India West (Mumbai) region. They want to do it in a controlled manner and initially only 1% of the traffic will be steered to the servers in OCI. After verification of everything is working as expected, the company is gradually planning to increase the ratio until they are comfortable with fully migrating all traffic to OCI.
+Which of the following solution can be used in this situation?
+A. OCI DNS and Traffic Management with Geolocation Steering policy
+B. OCI DNS and OCI Load Balancer Service
+C. OCI DNS and Traffic Management with Failover Steering policy
+D. OCI DNS and Traffic Management with Load Balancer Steering policy
+Answer: D
+
+Question #:61
+You are part of a project team working in the development environment created in OCI. You have realized that the CIDR block specified for one of the subnet in a VCN is not correct and want to delete the subnet. While deleting you are getting an error indicating that there are still resources that you must delete first. The error includes the OCID of the VNIC that is in the subnet.
+Which of the following action you will take to troubleshoot this issue?
+A. Use OCI CLI to delete the subnet using --force option
+B. Copy and Paste OCID of the VNIC in the search box of the OCI Console to find out the parent resource of the VNIC
+C. Use OCI CLI to delete the VNIC first and then delete the subnet
+D. Use OCI CLI to call "GetVnic" operation to find out the parent resource of the VNIC
+Answer: D
+
+Question #:62
+An OCI Architect is working on a solution consisting of analysis of data from clinical trials of a pharmaceutical company. The data is being stored in OCI Autonomous Data Warehouse (ADW) having 8 CPU Cores and 70 TB of storage. The architect is planning to setup autoscaling to respond to dynamic changes in the workload.
+Which of the following needs to be considered while configuring auto scaling? Choose two
+A. The maximum CPU cores that will be automatically allocated for this database is 16 CPUs
+B. The database memory SGA and PGA will not get affected by the changes in the number of CPUs during auto scaling
+C. Enabling auto scaling does not change the concurrency and parallelism settings
+D. Auto scaling also scales IO throughput linearly along with CPU
+Answer: C D
+
+Question #:63
+You are working as a security consultant with a global insurance organization which is using Microsoft Azure Active Directory (AD) as identity provided to manager user login/passwords. When a user logs in to Oracle Cloud Infrastructure (OCI) console, it should get authenticated by Azure AD.
+Which set of steps are required to configure at OCI side in order to get it enabled
+A. Setup Azure AD as an Identity Provider, Import users and groups from Azure AD to OCI, set up IAM policies to govern access to Azure AD groups
+B. Setup Azure AD as an Enterprise Application, map Azure AD users and groups and policies to OCI groups and users
+C. Setup Azure AD as an Identity Provider, map Azure AD groups to OCI groups, set up the IAM policies to govern access to Azure AD groups
+D. Setup Azure AD as an Enterprise Application, configure OCI for single sign-on, map Azure AD groups to OCI groups, set up the IAM policies to govern access to Azure AD groups
+Answer: C
+
+Question #:64
+A manufacturing company is planning to migrate their on-premises database to OCI and has hired you for the migration. Customer has provided following information regarding their existing on-premises database:
+Database version, host operating system and version, database character set, storage for data staging, acceptable length of system outage.
+What additional information do you need from customer in order to recommend a suitable migration method? Choose two
+A. On-premises host operating system and version
+B. Elapsed time since database was last patched
+C. Number of active connections
+D. Data types used in the on-premises database
+E. Top 5 longest running queries
+Answer: A D
+
+Question #:65
+An insurance company is storing critical financial data in the OCI block volume. This volume is currently encrypted using oracle managed keys. Due to regulatory compliance, the customer wants to encrypt the data using the keys that they can control and not the keys which are controlled by Oracle.
+What of the following series of tasks are required to encrypt the block volume using customer managed keys ?
+A. Create a vault, create a master encryption key in the vault, assign this master encryption key to the block volume
+B. Create a master encryption key, create a data encryption key, decrypt the block volume using existing oracle managed keys, encrypt the block volume using the data encryption key
+C. Create a vault, import your master encryption key into the vault, generate data encryption key, assign data encryption key to the block volume
+D. Create a master encryption key, create a new version of the encryption key, decrypt the block volume using existing oracle managed keys and encrypt using new version of the encryption key
+Answer: A
+
+Question #:66
+A cloud consultant is working on implementation project on OCI. As part of the compliance requirements, the objects placed in object storage should be automatically archived first and then deleted. He is testing a Lifecycle Policy on Object Storage and created a policy as below:
+[ { "name": "Archive_doc", "action": "ARCHIVE", "objectNameFilter": { "inclusionPrefixes": "doc"] },
+              "timeAmount": 5, "timeunit": "DAYS", "isEnabled": true },
+{ "name": "Delete_doc", "action": "DELETE", "objectNameFilter": "inclusionPrefixes": [ "doc"] 1."timeAmount": 5, "timeunit": "DAYS", "isEnabled": true }
+What will happen after this policy is applied?
+A. All the objects having file extension ".doc" will be archived 5 days after object creation
+B. All the objects with names starting with "doc" will be archived 5 days after object creation and will be deleted 5 days after archival
+C. All objects with names starting with "doc" will be deleted after 5 days of object creation
+D. All the objects having file extension ".doc" will be archived for 5 days and will be deleted 10 days after object creation
+Answer: C
+
+Question #:67
+A FinTech startup is developing a new blockchain based application to provide Smart Contracts using micro-services architecture. The development team is planning to deploy the application using containers and looking for a reliable way to build, deploy and manage their cloud-native application. Additionally, they need an easy way to store, share and manage their application artifacts.
+Which option should you recommend for this application?
+A. Use Oracle Container Engine for Kubernetes (OKE) to manage the deployment environment and OCI Functions for application artifacts
+B. Install and manage a Kubernetes cluster on OCI Compute Instances and use OCI Resource Manager for management of application artifacts
+C. Use Oracle Container Engine for Kubernetes (OKE) to manage of cloud-native applications and OCI Registry for application artifacts
+D. Use and OCI Resource Manager to manage cloud-native application and make the application artifacts available using OCI Functions
+Answer: C
+
+Question #:68
+You are creating an Oracle Cloud Infrastructure Dynamic Group. To determine the members of this group you are defining a set of matching rules.
+Which of the following are the supported variables to define conditions in the matching rules? (Choose Two)
+A. tag.<tagnamespace>.<tagkey>.value - the tag namespace and tag key.
+B. instance.tenancy.id - the OCID of the tenancy where the instance resides.
+C. instance.compartment.id - the OCID of the compartment where the instance resides.
+D. iam.policy.id - the OCID of the IAM policy to apply to the group.
+Answer: A C
+
+Question #:69
+A customer has a Virtual Machine instance running in their Oracle Cloud Infrastructure tenancy. They realized that they wrongly picked a smaller shape for their compute instance. They are reaching out to you to help them fix the issue.
+Which of the below options is best recommended to suggest to the customer?
+A. Change the shape of instance without reboot, but stop all the applications running on instance beforehand to prevent data corruption.
+B. Delete the running instance and spin up a new instance with the desired shape.
+C. OCI doesn't allow such an operation.
+D. Change the shape of the virtual machine instance using the Change Shape feature available in the console.
+Answer: D
+
+Question #:70
+you are trying to delete a compartment. the delete operation is failing and you need to troubleshoot the problem.
+which step should NOT be considered when you troubleshooting this issue
+A. make sure you have at least one more compartment in your tenancy other than the root compartment.
+B. search for resource in the compartment for each region that your tenancy is subscribe to
+C. verify that there are no policies in the root compartment that reference the compartment you are trying to delete
+D. verify that you have removed all resource from the compartment
+Answer: a
+
+Question #:71
+A startup company is looking for a solution for processing of data transmitted by the IOT devices fitted to transport vehicles that carry frozen foods. The data should be consumed and processed in real time. The processed data should be archived to OCI Object Storage bucket. and use  Autonomous Data warehouse (ADW) to handle analytics.
+Which architecture will help you meet this requirement?
+A. Use OCI Streaming Service to collect the incoming biometric data. Use Oracle Functions to process the date and show the results on a real-time dashboard and store the results lo OCI Object Storage Store the data In OCI Autonomous Data warehouse (ADW) to handle analytics.
+B. Launch an open source Hadoop cluster to collect the Incoming biometrics data Use an Open source Fluentd cluster to analyze the- data me results to OCI Autonomous Transaction Processing (ADW)to handle complex analytics
+C. Create an OCI Object Storage bucket to collect the incoming biometric data from the smart pet collar Fetch the data horn OC\ Object storage to OCI Autonomous Data Warehouse (ADW) every day and run analytics Jobs with it
+D. Use OCI Streaming Service to collect the incoming biometric data. Use an open source Hadoop cluster to analyze the data horn streaming service. Store the results to OCI Autonomous Data warehouse (ADW) to handle complex analytics
+Answer: A

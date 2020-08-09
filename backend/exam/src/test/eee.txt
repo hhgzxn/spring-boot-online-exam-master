@@ -1,0 +1,1618 @@
+
+Question #: 1 Given a service deployed on Oracle Cloud infrastructure Container Engine for Kubernetes
+(OKE), which annotation should you add in the sample manifest file to specify a 400 Mbps load
+balancer?
+A. service.beta, kubernetes. lo/oci-load-balancer-kind: 400Mbps
+B. service, beta, kubernetes. lo/oci-load-balancer-value: 400Mbps
+C. service . beta. kubernetes . lo/oci-load-balancer-shape: 400Mbps
+D. service . beta . kubernetes . lo/oci-load-balancer-size: 400Mbps
+Answer: C
+Explanation:
+The shape of an Oracle Cloud Infrastructure load balancer specifies its maximum total bandwidth
+(that is, ingress plus egress). By default, load balancers are created with a shape of 100Mbps. Other
+shapes are available, including 400Mbps and 8000Mbps.
+To specify an alternative shape for a load balancer, add the following annotation in the metadata
+section of the manifest file:
+service.beta.kubernetes.io/oci-load-balancer-shape: <value>
+where value is the bandwidth of the shape (for example, 100Mbps, 400Mbps, 8000Mbps).
+For example:
+apiVersion: v1
+kind: Service
+metadata:
+name: my-nginx-svc
+labels:
+app: nginx
+annotations:
+service.beta.kubernetes.io/oci-load-balancer-shape: 400Mbps
+spec:
+
+2
+type: LoadBalancer
+ports:
+- port: 80
+selector:
+app: nginx
+https://github.com/oracle/oci-cloud-controller-manager/blob/master/docs/load-balancerannotations.
+md
+
+Question #: 2 Which one of the statements describes a service aggregator pattern?
+A. It is implemented in each service separately and uses a streaming service
+B. It involves implementing a separate service that makes multiple calls to other backend services
+C. It uses a queue on both sides of the service communication
+D. It involves sending events through a message broker
+Answer: B
+Explanation:
+this pattern isolates an operation that makes calls to multiple back-end microservices, centralizing its
+logic into a specialized microservice.
+
+Question #: 3 A service you are deploying to Oracle infrastructure (OCI) Container En9ine for Kubernetes
+(OKE) uses a docker image from a private repository Which configuration is necessary to provide
+access to this repository from OKE?
+A. Add a generic secret on the cluster containing your identity credentials. Then specify a
+registrycredentials property in the deployment manifest.
+B. Create a docker-registry secret for OCIR with API key credentials on the cluster, and specify the
+imagepullsecret property in the application deployment manifest.
+C. Create a docker-registry secret for OCIR with identity Auth Token on the cluster, and specify the
+image pull secret property in the application deployment manifest.
+D. Create a dynamic group for nodes in the cluster, and a policy that allows the dynamic group to
+read repositories in the same compartment.
+Answer: C
+Explanation:
+Pulling Images from Registry during Deployment
+During the deployment of an application to a Kubernetes cluster, you'll typically want one or more
+images to be pulled from a Docker registry. In the application's manifest file you specify the images to
+pull, the registry to pull them from, and the credentials to use when pulling the images. The manifest
+file is commonly also referred to as a pod spec, or as a deployment.yaml file (although other
+filenames are allowed).
+If you want the application to pull images that reside in Oracle Cloud Infrastructure Registry, you
+have to perform two steps:
+- You have to use kubectl to create a Docker registry secret. The secret contains the Oracle Cloud
+Infrastructure credentials to use when pulling the image. When creating secrets, Oracle strongly
+recommends you use the latest version of kubectl To create a Docker registry secret:
+1- If you haven't already done so, follow the steps to set up the cluster's kubeconfig configuration file
+and (if necessary) set the KUBECONFIG environment variable to point to the file. Note that you must
+set up your own kubeconfig file. You cannot access a cluster using a kubeconfig file that a different
+user set up.
+2- In a terminal window, enter:
+$ kubectl create secret docker-registry <secret-name> --docker-server=<region-key>.ocir.io --dockerusername='<
+tenancy-namespace>/<oci-username>' --docker-password='<oci-auth-token>' --dockeremail='<
+email-address>' where:
+<secret-name> is a name of your choice, that you will use in the manifest file to refer to the secret .
+For example, ocirsecret
+<region-key> is the key for the Oracle Cloud Infrastructure Registry region you're using. For example,
+iad. See Availability by Region.
+ocir.io is the Oracle Cloud Infrastructure Registry name.
+<tenancy-namespace> is the auto-generated Object Storage namespace string of the tenancy
+containing the repository from which the application is to pull the image (as shown on the Tenancy
+Information page). For example, the namespace of the acme-dev tenancy might be ansh81vru1zp.
+Note that for some older tenancies, the namespace string might be the same as the tenancy name in
+all lower-case letters (for example, acme-dev).
+<oci-username> is the username to use when pulling the image. The username must have access to
+the tenancy specified by <tenancy-name>. For example, jdoe@acme.com . If your tenancy is
+federated with Oracle Identity Cloud Service, use the format oracleidentitycloudservice/<username>
+<oci-auth-token> is the auth token of the user specified by <oci-username>. For example,
+k]j64r{1sJSSF-;)K8
+<email-address> is an email address. An email address is required, but it doesn't matter what you
+specify. For example, jdoe@acme.com
+- You have to specify the image to pull from Oracle Cloud Infrastructure Registry, including the
+repository location and the Docker registry secret to use, in the application's manifest file.
+
+Question #: 4 Which statements is incorrect with regards to the Oracle Cloud Infrastructure (OCI)
+Notifications service?
+A. Notification topics may be assigned as the action performed by an OCI Events configuration.
+B. OCI Alarms can be configured to publish to a notification topic when triggered.
+C. An OCI function may subscribe to a notification topic.
+D. A subscription can forward notifications to an HTTPS endpoint.
+E. A subscription can integrate with PagerDuty events.
+F. It may be used to receive an email each time an OCI Autonomous Database backup is completed.
+Answer: F
+
+Question #: 5 You have deployed a Python application on Oracle Cloud Infrastructure Container Engine for
+Kubernetes. However, during testing you found a bug that you rectified and created a new Docker
+image. You need to make sure that if this new Image doesn't work then you can roll back to the
+previous version.
+Using kubectl, which deployment strategies should you choose?
+A. Rolling Update
+B. Canary Deployment
+C. Blue/Green Deployment
+D. A/B Testing
+Answer: C
+
+Explanation:
+Canary deployments are a pattern for rolling out releases to a subset of users or servers. The idea is
+to first deploy the change to a small subset of servers, test it, and then roll the change out to the rest
+of the servers. The canary deployment serves as an early warning indicator with less impact on
+downtime: if the canary deployment fails, the rest of the servers aren't impacted.
+Blue-green deployment is a technique that reduces downtime and risk by running two identical
+production environments called Blue and Green. At any time, only one of the environments is live,
+with the live environment serving all production traffic. For this example, Blue is currently live and
+Green is idle.
+A/B testing is a way to compare two versions of a single variable, typically by testing a subject's
+response to variant A against variant B, and determining which of the two variants is more effective A
+rolling update offers a way to deploy the new version of your application gradually across your
+cluster.
+
+Question #: 6 You are developing a polyglot serverless application using Oracle Functions. Which language
+cannot be used to write your function code?
+A. PL/SQL
+B. Python
+C. Node.js
+D. Java
+Answer: A
+Explanation:
+The serverless and elastic architecture of Oracle Functions means there's no infrastructure
+administration or software administration for you to perform. You don't provision or maintain
+compute instances, and operating system software patches and upgrades are applied automatically.
+Oracle Functions simply ensures your app is highly-available, scalable, secure, and monitored. With
+Oracle Functions, you can write code in Java, Python, Node, Go, and Ruby (and for advanced use
+cases, bring your own Dockerfile, and Graal VM). You can then deploy your code, call it directly or
+trigger it in response to events, and get billed only for the resources consumed during the execution.
+
+Question #: 7 You encounter an unexpected error when invoking the Oracle Function named "myfunction" in
+application "myapp". Which can you use to get more information on the error?
+A. fn -debug invoke myapp myfunction
+B. DEBOG=l fn invoke myapp myfunction
+C. fn -verbose invoke myapp myfunction
+D. Call Oracle support with your error message
+Answer: B
+Explanation:
+Troubleshooting Oracle Functions
+If you encounter an unexpected error when using an Fn Project CLI command, you can find out more
+about the problem by starting the command with the string DEBUG=1 and running the command
+again. For example:
+$ DEBUG=1 fn invoke helloworld-app helloworld-func
+Note that DEBUG=1 must appear before the command, and that DEBUG must be in upper case.
+
+
+Question #: 8 You created a pod called "nginx" and its state is set to Pending.
+Which command can you run to see the reason why the "nginx" pod is in the pending state?
+A. kubect2 logs pod nginx
+B. kubect2 describe pod nginx
+C. kubect2 get pod nginx
+D. Through the Oracle Cloud Infrastructure Console
+Answer: b
+
+
+Question #: 9 How can you find details of the tolerations field for the sample YAML file below?
+A. kubectl list pod.spec.tolerations
+B. kubectl explain pod.spec.tolerations
+C. kubectl describe pod.spec tolerations
+D. kubectl get pod.spec.tolerations
+Answer: B
+Explanation:
+kubectl explain to List the fields for supported resources
+https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#explain
+
+Question #: 10 You created a pod called "nginx" and its state is set to Pending.
+Which command can you run to see the reason why the "nginx" pod is in the pending state?
+A. kubect2 logs pod nginx
+B. kubect2 describe pod nginx
+C. kubect2 get pod nginx
+D. Through the Oracle Cloud Infrastructure Console
+Answer: B
+Explanation:
+Debugging Pods
+The first step in debugging a pod is taking a look at it. Check the current state of the pod and recent
+events with the following command:
+kubectl describe pods ${POD_NAME}
+Look at the state of the containers in the pod. Are they all Running? Have there been recent restarts?
+Continue debugging depending on the state of the pods.
+My pod stays pending
+If a pod is stuck in Pending it means that it can not be scheduled onto a node. Generally this is
+because there are insufficient resources of one type or another that prevent scheduling. Look at the
+output of the kubectl describe ... command above. There should be messages from the scheduler
+about why it can not schedule your pod.
+https://kubernetes.io/docs/tasks/debug-application-cluster/debug-pod-replication-controller/
+
+Question #: 11 Which two are benefits of distributed systems?
+A. Privacy
+B. Security
+C. Ease of testing
+D. Scalability
+E. Resiliency
+Answer: D,E
+Explanation:
+distributed systems of native-cloud like functions that have a lot of benefit like Resiliency and
+availability Resiliency and availability refers to the ability of a system to continue operating, despite
+the failure or sub-optimal performance of some of its components.
+In the case of Oracle Functions:
+The control plane is a set of components that manages function definitions.
+The data plane is a set of components that executes functions in response to invocation requests.
+For resiliency and high availability, both the control plane and data plane components are distributed
+across different availability domains and fault domains in a region. If one of the domains ceases to be
+available, the components in the remaining domains take over to ensure that function definition
+management and execution are not disrupted.
+When functions are invoked, they run in the subnets specified for the application to which the
+functions belong. For resiliency and high availability, best practice is to specify a regional subnet for
+an application (or alternatively, multiple AD-specific subnets in different availability domains). If an
+availability domain specified for an application ceases to be available, Oracle Functions runs functions
+in an alternative availability domain.
+Concurrency and Scalability
+Concurrency refers to the ability of a system to run multiple operations in parallel using shared
+resources. Scalability refers to the ability of the system to scale capacity (both up and down) to meet
+demand.
+In the case of Functions, when a function is invoked for the first time, the function's image is run as a
+container on an instance in a subnet associated with the application to which the function belongs.
+When the function is executing inside the container, the function can read from and write to other
+shared resources and services running in the same subnet (for example, Database as a Service). The
+function can also read from and write to other shared resources (for example, Object Storage), and
+
+other Oracle Cloud Services.
+If Oracle Functions receives multiple calls to a function that is currently executing inside a running
+container, Oracle Functions automatically and seamlessly scales horizontally to serve all the incoming
+requests. Oracle Functions starts multiple Docker containers, up to the limit specified for your
+tenancy. The default limit is 30 GB of RAM reserved for function execution per availability domain,
+although you can request an increase to this limit. Provided the limit is not exceeded, there is no
+difference in response time (latency) between functions executing on the different containers.
+
+Question #: 12 Which is NOT a supported SDk Oracle Cloud Infrastructure (OCI)?
+A. Go SDK
+B. Java SDK
+C. NET SDK
+D. Ruby SDK
+E. Python SDK
+Answer: C
+Explanation:
+https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/sdks.htm
+Software Development Kits (SDKs) Build and deploy apps that integrate with Oracle Cloud
+Infrastructure services. Each SDK provides the tools you need to develop an app, including code
+samples and documentation to create, test, and troubleshoot. In addition, if you want to contribute
+to the development of the SDKs, they are all open source and available on GitHub.
+SDK for Java
+Python SDK
+Ruby SDK
+Go SDK
+
+Question #: 13 Which two statements accurately describe Oracle SQL Developer Web on Oracle Cloud
+Infrastructure (OCI) Autonomous Database?
+A. It is available for databases with dedicated Exadata infrastructure only.
+B. After provisioning into an OCI compute Instance, it can automatically connect to the OCI
+Autonomous Databases instances.
+C. It is available for databases with both dedicated and shared Exadata infrastructure.
+D. It provides a development environment and a data modeler interface for OCI Autonomous
+Databases.
+E. It must be enabled via OCI Identity and Access Management policy to get access to the
+Autonomous Databases instances.
+Answer: A,D
+Explanation:
+Oracle SQL Developer Web
+Oracle SQL Developer Web in Autonomous Data Warehouse provides a development environment
+and a data modeler interface for Autonomous Databases. SQL Developer Web is available for
+databases with both dedicated Exadata infrastructure and shared Exadata infrastructure.
+https://docs.cloud.oracle.com/en-us/iaas/Content/Database/Tasks/adbtools.htm
+
+Question #: 14 What is the minimum of storage that a persistent volume claim can obtain in Oracle Cloud
+
+8
+Infrastructure Container Engine for Kubernetes (OKE)?
+A. 50 GB
+B. 10 GB
+C. 1 GB
+D. 1 TB
+Answer: A
+Explanation:
+The minimum amount of persistent storage that a PVC can request is 50 gigabytes. If the request is
+for less than 50 gigabytes, the request is rounded up to 50 gigabytes.
+
+iaas/Content/ContEng/Tasks/contengcreatingpersistentvolumeclaim.htm
+
+Question #: 15 In a Linux environment, what is the default locations of the configuration file that Oracle
+Cloud Infrashtructure CLI uses for profile information/
+A. /etc/.oci/config
+B. /usr/local/bin/config
+C. SHOME/.oci/config
+D. /usr/bin/oci/config
+Answer: C
+Explanation:
+By default, the Oracle Cloud Infrastructure CLI configuration file is located at ~/.oci/config.
+You might already have a configuration file as a result of installing the Oracle Cloud Infrastructure CLI.
+
+Question #: 16 You are developing a serverless application with Oracle Functions. You have created a
+function in compartment named prod. When you try to invoke your function you get the following
+error.
+Error invoking function. status: 502 message: dhcp options ocid1.dhcpoptions.oc1.phx.aaaaaaaac...
+does not exist or Oracle Functions is not authorized to use it How can you resolve this error?
+A. Create a policy:
+Allow function-family to use virtual-network-family in compartment prod
+B. Create a policy:
+Allow any-user to manage function-family and virtual-network-family in compartment prod
+C. Create a policy:
+Allow service FaaS to use virtual-network-family in compartment prod
+D. Deleting the function and redeploying it will fix the problem
+Answer: C
+
+Explanation:
+Invoking a function returns a FunctionInvokeSubnetNotAvailable message and a 502 error (due to a
+DHCP Options issue) When you invoke a function that you've deployed to Oracle Functions, you
+might see the following error message:
+{"code":"FunctionInvokeSubnetNotAvailable","message":"dhcp options ocid1.dhcpoptions........ does
+not exist or Oracle Functions is not authorized to use it"} Fn: Error invoking function. status: 502
+message: dhcp options ocid1.dhcpoptions........ does not exist or Oracle Functions is not authorized to
+use it If you see this error:
+Double-check that a policy has been created to give Oracle Functions access to network resources.
+Service Access to Network Resources
+When Oracle Functions users create a function or application, they have to specify a VCN and a
+subnet in which to create them. To enable the Oracle Functions service to create the function or
+application in the specified VCN and subnet, you must create an identity policy to grant the Oracle
+Functions service access to the compartment to which the network resources belong.
+To create a policy to give the Oracle Functions service access to network resources:
+Log in to the Console as a tenancy administrator.
+Create a new policy in the root compartment:
+Open the navigation menu. Under Governance and Administration, go to Identity and click Policies.
+Follow the instructions in To create a policy, and give the policy a name (for example, functionsservice-
+network-access).
+Specify a policy statement to give the Oracle Functions service access to the network resources in the
+compartment:
+Allow service FaaS to use virtual-network-family in compartment <compartment-name> For example:
+Allow service FaaS to use virtual-network-family in compartment acme-network Click Create.
+Double-check that the set of DHCP Options in the VCN specified for the application still exists.
+
+Question #: 17 You have two microservices, A and B running in production. Service A relies on APIs from
+service B.
+You want to test changes to service A without deploying all of its dependencies, which includes
+service B.
+Which approach should you take to test service A?
+A. Test against production APIs.
+B. Test using API mocks.
+C. There is no need to explicitly test APIs.
+D. Test the APIs in private environments.
+Answer: B
+
+Explanation:
+Testing using API mocks
+Developers are frequently tasked with writing code that integrates with other system components via
+APIs. Unfortunately, it might not always be desirable or even possible to actually access those
+systems during development. There could be security, performance or maintenance issues that make
+them unavailable - or they might simply not have been developed yet.
+This is where mocking comes in: instead of developing code with actual external dependencies in
+place, a mock of those dependencies is created and used instead. Depending on your development
+needs this mock is made "intelligent" enough to allow you to make the calls you need and get similar
+results back as you would from the actual component, thus enabling development to move forward
+without being hindered by eventual unavailability of external systems you depend on
+
+Question #: 18 You are developing a serverless application with Oracle Functions. Your function needs to
+store state in a database. Your corporate security Standards mandate encryption of secret
+information like database passwords.
+As a function developer, which approach should you follow to satisfy this security requirement?
+A. Use the Oracle Cloud Infrastructure Console and enter the password in the function configuration
+section in the provided input field.
+B. Use Oracle Cloud Infrastructure Key Management to auto-encrypt the password. It will inject the
+auto-decrypted password inside your function container.
+C. Encrypt the password using Oracle Cloud Infrastructure Key Management. Decrypt this password
+in your function code with the generated key.
+D. All function configuration variables are automatically encrypted by Oracle Functions.
+Answer: A
+Explanation:
+Passing Custom Configuration Parameters to Functions
+he code in functions you deploy to Oracle Functions will typically require values for different
+parameters. Some pre-defined parameters are available to your functions as environment variables.
+But you'll often want your functions to use parameters that you've defined yourself. For example,
+you might create a function that reads from and writes to a database. The function will require a
+database connect string, comprising a username, password, and hostname. You'll probably want to
+define username, password, and hostname as parameters that are passed to the function when it's
+invoked.
+Using the Console
+To specify custom configuration parameters to pass to functions using the Console:
+Log in to the Console as a functions developer.
+In the Console, open the navigation menu. Under Solutions and Platform, go to Developer Services
+and click Functions.
+Select the region you are using with Oracle Functions. Oracle recommends that you use the same
+region as the Docker registry that's specified in the Fn Project CLI context (see 6. Create an Fn Project
+CLI Context to Connect to Oracle Cloud Infrastructure).
+Select the compartment specified in the Fn Project CLI context (see 6. Create an Fn Project CLI
+Context to Connect to Oracle Cloud Infrastructure).
+The Applications page shows the applications defined in the compartment.
+Click the name of the application containing functions to which you want to pass custom
+configuration parameters:
+To pass one or more custom configuration parameters to every function in the application, click
+Configuration to see the Configuration section for the application.
+To pass one or more custom configuration parameters to a particular function, click the function's
+name to see the Configuration section for the function.
+In the Configuration section, specify details for the first custom configuration parameter:
+Key: The name of the custom configuration parameter. The name must only contain alphanumeric
+characters and underscores, and must not start with a number. For example, username Value: A
+value for the custom configuration parameter. The value must only contain printable unicode
+characters. For example, jdoe Click the plus button to save the new custom configuration parameter.
+Oracle Functions combines the key-value pairs for all the custom configuration parameters (both
+application-wide and function-specific) in the application into a single, serially-encoded configuration
+object with a maximum allowable size of 4Kb. You cannot save the new custom configuration
+parameter if the size of the serially-encoded configuration object would be greater than 4Kb.
+(Optional) Enter additional custom configuration parameters as required.
+Question #:  19 You are using Oracle Cloud Infrastructure (0CI) Resource Manager to manage your
+infrastructure lifecycle and wish to receive an email each time a Terraform action begins.
+How should you use the OCI Events service to do this without writing any code?
+A. Create an OCI Notifications topic and email subscription with the destination email address. Then
+create an OCI Events rule matching "Resource Manager Stack - Update" condition, and select the
+notification topic for the corresponding action.
+B. Create an OCI Notification topic and email subscription with the destination email address. Then
+create an OCI Events rule matching "Resource Manager job - Create" condition, and select the
+notification topic for the corresponding action.
+C. Create a rule in OCI Events service matching the "Resource Manager Stack - Update" condition.
+Then select "Action Type: Email" and provide the destination email address.
+D. Create an OCI Email Delivery configuration with the destination email address. Then create an OCI
+Events rule matching "Resource Manager Job - Create" condition, and select the email configuration
+for the corresponding action.
+Answer: B
+Explanation:
+Explanation
+1. Create Notifications Topic and Subscription
+If a suitable Notifications topic doesn't already exist, then you must log in to the Console as a tenancy
+administrator and create it. Whether you use an existing topic or create a new one, add an email
+address as a subscription so that you can monitor that email account for notifications
+2. Using the Console to Create a Rule
+Use the Console to create a rule with a pattern that matches bucket creation events emitted by
+Object Storage. Specify the Notifications topic you created as an action to deliver matching events. To
+test your rule, create a bucket. Object Storage emits an event which triggers the action. Check the
+email specified in the subscription to receive your notification
+https://docs.cloud.oracle.com/en-us/iaas/Content/Events/Concepts/eventsgetstarted.htm
+https://docs.cloud.oracle.com/en-us/iaas/Content/Events/Concepts/filterevents.htm
+
+Question #: 20 Which two statements accurately describe an Oracle Functions application?
+A. A small block of code invoked in response to an Oracle Cloud Infrastructure (OCI) Events service
+B. A Docker image containing all the functions that share the same configuration
+C. An application based on Oracle Functions, Oracle Cloud Infrastructure (OCI) Events and OCI API
+Gateway services
+D. A common context to store configuration variables that are available to all functions in the
+application
+E. A logical group of functions
+Answer: D,E
+Explanation:
+Applications in the Function services
+In Oracle Functions, an application is:
+- a logical grouping of functions
+- a common context to store configuration variables that are available to all functions in the
+application When you define an application in Oracle Functions, you specify the subnets in which to
+run the functions in the application.
+
+Question #: 21 Which pattern can help you minimize the probability of cascading failures in your system
+during partial loss of connectivity or a complete service failure?
+A. Retry pattern
+B. Anti-corruption layer pattern
+C. Circuit breaker pattern
+D. Compensating transaction pattern
+Answer: C
+Explanation:
+A cascading failure is a failure that grows over time as a result of positive feedback. It can occur when
+a portion of an overall system fails, increasing the probability that other portions of the system fail.
+the circuit breaker pattern prevents the service from performing an operation that is likely to fail. For
+example, a client service can use a circuit breaker to prevent further remote calls over the network
+when a downstream service is not functioning properly. This can also prevent the network from
+becoming congested by a sudden spike in failed retries by one service to another, and it can also
+prevent cascading failures. Self-healing circuit breakers check the downstream service at regular
+intervals and reset the circuit breaker when the downstream service starts functioning properly.
+https://blogs.oracle.com/developers/getting-started-with-microservices-part-three
+
+Question #: 22 You need to execute a script on a remote instance through Oracle Cloud Infrastructure
+Resource Manager. Which option can you use?
+A. Use /bin/sh with the full path to the location of the script to execute the script.
+B. It cannot be done.
+C. Download the script to a local desktop and execute the script.
+D. Use remote-exec
+Answer: D
+Explanation:
+Resource Manager is an Oracle Cloud Infrastructure service that allows you to automate the process
+of provisioning your Oracle Cloud Infrastructure resources. Using Terraform, Resource Manager helps
+you install, configure, and manage resources through the "infrastructure-as-code" model.
+With Resource Manager, you can use Terraform's remote exec functionality to execute scripts or
+commands on a remote computer. You can also use this technique for other provisioners that require
+access to the remote resource.
+
+Question #: 23 What is the minimum amount of storage that a persistent volume claim can obtain In Oracle
+Cloud Infrastructure Container Engine for Kubemetes (OKE)?
+A. 1 TB
+B. 10 GB
+C. 1 GB
+D. 50 GB
+Answer: D
+Explanation:
+https://docs.cloud.oracle.com/en-us/iaas/Content/ContEng/Concepts/contengprerequisites.htm
+
+Question #: 24 Who is responsible for patching, upgrading and maintaining the worker nodes in Oracle Cloud
+Infrastructure Container Engine for Kubernetes (OKE)?
+A. It Is automated
+B. Independent Software Vendors
+C. Oracle Support
+D. The user
+Answer: D
+Explanation:
+After a new version of Kubernetes has been released and when Container Engine for Kubernetes
+supports the new version, you can use Container Engine for Kubernetes to upgrade master nodes
+running older versions of Kubernetes. Because Container Engine for Kubernetes distributes the
+Kubernetes Control Plane on multiple Oracle-managed master nodes (distributed across different
+availability domains in a region where supported) to ensure high availability, you're able to upgrade
+the Kubernetes version running on master nodes with zero downtime.
+Having upgraded master nodes to a new version of Kubernetes, you can subsequently create new
+node pools running the newer version. Alternatively, you can continue to create new node pools that
+will run older versions of Kubernetes (providing those older versions are compatible with the
+Kubernetes version running on the master nodes).
+Note that you upgrade master nodes by performing an 'in-place' upgrade, but you upgrade worker
+nodes by performing an 'out-of-place' upgrade. To upgrade the version of Kubernetes running on
+worker nodes in a node pool, you replace the original node pool with a new node pool that has new
+worker nodes running the appropriate Kubernetes version. Having 'drained' existing worker nodes in
+the original node pool to prevent new pods starting and to delete existing pods, you can then delete
+the original node pool.
+
+Question #: 25 As a cloud-native developer, you have written a web service for your company. You have
+used Oracle Cloud Infrastructure (OCI) API Gateway service to expose the HTTP backend. However,
+your security team has suggested that your web service should handle Distributed Denial-of-Service
+(DDoS) attack. You are time-constrained and you need to make sure that this is implemented as soon
+as possible.
+What should you do in this scenario?
+A. Use OCI virtual cloud network (VCN) segregation to control DDoS.
+B. Use a third party service integration to implement a DDoS attack mitigation,
+C. Use OCI API Gateway service and configure rate limiting.
+D. Re-write your web service and implement rate limiting.
+Answer: C
+Explanation:
+Having created an API gateway and deployed one or more APIs on it, you'll typically want to limit the
+rate at which front-end clients can make requests to back-end services. For example, to:
+- maintain high availability and fair use of resources by protecting back ends from being overwhelmed
+by too many requests
+- prevent denial-of-service attacks
+- constrain costs of resource consumption
+- restrict usage of APIs by your customers' users in order to monetize APIs You apply a rate limit
+globally to all routes in an API deployment specification.
+If a request is denied because the rate limit has been exceeded, the response header specifies when
+the request can be retried.
+You can add a rate-limiting request policy to an API deployment specification by:
+
+14
+using the Console
+editing a JSON file
+
+Question #: 26 Which concept is NOT related to Oracle Cloud Infrastructure Resource Manager?
+A. Job
+B. Stack
+C. Queue
+D. Plan
+Answer: C
+Explanation:
+
+iaas/Content/ResourceManager/Concepts/resourcemanager.htm Following are brief descriptions
+of key concepts and the main components of Resource Manager.
+CONFIGURATION
+Information to codify your infrastructure. A Terraform configuration can be either a solution or a file
+that you write and upload.
+JOB
+Instructions to perform the actions defined in your configuration. Only one job at a time can run on a
+given stack; further, you can have only one set of Oracle Cloud Infrastructure resources on a given
+stack. To provision a different set of resources, you must create a separate stack and use a different
+configuration.
+Resource Manager provides the following job types:
+Plan: Parses your Terraform configuration and creates an execution plan for the associated stack. The
+execution plan lists the sequence of specific actions planned to provision your Oracle Cloud
+Infrastructure resources. The execution plan is handed off to the apply job, which then executes the
+instructions.
+Apply. Applies the execution plan to the associated stack to create (or modify) your Oracle Cloud
+Infrastructure resources. Depending on the number and type of resources specified, a given apply job
+can take some time. You can check status while the job runs.
+Destroy. Releases resources associated with a stack. Released resources are not deleted. For
+example, terminates a Compute instance controlled by a stack. The stack's job history and state
+remain after running a destroy job. You can monitor the status and review the results of a destroy job
+by inspecting the stack's log files.
+Import State. Sets the provided Terraform state file as the current state of the stack. Use this job to
+migrate local Terraform environments to Resource Manager.
+STACK
+The collection of Oracle Cloud Infrastructure resources corresponding to a given Terraform
+configuration. Each stack resides in the compartment you specify, in a single region; however,
+resources on a given stack can be deployed across multiple regions. An OCID is assigned to each
+stack.
+
+Question #: 27 Which header is NOT required when signing GET requests to Oracle Cloud Infrastructure
+APIs?
+A. date or x-date
+B. (request-target)
+C. content-type
+D. host
+Answer: C
+Explanation:
+For GET and DELETE requests (when there's no content in the request body), the signing string must
+include at least these headers:
+(request-target) (as described in draft-cavage-http-signatures-08)
+host
+date or x-date (if both are included, Oracle uses x-date)
+https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/signingrequests.htm
+
+Question #: 28 You have created a repository in Oracle Cloud Infrastructure Registry in the us-ashburn-1 (iad)
+region in your tenancy with a namespace called "heyci.
+Which three are valid tags for an image named "myapp"?
+A. iad.ocir.io/heyoci/myproject/myapp:0.0.1
+B. us-ashburn-l.ocirJo/heyoci/myapp:0.0.2-beta
+C. us-ashburn-l.ocir.io/heyoci/myproject/myapp:0.0.2-beta
+D. us-ashburn-l.ocir.io/myproject/heyoci/myapp:latest
+E. iad.ocir.io/myproject/heyoci/myapprlatest
+F. iad.ocir.io/heyoci/myapp:0.0.2-beta
+G. iad.ocir.io/heyoci/myapp:latest
+Answer: A,F,G
+Explanation:
+Give a tag to the image that you're going to push to Oracle Cloud Infrastructure Registry by entering:
+docker tag <image-identifier> <target-tag>
+where:
+<image-identifier> uniquely identifies the image, either using the image's id (for example,
+8e0506e14874), or the image's name and tag separated by a colon (for example, acme-webapp:
+latest).
+<target-tag> is in the format <region-key>.ocir.io/<tenancy-namespace>/<repo-name>/<imagename>:<
+tag> where:
+<region-key> is the key for the Oracle Cloud Infrastructure Registry region you're using. For example,
+iad. See Availability by Region.
+ocir.io is the Oracle Cloud Infrastructure Registry name.
+<tenancy-namespace> is the auto-generated Object Storage namespace string of the tenancy that
+owns the repository to which you want to push the image (as shown on the Tenancy Information
+page). For example, the namespace of the acme-dev tenancy might be ansh81vru1zp. Note that for
+some older tenancies, the namespace string might be the same as the tenancy name in all lower-case
+letters (for example, acme-dev). Note also that your user must have access to the tenancy.
+<repo-name> (if specified) is the name of a repository to which you want to push the image (for
+example, project01). Note that specifying a repository is optional (see About Repositories).
+<image-name> is the name you want to give the image in Oracle Cloud Infrastructure Registry (for
+example, acme-web-app).
+<tag> is an image tag you want to give the image in Oracle Cloud Infrastructure Registry (for example,
+version2.0.test).
+
+For example, for convenience you might want to group together multiple versions of the acme-webapp
+image in the acme-dev tenancy in the Ashburn region into a repository called project01. You do
+this by including the name of the repository in the image name when you push the image, in the
+format <region-key>.ocir.io/<tenancy-namespace>/<repo-name>/<image-name>:<tag>. For example,
+iad.ocir.io/ansh81vru1zp/project01/acme-web-app:4.6.3. Subsequently, when you use the docker
+push command, the presence of the repository in the image's name ensures the image is pushed to
+the intended repository.
+If you push an image and include the name of a repository that doesn't already exist, a new private
+repository is created automatically. For example, if you enter a command like docker push
+iad.ocir.io/ansh81vru1zp/project02/acme-web-app:7.5.2 and the project02 repository doesn't exist,
+a private repository called project02 is created automatically.
+If you push an image and don't include a repository name, the image's name is used as the name of
+the repository. For example, if you enter a command like docker push
+iad.ocir.io/ansh81vru1zp/acme-web-app:7.5.2 that doesn't contain a repository name, the image's
+name (acme-web-app) is used as the name of a private repository.
+https://docs.cloud.oracle.com/en-us/iaas/Content/Registry/Concepts/registrywhatisarepository.htm
+
+Question #: 29 You want to push a new image in the Oracle Cloud Infrastructure (OCI) Registry. Which two
+actions do you need to perform?
+A. Assign a tag via Docker CLI to the image.
+B. Generate an auth token to complete the authentication via Docker CLI.
+C. Generate an API signing key to complete the authentication via Docker CLI.
+D. Assign an OCI defined tag via OCI CLI to the image.
+E. Generate an OCI tag namespace in your repository.
+Answer: A,B
+Explanation:
+You use the Docker CLI to push images to Oracle Cloud Infrastructure Registry.
+To push an image, you first use the docker tag command to create a copy of the local source image as
+a new image (the new image is actually just a reference to the existing source image). As a name for
+the new image, you specify the fully qualified path to the target location in Oracle Cloud Registry
+where you want to push the image, optionally including the name of a repository.
+for more details check the below link
+
+iaas/Content/Registry/Tasks/registrypushingimagesusingthedockercli.htm
+
+Question #: 30 As a cloud-native developer, you are designing an application that depends on Oracle Cloud
+Infrastructure (OCI) Object Storage wherever the application is running. Therefore, provisioning of
+storage buckets should be part of your Kubernetes deployment process for the application. Which
+should you leverage to meet this requirement?
+A. OCI Service Broker for Kubernetes
+B. OCI Container Engine for Kubernetes
+C. Open Service Broker API
+D. Oracle Functions
+Answer: A
+Explanation:
+https://blogs.oracle.com/cloud-infrastructure/introducing-service-broker-for-kubernetes OCI Service
+Broker for Kubernetes is an implementation of the Open Service Broker API. OCI Service Broker for
+Kubernetes is specifically for interacting with Oracle Cloud Infrastructure services from Kubernetes
+clusters. It includes three service broker adapters to bind to the following Oracle Cloud Infrastructure
+services:
+Object Storage
+Autonomous Transaction Processing
+Autonomous Data Warehouse
+
+Question #: 31 What are two of the main reasons you would choose to implement a serverless architecture?
+A. No need for integration testing
+B. Reduced operational cost
+C. Improved In-function state management
+D. Automatic horizontal scaling
+E. Easier to run long-running operations
+Answer: B,D
+
+Question #: 32 You have a containerized app that requires an Autonomous Transaction Processing (ATP)
+Database. Which option is not valid for o from a container in Kubernetes?
+A. Enable Oracle REST Data Services for the required schemas and connect via HTTPS.
+B. Create a Kubernetes secret with contents from the instance Wallet files. Use this secret to create a
+volume mounted to the appropriate path in the application deployment manifest.
+C. Use Kubernetes secrets to configure environment variables on the container with ATP instance
+OCID, and OCI API credentials. Then use the CreateConnection API endpoint from the service
+runtime.
+D. Install the Oracle Cloud Infrastructure Service Broker on the Kubernetes cluster and deploy
+serviceinstance and serviceBinding resources for ATP. Then use the specified binding name as a
+volume in the application deployment manifest.
+Answer: A
+Explanation:
+https://blogs.oracle.com/developers/creating-an-atp-instance-with-the-oci-service-broker
+https://blogs.oracle.com/cloud-infrastructure/integrating-oci-service-broker-with-autonomoustransaction-
+processing-in-the-real-world
+
+Question #: 33 You are building a cloud native, serverless travel application with multiple Oracle Functions in
+Java, Python and Node.js. You need to build and deploy these functions to a single applications
+named travel-app.
+Which command will help you complete this task successfully?
+A. oci fn function deploy --ap travel-ap --all
+B. fn deploy --ap travel-ap -- all
+C. oci fn application --application-name-ap deploy --all
+D. fn function deploy --all --application-name travel-ap
+Answer: B
+Explanation:
+check the steps for Creating, Deploying, and Invoking a Helloworld Function
+https://docs.cloud.oracle.com/en-us/iaas/Content/Functions/Tasks/functionscreatingfirst.htm in
+step 7 that will deploy the funcation
+7- Enter the following single Fn Project command to build the function and its dependencies as a
+Docker image called helloworld-func, push the image to the specified Docker registry, and deploy the
+function to Oracle Functions in the helloworld-app:
+$ fn -v deploy --app helloworld-app
+The -v option simply shows more detail about what Fn Project commands are doing (see Using the Fn
+Project CLI with Oracle Functions).
+
+Question #: 34 Which testing approaches is a must for achieving high velocity of deployments and release of
+cloud-native applications?
+A. Integration testing
+B. A/B testing
+C. Automated testing
+D. Penetration testing
+Answer: C
+Explanation:
+Oracle Cloud Infrastructure provides a number of DevOps tools and plug-ins for working with Oracle
+Cloud Infrastructure services. These can simplify provisioning and managing infrastructure or enable
+automated testing and continuous delivery.
+A/B Testing
+While A/B testing can be combined with either canary or blue-green deployments, it is a very
+different thing. A/B testing really targets testing the usage behavior of a service or feature and is
+typically used to validate a hypothesis or to measure two versions of a service or feature and how
+they stack up against each other in terms of performance, discoverability and usability. A/B testing
+often leverages feature flags (feature toggles), which allow you to dynamically turn features on and
+off.
+Integration Testing
+Integration tests are also known as end-to-end (e2e) tests. These are long-running tests that exercise
+the system in the way it is intended to be used in production. These are the most valuable tests in
+demonstrating reliability and thus increasing confidence.
+Penetration Testing
+Oracle regularly performs penetration and vulnerability testing and security assessments against the
+Oracle cloud infrastructure, platforms, and applications. These tests are intended to validate and
+improve the overall security of Oracle Cloud Services.
+
+Question #: 35 You have written a Node.js function and deployed it to Oracle Functions. Next, you need to
+call this function from a microservice written in Java deployed on Oracle Cloud Infrastructure (OCI)
+Container Engine for Kubernetes (OKE).
+Which can help you to achieve this?
+A. Use the OCI CLI with kubect1 to invoke the function from the microservice.
+B. Oracle Functions does not allow a microservice deployed on OKE to invoke a function.
+C. OKE does not allow a microservice to invoke a function from Oracle Functions.
+D. Use the OCI Java SDK to invoke the function from the microservice.
+Answer: D
+Explanation:
+You can invoke a function that you've deployed to Oracle Functions in different ways:
+Using the Fn Project CLI.
+Using the Oracle Cloud Infrastructure CLI.
+Using the Oracle Cloud Infrastructure SDKs.
+Making a signed HTTP request to the function's invoke endpoint. Every function has an invoke
+endpoint.
+
+Question #: 36 You are developing a distributed application and you need a call to a path to always return a
+specific JSON content deploy an Oracle Cloud Infrastructure API Gateway with the below API
+deployment specification.
+What is the correct value for type?
+A. STOCK_RESPONSE_BACKEND
+B. CONSTANT_BACKEND
+C. JSON_BACKEND
+D. HTTP_BACKEND
+Answer: A
+Explanation:
+"type": "STOCK_RESPONSE_BACKEND" indicates that the API gateway itself will act as the back end
+and return the stock response you define (the status code, the header fields and the body content).
+
+iaas/Content/APIGateway/Tasks/apigatewayaddingstockresponses.htm
+
+Question #: 37 Which two handle Oracle Functions authentication automatically?
+A. Oracle Cloud Infrastructure SDK
+B. cURL
+C. Oracle Cloud Infrastructure CLl
+D. Signed HTTP Request
+E. Fn Project CLI
+Answer: C,E
+
+Explanation:
+Fn Project CLI
+you can create an Fn Project CLI Context to Connect to Oracle Cloud Infrastructure and specify
+--provider oracle This option enables Oracle Functions to perform authentication and authorization
+using Oracle Cloud Infrastructure request signing, private keys, user groups, and policies that grant
+permissions to those user groups.
+
+Question #: 38 Which Oracle Cloud Infrastructure (OCI) load balancer shape is used by default in OCI
+container Engineer for Kubernetes?
+A. 400 Mbps
+B. 8000 Mbps
+C. There is no default. The shape has to be specified.
+D. 100 Mbps
+Answer: D
+Explanation:
+Specifying Alternative Load Balancer Shapes
+The shape of an Oracle Cloud Infrastructure load balancer specifies its maximum total bandwidth
+(that is, ingress plus egress). By default, load balancers are created with a shape of 100Mbps. Other
+shapes are available, including 400Mbps and 8000Mbps.
+https://docs.cloud.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengcreatingloadbalancer.htm
+
+Question #: 39 Which one of the following is NOT a valid backend-type supported by Oracle Cloud
+Infrastructure (OCI) API Gateway?
+A. STOCK_RESPONSE_BACKEND
+B. ORACLE_FUNCTIONS_BACKEND
+C. ORACLE_STREAMS_BACKEND
+D. HTTP_BACKEND
+Answer: C
+Explanation:
+In the API Gateway service, a back end is the means by which a gateway routes requests to the backend
+services that implement APIs. If you add a private endpoint back end to an API gateway, you give
+the API gateway access to the VCN associated with that private endpoint.
+You can also grant an API gateway access to other Oracle Cloud Infrastructure services as back ends.
+For example, you could grant an API gateway access to Oracle Functions, so you can create and
+deploy an API that is backed by a serverless function.
+API Gateway service to create an API gateway, you can create an API deployment to access HTTP and
+HTTPS URLs.
+
+iaas/Content/APIGateway/Tasks/apigatewayusinghttpbackend.htm API Gateway service to create
+an API gateway, you can create an API deployment that invokes serverless functions defined in Oracle
+Functions.
+
+iaas/Content/APIGateway/Tasks/apigatewayusingfunctionsbackend.htm API Gateway service, you
+can define a path to a stock response back end
+https://docs.cloud.oracle.com/en-
+us/iaas/Content/APIGateway/Tasks/apigatewayaddingstockresponses.htm
+
+Question #: 40 In order to effectively test your cloud-native applications, you might utilize separate
+environments (development, testing, staging, production, etc.). Which Oracle Cloud Infrastructure
+(OC1) service can you use to create and manage your infrastructure?
+A. OCI Compute
+B. OCI Container Engine for Kubernetes
+C. OCI Resource Manager
+D. OCI API Gateway
+Answer: C
+Explanation:
+Resource Manager is an Oracle Cloud Infrastructure service that allows you to automate the process
+of provisioning your Oracle Cloud Infrastructure resources. Using Terraform, Resource Manager helps
+you install, configure, and manage resources through the "infrastructure-as-code" model.
+
+Question #: 41 A programmer Is developing a Node is application which will run in a Linux server on their onpremises
+data center. This application will access various Oracle Cloud Infrastructure (OC1) services
+using OCI SDKs.
+What is the secure way to access OCI services with OCI Identity and Access Management (JAM)?
+A. Create a new OCI IAM user associated with a dynamic group and a policy that grants the desired
+permissions to OCI services. Add the on-premises Linux server in the dynamic group.
+B. Create an OCI IAM policy with the appropriate permissions to access the required OCI services and
+assign the policy to the on-premises Linux server.
+C. Create a new OCI IAM user, add the user to a group associated with a policy that grants the
+desired permissions to OCI services. In the on-premises Linux server, generate the keypair used for
+signing API requests and upload the public key to the IAM user.
+D. Create a new OCI IAM user, add the user to a group associated with a policy that grants the
+desired permissions to OCI services. In the on-premises Linux server, add the user name and
+password to a file used by Node.js authentication.
+Answer: C
+Explanation:
+Before using Oracle Functions, you have to set up an Oracle Cloud Infrastructure API signing key.
+The instructions in this topic assume:
+- you are using Linux
+- you are following Oracle's recommendation to provide a passphrase to encrypt the private key For
+more Detials Set up an Oracle Cloud Infrastructure API Signing Key for Use with Oracle Functions
+https://docs.cloud.oracle.com/en-us/iaas/Content/Functions/Tasks/functionssetupapikey.htm
+
+Question #: 42 A developer using Oracle Cloud Infrastructure (OCI) API Gateway must authenticate the API
+requests to their web application. The authentication process must be implemented using a custom
+scheme which accepts string parameters from the API caller. Which method can the developer use In
+this scenario?
+A. Create an authorizer function using request header authorization.
+B. Create a cross account functions authorizer.
+C. Create an authorizer function using OCI Identity and Access Management based authentication
+D. Create an authorizer function using token-based authorization.
+Answer: D
+
+Question #: 43 What is one of the differences between a microservice and a serverless function?
+A. Microservices are used for long running operations and serverless functions for short running
+operations.
+B. Microservices always use a data store and serverless functions never use a data store.
+C. Microservices are stateless and serverless functions are stateful.
+D. Microservices are triggered by events and serverless functions are not.
+Answer: A
+Explanation:
+microservice is larger and can do more than a function. A function is a relatively small bit of code that
+performs only one action in response to an event.
+In many cases, microservices can be decomposed into a number of smaller stateless functions. The
+difference between microservices and functions is not simply the size. Functions are stateless, and
+they require no knowledge about or configuration of the underlying server-hence, the term
+serverless.
+https://developer.oracle.com/java/fn-project-introduction.html
+
+Question #: 44 Which two are required to enable Oracle Cloud Infrastructure (OCI) Container Engine for
+Kubernetes (OKE) cluster access from the kubect1 CLI?
+A. An SSH key pair with the public key added to cluster worker nodes
+B. Install and configure the OCI CLI
+C. OCI Identity and Access Management Auth Token
+D. Tiller enabled on the OKE cluster
+E. A configured OCI API signing key pair
+Answer: B,E
+Explanation:
+Setting Up Local Access to Clusters
+To set up a kubeconfig file to enable access to a cluster using a local installation of kubectl and the
+Kubernetes Dashboard:
+Step 1: Generate an API signing key pair
+Step 2: Upload the public key of the API signing key pair
+Step 3: Install and configure the Oracle Cloud Infrastructure CLI
+Step 4: Set up the kubeconfig file
+Step 5: Verify that kubectl can access the cluster
+
+Question #: 45 You are implementing logging in your services that will be running in Oracle Cloud
+Infrastructure Container Engine for Kubernetes. Which statement describes the appropriate logging
+approach?
+A. Each service logs to its own log file.
+B. All services log to an external logging system.
+C. All services log to standard output only.
+D. All services log to a shared log file.
+Answer: C
+Explanation:
+Application and systems logs can help you understand what is happening inside your cluster. The logs
+are particularly useful for debugging problems and monitoring cluster activity. Most modern
+applications have some kind of logging mechanism; as such, most container engines are likewise
+designed to support some kind of logging. The easiest and most embraced logging method for
+containerized applications is to write to the standard output and standard error streams.
+https://kubernetes.io/docs/concepts/cluster-administration/logging/
+https://blogs.oracle.com/developers/5-best-practices-for-kubernetes-security
+
+Question #: 46 Which two are characteristics of microservices?
+A. Microservices are hard to test in isolation.
+B. Microservices can be independently deployed.
+C. All microservices share a data store.
+D. Microservices can be implemented in limited number of programming languages.
+E. Microservices communicate over lightweight APIs.
+Answer: B,E
+Explanation:
+https://www.techjini.com/blog/microservices/
+
+Question #: 47 A pod security policy (PSP) is implemented in your Oracle Cloud Infrastructure Container
+Engine for Kubernetes cluster Which rule can you use to prevent a container from running as root
+using PSP?
+A. NoPrivilege
+B. RunOnlyAsUser
+C. MustRunAsNonRoot
+D. forbiddenRoot
+Answer: C
+Explanation:
+# Require the container to run without root privileges.
+rule: 'MustRunAsNonRoot'
+
+Question #: 48 You have been asked to create a stateful application deployed in Oracle Cloud Infrastructure
+(OCI) Container Engine for Kubernetes (OKE) that requires all of your worker nodes to mount and
+write data to persistent volumes.
+Which two OCI storage services should you use?
+A. Use OCI File Services as persistent volume.
+B. Use GlusterFS as persistent volume.
+C. Use OCI Block Volume backed persistent volume.
+D. Use open source storage solutions on top of OCI.
+E. Use OCI Object Storage as persistent volume.
+Answer: A,C
+Explanation:
+A PersistentVolume (PV) is a piece of storage in the cluster that has been provisioned by an
+
+administrator. PVs are volume plugins like Volumes, but have a lifecycle independent of any
+individual Pod that uses the PV.
+A PersistentVolumeClaim (PVC) is a request for storage by a user. It is similar to a Pod. Pods consume
+node resources and PVCs consume PV resources.
+If you intend to create Kubernetes persistent volumes, sufficient block volume quota must be
+available in each availability domain to meet the persistent volume claim. Persistent volume claims
+must request a minimum of 50 gigabytes You can define and apply a persistent volume claim to your
+cluster, which in turn creates a persistent volume that's bound to the claim. A claim is a block storage
+volume in the underlying IaaS provider that's durable and offers persistent storage, enabling your
+data to remain intact, regardless of whether the containers that the storage is connected to are
+terminated.
+With Oracle Cloud Infrastructure as the underlying IaaS provider, you can provision persistent volume
+claims by attaching volumes from the Block Storage service.
+
+Question #: 49 Given a service deployed on Oracle Cloud Infrastructure Container Engine far Kubernetes
+(OKE), which annotation should you add in the sample manifest file below to specify a 400 Mbps load
+balancer?
+A. service.beta.kubernetes.io/oci-load-balancer-value: 400Mbps
+B. service.beta.kubernetes.io/oci-load-balancer-size: 400Mbps
+C. service.beta.kubernetes.io/oci-load-balancer-shape: 4 00Mbps
+D. service, beta, kubernetes . io/oci-load-balancer-kind: 400Mbps
+Answer: C
+
+Question #: 50 With the volume of communication that can happen between different components in cloudnative
+applications, it is vital to not only test functionality, but also service resiliency.
+Which statement is true with regards to service resiliency?
+A. Resiliency is about recovering from failures without downtime or data loss.
+B. A goal of resiliency is not to bring a service to a functioning state after a failure.
+C. Resiliency testing can be only done in a test environment.
+
+D. Resiliency is about avoiding failures.
+Answer: D
+Explanation:
+Resiliency and Availability
+Resiliency and availability refers to the ability of a system to continue operating, despite the failure or
+sub-optimal performance of some of its components.
+In the case of Oracle Functions:
+The control plane is a set of components that manages function definitions.
+The data plane is a set of components that executes functions in response to invocation requests.
+For resiliency and high availability, both the control plane and data plane components are distributed
+across different availability domains and fault domains in a region. If one of the domains ceases to be
+available, the components in the remaining domains take over to ensure that function definition
+management and execution are not disrupted.
+When functions are invoked, they run in the subnets specified for the application to which the
+functions belong. For resiliency and high availability, best practice is to specify a regional subnet for
+an application (or alternatively, multiple AD-specific subnets in different availability domains). If an
+availability domain specified for an application ceases to be available, Oracle Functions runs functions
+in an alternative availability domain.
+
+Question #: 51 Which is NOT a supported SDK on Oracle Cloud Infrastructure (OCI)?
+A. Ruby SDK
+B. Java SDK
+C. Python SDK
+D. Go SDK
+E. .NET SDK
+Answer: E
+Explanation:
+https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/sdks.htm
+
+Question #: 52 You are developing a serverless application with Oracle Functions and Oracle Cloud
+Infrastructure Object Storage- Your function needs to read a JSON file object from an Object Storage
+bucket named "input-bucket" in compartment "qa-compartment". Your corporate security standards
+mandate the use of Resource Principals for this use case.
+Which two statements are needed to implement this use case?
+A. Set up a policy with the following statement to grant read access to the bucket:
+allow dynamic-group read-file-dg to read objects in compartment qa-compartment where target
+.bucket .name=' input-bucket *
+B. Set up the following dynamic group for your function's OCID: Name: read-file-dg Rule: resource . id
+= ' ocid1. f nf unc. ocl -phx. aaaaaaaakeaobctakezj z5i4uj j 7g25q7sx5mvr55pms6f 4da !
+C. Set up a policy to grant all functions read access to the bucket:
+allow all functions in compartment qa-compartment to read objects in target.bucket.name='inputbucket'
+D. Set up a policy to grant your user account read access to the bucket:
+allow user XYZ to read objects in compartment qa-compartment where target .bucket, name-'inputbucket'
+
+E. No policies are needed. By default, every function has read access to Object Storage buckets in the
+tenancy
+Answer: A,B
+Explanation:
+When a function you've deployed to Oracle Functions is running, it can access other Oracle Cloud
+Infrastructure resources. For example:
+- You might want a function to get a list of VCNs from the Networking service.
+- You might want a function to read data from an Object Storage bucket, perform some operation on
+the data, and then write the modified data back to the Object Storage bucket.
+To enable a function to access another Oracle Cloud Infrastructure resource, you have to include the
+function in a dynamic group, and then create a policy to grant the dynamic group access to that
+resource.
+
+iaas/Content/Functions/Tasks/functionsaccessingociresources.htm
+
+Question #: 53 Your Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE) administrator has
+created an OKE cluster with one node pool in a public subnet. You have been asked to provide a log
+file from one of the nodes for troubleshooting purpose.
+Which step should you take to obtain the log file?
+A. ssh into the node using public key.
+B. ssh into the nodes using private key.
+C. It is impossible since OKE is a managed Kubernetes service.
+D. Use the username open and password to login.
+Answer: B
+Explanation:
+Kubernetes cluster is a group of nodes. The nodes are the machines running applications. Each node
+can be a physical machine or a virtual machine. The node's capacity (its number of CPUs and amount
+of memory) is defined when the node is created. A cluster comprises:
+- one or more master nodes (for high availability, typically there will be a number of master nodes)
+- one or more worker nodes (sometimes known as minions)
+Connecting to Worker Nodes Using SSH
+If you provided a public SSH key when creating the node pool in a cluster, the public key is installed
+on all worker nodes in the cluster. On UNIX and UNIX-like platforms (including Solaris and Linux), you
+can then connect through SSH to the worker nodes using the ssh utility (an SSH client) to perform
+administrative tasks.
+Note the following instructions assume the UNIX machine you use to connect to the worker node:
+Has the ssh utility installed.
+Has access to the SSH private key file paired with the SSH public key that was specified when the
+cluster was created.
+How to connect to worker nodes using SSH depends on whether you specified public or private
+subnets for the worker nodes when defining the node pools in the cluster.
+Connecting to Worker Nodes in Public Subnets Using SSH
+Before you can connect to a worker node in a public subnet using SSH, you must define an ingress
+rule in the subnet's security list to allow SSH access. The ingress rule must allow access to port 22 on
+worker nodes from source 0.0.0.0/0 and any source port To connect to a worker node in a public
+
+subnet through SSH from a UNIX machine using the ssh utility:
+1- Find out the IP address of the worker node to which you want to connect. You can do this in a
+number of ways:
+Using kubectl. If you haven't already done so, follow the steps to set up the cluster's kubeconfig
+configuration file and (if necessary) set the KUBECONFIG environment variable to point to the file.
+Note that you must set up your own kubeconfig file. You cannot access a cluster using a kubeconfig
+file that a different user set up. See Setting Up Cluster Access. Then in a terminal window, enter
+kubectl get nodes to see the public IP addresses of worker nodes in node pools in the cluster.
+Using the Console. In the Console, display the Cluster List page and then select the cluster to which
+the worker node belongs. On the Node Pools tab, click the name of the node pool to which the
+worker node belongs. On the Nodes tab, you see the public IP address of every worker node in the
+node pool.
+Using the REST API. Use the ListNodePools operation to see the public IP addresses of worker nodes
+in a node pool.
+2- In the terminal window, enter ssh opc@<node_ip_address> to connect to the worker node, where
+<node_ip_address> is the IP address of the worker node that you made a note of earlier. For
+example, you might enter ssh opc@192.0.2.254.
+Note that if the SSH private key is not stored in the file or in the path that the ssh utility expects (for
+example, the ssh utility might expect the private key to be stored in ~/.ssh/id_rsa), you must explicitly
+specify the private key filename and location in one of two ways:
+Use the -i option to specify the filename and location of the private key. For example, ssh -i
+~/.ssh/my_keys/my_host_key_filename opc@192.0.2.254 Add the private key filename and location
+to an SSH configuration file, either the client configuration file (~/.ssh/config) if it exists, or the
+system-wide client configuration file (/etc/ssh/ssh_config). For example, you might add the following:
+Host 192.0.2.254 IdentityFile ~/.ssh/my_keys/my_host_key_filename
+For more about the ssh utility's configuration file, enter man ssh_config Note also that permissions
+on the private key file must allow you read/write/execute access, but prevent other users from
+accessing the file. For example, to set appropriate permissions, you might enter chmod 600
+~/.ssh/my_keys/my_host_key_filename. If permissions are not set correctly and the private key file is
+accessible to other users, the ssh utility will simply ignore the private key file.
+
+Question #: 54 What can you use to dynamically make Kubernetes resources discoverable to public DNS
+servers?
+A. ExternalDNS
+B. CoreDNS
+C. DynDNS
+D. kubeDNS
+Answer: A
+Explanation:
+ExternalDNS allows you to control DNS records dynamically via Kubernetes resources in a DNS
+provider-agnostic way
+https://github.com/kubernetes-sigs/external-dns/blob/master/README.md
+https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/oracle.md
+
+Question #: 55 In the sample Kubernetes manifest file below, what annotations should you add to create a
+private load balancer In oracle Cloud infrastructure Container Engine for Kubermetes?
+A. service.beta.kubernetes.io/oci-load-balancer-private: "true"
+B. service.beta.kubernetes.io/oci-load-balancer-private: "true" \n
+   service.beta.kubernetes.io/oci-load-balancer-subnet1: "ocid1.subnet.oc1..aaaaaa....vdfw"
+C. service.beta.kubernetes.io/oci-load-balancer-internal: "true"
+D. service.beta.kubernetes.io/oci-load-balancer-internal: "true"
+   service.beta.kubernetes.io/oci-load-balancer-subnet1: "ocid1.subnet.oc1..aaaaaa....vdfw"
+Answer: D
+Explanation:
+
+iaas/Content/ContEng/Tasks/contengcreatingloadbalancer.htm?TocPath=Services%7CExample%2
+0Network%20Resource%20Configuration%7CUpgrading%20the%20Version%20of%20Kubernetes%2
+0Running%20on%20a%20Master%20Node%7C_____2 Creating Internal Load Balancers in Public and
+Private Subnets You can create Oracle Cloud Infrastructure load balancers to control access to
+services running on a cluster:
+When you create a 'custom' cluster, you select an existing VCN that contains the network resources
+to be used by the new cluster. If you want to use load balancers to control traffic into the VCN, you
+select existing public or private subnets in that VCN to host the load balancers.
+When you create a 'quick cluster', the VCN that's automatically created contains a public regional
+subnet to host a load balancer. If you want to host load balancers in private subnets, you can add
+private subnets to the VCN later.
+Alternatively, you can create an internal load balancer service in a cluster to enable other programs
+running in the same VCN as the cluster to access services in the cluster. You can host internal load
+balancers in public subnets and private subnets.
+To create an internal load balancer hosted on a public subnet, add the following annotation in the
+metadata section of the manifest file:
+service.beta.kubernetes.io/oci-load-balancer-internal: "true"
+To create an internal load balancer hosted on a private subnet, add both following annotations in the
+metadata section of the manifest file:
+service.beta.kubernetes.io/oci-load-balancer-internal: "true"
+service.beta.kubernetes.io/oci-load-balancer-subnet1: "ocid1.subnet.oc1..aaaaaa....vdfw" where
+ocid1.subnet.oc1..aaaaaa....vdfw is the OCID of the private subnet.
+
+Question #: 56 You are a consumer of Oracle Cloud Infrastructure (OCI) Streaming service. Which API should
+you use to read and process the stream?
+A. ListMessages
+B. GetMessages
+C. GetObject
+D. ReadMessages
+Answer: B
+Explanation:
+https://docs.cloud.oracle.com/en-us/iaas/Content/Streaming/Concepts/streamingoverview.htm
+Building consumers to read and process messages from a stream using the GetMessages API .
+
+Question #: 57 You are building a container image and pushing it to the Oracle Cloud Infrastructure Registry
+(OCIR). You need to make sure that these get deleted from the repository.
+Which action should you take?
+A. Create a group and assign a policy to perform lifecycle operations on images.
+B. Set global policy of image retention to "Retain All Images".
+C. In your compartment, write a policy to limit access to the specific repository.
+D. Edit the tenancy global retention policy.
+Answer: D
+Explanation:
+Deleting an Image
+When you no longer need an old image or you simply want to clean up the list of image tags in a
+repository, you can delete images from Oracle Cloud Infrastructure Registry.
+Your permissions control the images in Oracle Cloud Infrastructure Registry that you can delete. You
+can delete images from repositories you've created, and from repositories that the groups to which
+you belong have been granted access by identity policies. If you belong to the Administrators group,
+you can delete images from any repository in the tenancy.
+Note that as well deleting individual images , you can set up image retention policies to delete images
+automatically based on selection criteria you specify (see Retaining and Deleting Images Using
+Retention Policies).
+Note:
+In each region in a tenancy, there's a global image retention policy. The global image retention
+policy's default selection criteria retain all images so that no images are automatically deleted.
+However, you can change the global image retention policy so that images are deleted if they meet
+the criteria you specify. A region's global image retention policy applies to all repositories in the
+region, unless it is explicitly overridden by one or more custom image retention policies.
+You can set up custom image retention policies to override the global image retention policy with
+different criteria for specific repositories in a region. Having created a custom image retention policy,
+you apply the custom retention policy to a repository by adding the repository to the policy. The
+global image retention policy no longer applies to repositories that you add to a custom retention
+policy.
+
+Question #: 58 You are tasked with developing an application that requires the use of Oracle Cloud
+Infrastructure (OCI) APIs to POST messages to a stream in the OCI Streaming service.
+Which statement is incorrect?
+A. The request must include an authorization signing string including (but not limited to) x-contentsha256,
+content-type, and content-length headers.
+B. The Content-Type header must be Set to application/j son
+C. An HTTP 401 will be returned if the client's clock is skewed more than 5 minutes from the server's.
+D. The request does not require an Authorization header.
+Answer: A
+Explanation:
+Emits messages to a stream. There's no limit to the number of messages in a request, but the total
+size of a message or request must be 1 MiB or less. The service calculates the partition ID from the
+message key and stores messages that share a key on the same partition. If a message does not
+contain a key or if the key is null, the service generates a message key for you. The partition ID cannot
+be passed as a parameter.
+POST /20180418/streams/<streamId>/messages
+Host: streaming-api.us-phoenix-1.oraclecloud.com
+<authorization and other headers>
+{
+
+"messages":
+{{
+"key": null,
+"value": "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"
+},
+{
+"key": null,
+"value": "UGFjayBteSBib3ggd2l0aCBmaXZlIGRvemVuIGxpcXVvciBqdWdzLg=="
+}}}
+https://docs.cloud.oracle.com/en-us/iaas/api/#/en/streaming/20180418/Message/PutMessages
+
+Question #: 59 Which two statements are true for service choreography?
+A. Service choreographer is responsible for invoking other services.
+B. Services involved in choreography communicate through messages/messaging systems.
+C. Service choreography relies on a central coordinator.
+D. Service choreography should not use events for communication.
+E. Decision logic in service choreography is distributed.
+Answer: B,E
+Explanation:
+Service Choreography
+Service choreography is a global description of the participating services, which is defined by
+exchange of messages, rules of interaction and agreements between two or more endpoints.
+Choreography employs a decentralized approach for service composition. the decision logic is
+distributed, with no centralized point.
+Choreography, in contrast, does not rely on a central coordinator. and all participants in the
+choreography need to be aware of the business process, operations to execute, messages to
+exchange, and the timing of message exchanges.
+
+Question #: 60 Which statement accurately describes Oracle Cloud Infrastructure (OCI) Load Balancer
+integration with OCI Container Engine for Kubernetes (OKE)?
+A. OKE service provisions an OCI Load Balancer instance for each Kubernetes service with
+LoadBalancer type in the YAML configuration.
+B. OCI Load Balancer instance provisioning is triggered by OCI Events service for each Kubernetes
+service with LoadBalancer type in the YAML configuration.
+C. OCI Load Balancer instance must be manually provisioned for each Kubernetes service that
+requires traffic balancing.
+D. OKE service provisions a single OCI Load Balancer instance shared with all the Kubernetes services
+with LoadBalancer type in the YAML configuration.
+Answer: D
+Explanation:
+If you are running your Kubernetes cluster on Oracle Container Engine for Kubernetes (commonly
+known as OKE), you can have OCI automatically provision load balancers for you by creating a Service
+of type LoadBalancer instead of (or in addition to) installing an ingress controller like Traefik or
+Voyage YAML file
+When you apply this YAML file to your cluster, you will see the new service is created. After a short
+time (typically less than a minute) the OCI Load Balancer will be provisioned.
+https://oracle.github.io/weblogic-kubernetes-operator/faq/oci-lb/
+
+Question #: 61 You are processing millions of files in an Oracle Cloud Infrastructure (OCI) Object Storage
+bucket. Each time a new file is created, you want to send an email to the customer and create an
+order in a database. The solution should perform and minimize cost, Which action should you use to
+trigger this email?
+A. Schedule a cron job that monitors the OCI Object Storage bucket and emails the customer when a
+new file is created.
+B. Use OCI Events service and OCI Notification service to send an email each time a file is created.
+C. Schedule an Oracle Function that checks the OCI Object Storage bucket every minute and emails
+the customer when a file is found.
+D. Schedule an Oracle Function that checks the OCI Object Storage bucket every second and emails
+the customer when a file is found.
+Answer: B
+Explanation:
+Oracle Cloud Infrastructure Events enables you to create automation based on the state changes of
+resources throughout your tenancy. Use Events to allow your development teams to automatically
+respond when a resource changes its state.
+Here are some examples of how you might use Events:
+Send a notification to a DevOps team when a database backup completes.
+Convert files of one format to another when files are uploaded to an Object Storage bucket.
+You can only deliver events to certain Oracle Cloud Infrastructure services with a rule. Use the
+following services to create actions:
+Notifications
+Streaming
+Functions
+
+Question #: 62 What is the open source engine for Oracle Functions?
+A. Apache OpenWhisk
+B. OpenFaaS
+C. Fn Project
+D. Knative
+Answer: C
+Explanation:
+https://www.oracle.com/webfolder/technetwork/tutorials/FAQs/oci/Functions-FAQ.pdf Oracle
+Functions is a fully managed, multi-tenant, highly scalable, on-demand, Functions-as-a-Service
+platform. It is built on enterprise-grade Oracle Cloud Infrastructure and powered by the Fn Project
+open source engine. Use Oracle Functions (sometimes abbreviated to just Functions) when you want
+to focus on writing code to meet business needs.
+
+Question #: 63 Which pattern can help you minimize the probability of cascading failures in your system
+during partial loss of connectivity or a complete service failure?
+A. Retry pattern
+B. Anti-corruption layer pattern
+C. Compensating transaction pattern
+D. Circuit breaker pattern
+Answer: D
+
+Question #: 64 You are deploying an API via Oracle Cloud Infrastructure (OCI) API Gateway and you want to
+implement request policies to control access Which is NOT available in OCI API Gateway?
+A. Limiting the number of requests sent to backend services
+B. Enabling CORS (Cross-Origin Resource Sharing) support
+C. Providing authentication and authorization
+D. Controlling access to OCI resources
+Answer: D
+Explanation:
+In the API Gateway service, there are two types of policy:
+- a request policy describes actions to be performed on an incoming request from a caller before it is
+sent to a back end
+- a response policy describes actions to be performed on a response returned from a back end before
+it is sent to a caller You can use request policies to:
+- limit the number of requests sent to back-end services
+- enable CORS (Cross-Origin Resource Sharing) support
+- provide authentication and authorization
+
+Question #: 65 Which two statements are true for serverless computing and serverless architectures?
+A. Long running tasks are perfectly suited for serverless
+B. Serverless function state should never be stored externally
+C. Application DevOps team is responsible for scaling
+D. Serverless function execution is fully managed by a third party
+E. Applications running on a FaaS (Functions as a Service) platform
+Answer: B,E
+Explanation:
+Oracle Functions is a fully managed, multi-tenant, highly scalable, on-demand, Functions-as-a-Service
+platform. It is built on enterprise-grade Oracle Cloud Infrastructure and powered by the Fn Project
+open source engine. Use Oracle Functions (sometimes abbreviated to just Functions) when you want
+to focus on writing code to meet business needs.
+The serverless and elastic architecture of Oracle Functions means there's no infrastructure
+administration or software administration for you to perform. You don't provision or maintain
+compute instances, and operating system software patches and upgrades are applied automatically.
+Oracle Functions simply ensures your app is highly-available, scalable, secure, and monitored
+Applications built with a serverless infrastructure will scale automatically as the user base grows or
+usage increases. If a function needs to be run in multiple instances, the vendor's servers will start up,
+run, and end them as they are needed.
+Oracle Functions is based on Fn Project. Fn Project is an open source, container native, serverless
+platform that can be run anywhere - any cloud or on-premises.
+Serverless architectures are not built for long-running processes. This limits the kinds of applications
+that can cost-effectively run in a serverless architecture. Because serverless providers charge for the
+amount of time code is running, it may cost more to run an application with long-running processes
+in a serverless infrastructure compared to a traditional one.
+https://docs.cloud.oracle.com/en-us/iaas/Content/Functions/Concepts/functionsconcepts.htm
+https://www.cloudflare.com/learning/serverless/why-use-serverless/
+
+Question #: 66 Your organization uses a federated identity provider to login to your Oracle Cloud
+Infrastructure (OCI) environment. As a developer, you are writing a script to automate some
+operation and want to use OCI CLI to do that. Your security team doesn't allow storing private keys
+on local machines.
+How can you authenticate with OCI CLI?
+A. Run oci setup keys and provide your credentials
+B. Run oci session refresh -profile <profile_name>
+C. Run oci session authenticate and provide your credentials
+D. Run oci setup oci-cli-rc -file path/to/target/file
+Answer: C
+Explanation:
+Token-based authentication for the CLI allows customers to authenticate their session interactively,
+then use the CLI for a single session without an API signing key. This enables customers using an
+identity provider that is not SCIM-supported to use a federated user account with the CLI and SDKs.
+Starting a Token-based CLI Session
+To use token-based authentication for the CLI on a computer with a web browser:
+In the CLI, run the following command. This will launch a web browser.
+oci session authenticate
+In the browser, enter your user credentials. This authentication information is saved to the .config
+file.
+
+Question #: 67 You are working on a serverless DevSecOps application using Oracle Functions. You have
+deployed a Python function that uses the Oracle Cloud Infrastructure (OCI) Python SDK to stop any
+OC1 Compute instance that does not comply with your corporate security standards There are 3 non
+compliant OCI Compute instances.
+However, when you invoke this function none of the instances were stopped. How should you
+troubleshoot this?
+A. There is no way to troubleshoot a function running on Oracle Functions.
+B. Enable function logging in the OCI console, include some print statements in your function code
+and use logs to troubleshoot this.
+C. Enable function remote debugging in the OCI console, and use your favorite IDE to inspect the
+function running on Oracle Functions.
+D. Enable function tracing in the OCI console, and go to OCI Monitoring console to see the function
+stack trace.
+Answer: B
+Explanation:ference between blue/green and canary deploy
+Storing and Viewing Function Logs
+When a function you've deployed to Oracle Functions is invoked, you'll typically want to store the
+function's logs so that you can review them later. You specify where Oracle Functions stores a
+function's logs by setting a logging policy for the application containing the function.
+You set application logging policies in the Console.
+Whenever a function is invoked in this application, its logs are stored according to the logging policy
+that you specified.
+you can view the logs for a function that have been stored in a storage bucket in Oracle Cloud
+Infrastructure Object Storage
+
+iaas/Content/Functions/Tasks/functionsexportingfunctionlogfiles.htm
+
+Question #: 68 How do you perform a rolling update in Kubernetes?
+A. kubect1 rolling-update
+B. kubect1 upgrade <deployment-name> -image=*image:v2
+C. kubect1 update -c <container>
+D. kubect1 rolling-update <deployment-name> -image=image
+Answer: A
+Explanation:
+https://docs.oracle.com/en/cloud/iaas/wercker-cloud/wercm/quickstarts/platforms/kubernetes/
+
+Question #: 69 Which is NOT a valid option to execute a function deployed on Oracle Functions?
+A. Send a signed HTTP requests to the function's invoke endpoint
+B. Invoke from Oracle Cloud Infrastructure CLI
+C. Invoke from Docker CLI
+D. Trigger by an event in Oracle Cloud Infrastructure Events service
+E. Invoke from Fn Project CLI
+Answer: C
+Explanation:
+You can invoke a function that you've deployed to Oracle Functions in different ways:
+Using the Fn Project CLI.
+Using the Oracle Cloud Infrastructure CLI.
+Using the Oracle Cloud Infrastructure SDKs.
+Making a signed HTTP request to the function's invoke endpoint. Every function has an invoke
+endpoint.
+Each of the above invokes the function via requests to the API. Any request to the API must be
+authenticated by including a signature and the OCID of the compartment to which the function
+belongs in the request header. Such a request is referred to as a 'signed' request. The signature
+includes Oracle Cloud Infrastructure credentials in an encrypted form.
+
+Question #: 70 Per CAP theorem, in which scenario do you NOT need to make any trade-off between the
+guarantees?
+A. when there are no network partitions
+B. when the system is running in the cloud
+C. when the system is running on-premise
+D. when you are using load balancers
+Answer: A
+Explanation:
+CAP THEOREM
+"CONSISTENCY, AVAILABILITY and PARTITION TOLERANCE are the features that we want in our
+distributed system together" Of three properties of shared-data systems (Consistency, Availability
+and tolerance to network Partitions) only two can be achieved at any given moment in time.
+
+Question #: 71 A leading insurance firm is hosting its customer portal in Oracle Cloud Infrastructure (OCI)
+Container Engine for Kubernetes with an OCI Autonomous Database. Their support team discovered
+a lot of SQL injection attempts and cross-site scripting attacks to the portal, which is starting to affect
+the production environment.
+What should they implement to mitigate this attack?
+A. Network Security Lists
+B. Network Security Groups
+C. Network Security Firewall
+D. Web Application Firewall
+Answer: D
+Explanation:
+Oracle Cloud Infrastructure Web Application Firewall (WAF) is a cloud-based, Payment Card Industry
+(PCI) compliant, global security service that protects applications from malicious and unwanted
+internet traffic. WAF can protect any internet facing endpoint, providing consistent rule enforcement
+across a customer's applications.
+WAF provides you with the ability to create and manage rules for internet threats including Cross-Site
+Scripting (XSS), SQL Injection and other OWASP-defined vulnerabilities. Unwanted bots can be
+mitigated while tactically allowed desirable bots to enter. Access rules can limit based on geography
+or the signature of the request.
+
+Question #: 72 What is the difference between blue/green and canary deployment strategies?
+A. In blue/green, application Is deployed In minor increments to a select group of people. In canary,
+both old and new applications are simultaneously in production.
+B. In blue/green, both old and new applications are in production at the same time. In canary,
+application is deployed Incrementally to a select group of people.
+C. In blue/green, current applications are slowly replaced with new ones. In < MW y, Application ll
+deployed incrementally to a select group of people.
+D. In blue/green, current applications are slowly replaced with new ones. In canary, both old and
+new applications are In production at the same time.
+Answer: B
+Explanation:
+Blue-green deployment is a technique that reduces downtime and risk by running two identical
+production environments called Blue and Green. At any time, only one of the environments is live,
+with the live environment serving all production traffic. For this example, Blue is currently live and
+Green is idle.
+https://docs.cloudfoundry.org/devguide/deploy-apps/blue-green.html
+Canary deployments are a pattern for rolling out releases to a subset of users or servers. The idea is
+to first deploy the change to a small subset of servers, test it, and then roll the change out to the rest
+of the servers. ... Canaries were once regularly used in coal mining as an early warning system.
+https://octopus.com/docs/deployment-patterns/canary-deployments
+
+Question #: 73 Which two "Action Type" options are NOT available in an Oracle Cloud Infrastructure (OCI)
+Events rule definition?
+A. Notifications
+B. Functions
+C. Streaming
+D. Email
+E. Slack
+Answer: D,E
+Explanation:
+https://docs.cloud.oracle.com/en-us/iaas/Content/Events/Concepts/eventsoverview.htm ACTIONS
+Event Rules must also specify an action to trigger when the filter finds a matching event. Actions are
+responses you define for event matches. You set up select Oracle Cloud Infrastructure services that
+the Events service has established as actions. The resources for these services act as destinations for
+matching events. When the filter in the rule finds a match, the Events service delivers the matching
+event to one or more of the destinations you identified in the rule. The destination service that
+receives the event then processes the event in whatever manner you defined. This delivery provides
+the automation in your environment.
+You can only deliver events to certain Oracle Cloud Infrastructure services with a rule. Use the
+following services to create actions:
+Notifications
+Streaming
+Functions
+
+Question #: 74 A developer using Oracle Cloud Infrastructure (OCI) API Gateway must authenticate the API
+requests to their web application. The authentication process must be implemented using a custom
+scheme which accepts string parameters from the API caller. Which method can the developer use In
+this scenario?
+A. Create an authorizer function using request header authorization.
+B. Create an authorizer function using token-based authorization.
+C. Create a cross account functions authorizer.
+D. Create an authorizer function using OCI Identity and Access Management based authentication
+Answer: B
+Explanation:
+Having deployed the authorizer function, you enable authentication and authorization for an API
+deployment by including two different kinds of request policy in the API deployment specification:
+An authentication request policy for the entire API deployment that specifies:The OCID of the
+authorizer function that you deployed to Oracle Functions that will perform authentication and
+authorization.The request attributes to pass to the authorizer function.Whether unauthenticated
+callers can access routes in the API deployment.
+An authorization request policy for each route that specifies the operations a caller is allowed to
+perform, based on the caller's access scopes as returned by the authorizer function.
+Using the Console to Add Authentication and Authorization Request Policies To add authentication
+and authorization request policies to an API deployment specification using the Console:
+Create or update an API deployment using the Console, select the From Scratch option, and enter
+details on the Basic Information page.
+For more information, see Deploying an API on an API Gateway by Creating an API Deployment and
+Updating API Gateways and API Deployments.
+In the API Request Policies section of the Basic Information page, click the Add button beside
+Authentication and specify:
+Application in <compartment-name>: The name of the application in Oracle Functions that contains
+the authorizer function. You can select an application from a different compartment.
+Function Name: The name of the authorizer function in Oracle Functions.
+Authentication Token: Whether the access token is contained in a request header or a query
+parameter.
+Authentication Token Value: Depending on whether the access token is contained in a request
+header or a query parameter, specify:
+Header Name: If the access token is contained in a request header, enter the name of the header.
+Parameter Name: If the access token is contained in a query parameter, enter the name of the query
+parameter.
+
+Question #: 75 You are working on a cloud native e-commerce application on Oracle Cloud Infrastructure
+(OCI). Your application architecture has multiple OCI services, including Oracle Functions. You need to
+trigger these functions directly from other OCI services, without having to run custom code.
+Which OCI service cannot trigger your functions directly?
+A. OCI Events Service
+B. OCI Registry
+C. OCI API Gateway
+D. Oracle Integration
+Answer: B
+Explanation:
+Oracle Functions is a fully managed, multi-tenant, highly scalable, on-demand, Functions-as-a-Service
+platform. It is built on enterprise-grade Oracle Cloud Infrastructure and powered by the Fn Project
+open source engine. Use Oracle Functions (sometimes abbreviated to just Functions) when you want
+to focus on writing code to meet business needs.
+The serverless and elastic architecture of Oracle Functions means there's no infrastructure
+administration or software administration for you to perform. You don't provision or maintain
+compute instances, and operating system software patches and upgrades are applied automatically.
+Oracle Functions simply ensures your app is highly-available, scalable, secure, and monitored. With
+Oracle Functions, you can write code in Java, Python, Node, Go, and Ruby (and for advanced use
+cases, bring your own Dockerfile, and Graal VM).
+You can invoke a function that you've deployed to Oracle Functions from:
+- The Fn Project CLI.
+- The Oracle Cloud Infrastructure SDKs.
+- Signed HTTP requests to the function's invoke endpoint. Every function has an invoke endpoint.
+- Other Oracle Cloud services (for example, triggered by an event in the Events service) or from
+external services.
+so You can then deploy your code, call it directly or trigger it in response to events, and get billed only
+for the resources consumed during the execution.
+Below are the oracle services that can trigger Oracle functions
+-Events Service
+-Notification Service
+-API Gateway Service
+-Oracle Integration service(using OCI Signature Version 1 security policy) so OCI Registry services
+cannot trigger your functions directly

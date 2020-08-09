@@ -1,0 +1,623 @@
+Question #: 1
+*You are asked to deploy a new application that has been designed to scale horizontally.
+The business stakeholders have asked that the application be deployed In us-phoenlx-1.
+Normal usage requires 2 OCPUs. You expect to have few spikes during the week, that will require up to 4 OCPUs,
+and a major usage uptick at the end of each month that will require 8 OCPUs.
+What is the most cost-effective approach to implement a highly available and scalable solution?
+A. Create an instance pool with a VM.Standard2.2 shape instance configuration. Setup the autoscaling configuration to use 2 availability domains and have a minimum of 2 instances, to handle the weekly spikes, and a maximum of 4 Instances.
+B. Create an instance with 1 OCPU shape. Use a CLI script to clone It when more resources are needed.
+C. Create an instance pool with a VM.Standard2.1 shape instance configuration. Setup the autoscaling configuration to use 2 availability domains and have a minimum of 2 instances and a maximum of 8 instances.
+D. Create an instance with 1 OCPU shape. Use the Resize Instance action to scale up to a larger shape when more resources are needed.
+Answer: A
+
+Question #: 2
+As the operations administrator for your company's Oracle Cloud Infrastructure (OCI), you have been entrusted the task of ensuring that data being accessed by the application is encrypted.
+Your application portfolio Includes both Virtual Machine (VM) and Bare Metal (BM) database systems.
+Which method should you use to achieve encryption of data in-transit?
+A. Configure backup encryption for RMAN backup sets before transferring data
+B. Native Oracle Net Services encryption and integrity capabilities
+C. Key Store/Wallet service for on the fly encryption of data in transit
+D. Data is encrypted at rest using TDE and no additional encryption Is needed
+Answer: B
+
+Question #: 3
+You have deployed a three-tier web application inside an Oracle Cloud Infrastructure (OCI) VCN with a CIDR block of 10.0.0.0/28. You Initially deploy three web servers (VM.Standard2.2), two application servers (VM.Standard2.4), and two servers (VM.Standard2.8) running Oracle database.
+The web, application and database servers are deployed across two availability domains in the us- ashburn-1 region.
+You also deployed a Public Load Balancer In front of the two web servers. The web traffic gradually Increases In the first few days following the deployment, so you attempt to double the number of instances in each tier of the application to handle the new load. Unfortunately, some of these new Instances fail to launch.
+Your tenancy comes with the following set of predefined services limits for the availability domain and compartment where the application is deployed.
+What is a possible reason for this deployment to fail?
+A. You do not have enough private IP addresses left to launch all of the new compute instances.
+B. You do not have sufficient public IP addresses required by the web, application and database servers.
+C. You do not have sufficient quotas for number of VM.Standard2.2, VM.Standard2.4 and VM.Standard2.8 shapes in the Production compartment in the us-ashburn-1 region.
+D. You do not have sufficient quotas for number of VM.Standard2.2, VM.Standard2.4 and VM.Standard2.8 shapes in each availability domain in the us-ashburn-1 region.
+Answer: A
+
+Question #: 4
+A subscriber of on Oracle Cloud Infrastructure (OCI) Notifications service topic complained about not receiving messages from the service. Which of the following options can help you debug this issue?
+A. If OCI Notifications service does not receive an acknowledgement from a subscription endpoint, the service tries to redeliver messages for up to two hours. Configure an alarm on the NumberofNotificationFaiied metric through the OCI Monitoring service to help debug the issue.
+B. If OCI Notifications service does not receive an acknowledgement from a subscription endpoint, the service drops the message. Confirm that the subscriber is always online to receive messages to help debug the issue.
+C. If OCI Notifications service does not receive an acknowledgement from a subscription endpoint, the service tries to redeliver messages for up to one day. Make sure that the subscriber is online at least once a day to help debug the Issue.
+D. If OCI Notifications service does not receive an acknowledgement from a subscription endpoint, check the NumberofNotificationFaiied metric through the OCI Monitoring service for failed messages. Copy these messages to an OCI Object Storage bucket. Make sure the subscriber has the
+required credentials to access this bucket to help debug the Issue
+Answer: A
+
+Question #: 5
+The boot volume on your Oracle Linux instance has run out of space. Your application has crashed due to a lack of swap space, forcing you to Increase the size of the boot volume.
+Which step should NOT be Included In the process used to solve the Issue?
+A. Resize the boot volume by specifying a larger value than the boot volume's current size.
+B. Create a RAID 0 configuration to extend the boot volume file system onto another block volume.
+C. Attach the resized boot volume to a second instance as a data volume; Extend the partition and grow the file system on the resized boot volume.
+D. Reattach the boot volume and restart the instance.
+E. Stop the instance and detach the boot volume.
+Answer: B
+
+Question #: 6
+You are working as a Cloud Operations Administrator for your company. They have different Oracle Cloud Infrastructure (OCI) tenancies for development and production workloads. Each tenancy has resources in two regions - uk-london-1 and eu-frankfurt-1. You are asked to manage all resources and to automate all the tasks using OCI Command Line Interface (CLI).
+Which is the most efficient method to manage multiple environments using OCI CLI?
+A. Create environment variables for the sets of credentials that align to each combination of tenancy, region, and environment.
+B. Use OCI CLI profiles to create multiple set of credentials in your config file, and reference the appropriate profile at runtime.
+C. Use different bash terminals for each environment.
+D. Run oci setup config to create new credentials for each environment every time you want to access the environment.
+Answer: B
+
+Question #: 7
+You deployment platform within Oracle Cloud Infrastructure (OCI) leverages a compute instance with multiple block volumes attached. There are multiple teams that use the same compute instance and have access to these block volumes. You want to ensure that no one accidentally deletes of these block volumes. You have started to construct the following IAM policy but need to determine which permissions should be used.
+A. ERASE_VOLUME, ERASE_VOLUME_ATTACHMENT, ERASE_VOLUME_BACKUP
+B. DELETE.VOLUME, DELETE_VOLUME_ATTACHMENT, DELETE_VOLUME_BACKUP
+C. VOLUME_ERASE, VOLUME_ATTACHMENT_ERASE, VOLUME_BACKUP_ERASE
+D. VOLUME_DELETE, VOLUME_ATTACHMENT_DELETE, VOLUME_BACKUP_DELETE
+Answer: D
+
+Question #: 8
+You have set up threshold alarm for cpu Utilization metric for a value greater than 80 percent. You get a notification email about this alarm.
+Which of the following action will help you respond to this notification?
+A. Modify the alarm to route notifications to Oracle Cloud Infrastructure Streaming Service (OSS) for later Investigation.
+B. Modify the alarm to route notifications to an Oracle Cloud Infrastructure Object Storage bucket for later investigation.
+C. Change at-risk threshold for the cpu utilization metric to a lower number.
+D. Suppress the alarm notifications temporarily.
+Answer: D
+
+Question #: 9
+You have shared your Oracle Cloud Infrastructure (OCI) tenancy with a group of developers in your organization by creating a compartment called »-developer. You are an administrator in the tenancy with privileges to modify IAM policies. Developers need privileges to configure Federation to Wt Single Sign-On (SSO).
+m would you give them permissions to complete their task In the most secure manner?
+A. Create a new policy with the following statements:
+Allow any-user to manage identity-providers in tenancy a-developer Allow any-user to manage groups in tenancy
+B. Create a group called Developers. Set up the following IAM policy:
+Allow group Developers to manage identity-providers in compartment a-developer Allow group Developers to manage groups in compartment
+C. Create a group called IdPAdmins. Assign the following IAM policy statement: Allow group IdPAdmins to manage identity-providers in compartment Allow group IdPAdmins to manage groups in compartment
+D. Create a group called IdPAdmins. Assign the following IAM policy statement: Allow group IdPAdmins to manage identity-providers in tenancy Allow group IdPAdmins to manage groups in tenancy
+Answer: D
+
+
+Question #: 10
+Which command sample can be used to copy an object from Oracle Cloud Infrastructure (OCI) Object Storage bucket in source region to a bucket in a destination region?
+A.oci os object copy --bucket-name <source_bucket_name> --source-object-name <source_object> --destination-region <destination_region> --destination-bucket <destination_bucket_name> --destination-object-name <destination_object_name>
+B.oci os object copy --namespace-name <object_storage_namespace> --bucket-name <source_bucket_name> --source-object-name <source_object> --destination-namespace <destination_namespace_string> --destination-region <destination_region> --destination-bucket <destination_bucket_name> --destination-object-name <destination_object_name>
+C.oci os object copy --source-compartment-id <source_compartment_id> --bucket-name <source_bucket_name> --source-object-name <source_object> --destination-compartment-id <destination_compartment_id> --destination-region <destination_region> --destination-bucket <destination_bucket_name> --destination-object-name <destination_object_name>
+D.oci os object copy --bucket-name <source_bucket_name> --source-object-name <source_object> --destination-compartment-id <destination_compartment_id> --destination-region <destination_region> --destination-bucket <destination_bucket_name> --destination-object-name <destination_object_name>
+Answer: B
+
+Question #: 11
+You have been asked to update the llfecycle policy for object storage using the Oracle Cloud Infrastructure (OCI) Command Line Interface (f command can successfully update the policy?
+A. oci os object-lifecycle-pollcy delete -ns <object_storage_namespace> -bn <bucket_name>
+B. oci os object-lifecycle-pollcy put -ns <object_storage_namespace> -bn <bucket_name> -Items <json_formatted_llfecycle_policy>
+C. oci os object-lifecycle-pollcy put -ns <object_storage_namespace> -bn <bucket_name>
+D. oci os object-lifecycle-policy get -ns <object_storage_namespace> -bn <bucket_name>
+Answer: B
+
+Question #: 12
+You crated an Oracle Linux compute Instance through the Oracle Cloud Infrastructure (OCI) management console then immediately realize you add mn SSH key file. You notice that OCI compute service provides instance console connections that supports adding SSH keys for a running Instance. Hence, you created the console connection for your Linux server and activated it using the connection string provided. However, now you get' prompted for a username and password to login. What option should you recommend to add the SSH key to your running Instance, while minimizing the administrative overhead?
+A. You need to configure the boot loader to use ttyS0 as a console terminal on the VM.
+B. You need to terminate the running instance and recreate it by providing the SSH key file.
+C. You need to reboot the instance from the console, boot into the bash shell In maintenance mode, and add SSH keys for the ope user.
+D. You need to modify the serial console connection string to include the identity file flag, -I to specify the SSH key to use.
+Answer: C
+
+Question #: 13
+*You launched a Linux compute Instance to host the new version of your company website via Apache Httpd server on HTTPS (port 443) The Instance is created in a public subnet along with other Instances. The default security list associated to the subnet Is:
+You want to allow access to the company website from public Internet without exposing websites eventually hosted on the other instances In the public subnet.
+Which two actions should you do?
+A. Access the Linux instance via SSH and configure Iptables to allow HTTPS access on port 443.
+B. Create a new security list with a stateful rule to allow ingress access on port 443 and associate it to the public subnet.
+C. In default security list, add a stateful rule to allow ingress access on port 443.
+D. Create a network security group, add a stateful rule to allow ingress access on port 443 and associate It to the public subnet that host the company website.
+E. Create a network security group, add a stateful rule to allow ingress access on port 443 and associate it to the instance that host the company website.
+Answer: A,E
+
+Question #: 14
+You Saw created a group for several auditors. You assign the following policies to the group:
+What actions are the auditors allowed to perform within your tenancy?
+A. Auditors are able to view all resources in the compartment.
+B. Auditors are able to create new instances in the tenancy.
+C. The Auditors can view resources in the tenancy.
+D. The Auditors are able to delete resources in the tenancy.
+Answer: A
+
+Question #: 15
+*You have created a geolocation steering policy in the Traffic Management service, with this configuration.
+What happens to requests that originate in Africa?
+A. The traffic will be forwarded randomly to any of the pools mentioned in the rules.
+B. The traffic will be dropped.
+C. The traffic will be forwarded to Pool 1. If Pool 1 is not available, then will be forwarded to Pool 2.
+D. The traffic will be forwarded at the same time to both Pool 1 and Pool 2.
+Answer: B
+
+Question #: 16
+You have been contracted by a local e-commerce company to assist with enhancing their online shopping application. The application is currently deployed In a single Oracle Cloud Infrastructure (OCI) region. The application utilizes a public load balancer, application servers in a private subnet and a database in a separate, private subnet.
+The company would like to deploy another set of similar Infrastructure In a different OCI region that will act as standby site. In the event of a failure at the primary site, all customers should be routed to the failover site automatically.
+After deploying the additional infrastructure within the second region, how should you configure automated failover requirements?
+A. Create a new A record in DNS that points to the public load balancer at the secondary site. Create a CNAME for the sub-domain failover that will resolve to the new A record. Inform customers to prepend the website URL with failover If the primary site Is unavailable.
+B. Create a load balancer policy in the Traffic Management service. Configure one answer for each site. Set the answer for the primary site with a weight of 10 and the answer for the secondary site with a weight of 100.
+C. Create a failover policy in the Traffic Management service. Set the IP address of the public load balancer for the primary site in answer pool 1 Set the IP address of the public load balancer for the secondary site in answer pool 2. Define a health check to monitor both sites.
+D. Deploy a new load balancer in the primary region. Create one backend set for the primary application servers and a second backend set for the standby application servers. Create a listener for the primary backend set with a timeout of 3 minutes. Create a listener for the secondary backend set with a timeout of 10 minutes.
+Answer: C
+
+
+Question #: 17
+An Insurance company has contracted you to help automate their application business continuity plan. They have the application running in eu-frankfurt-1 as the primary site and uk-london-1 as a disaster recovery site. Normally they have a DNS A record associated with the IP address of the primary endpoint In eu-frankfurt-1. In the event of a disaster, they use OCI DNS Zone Management to update the A record and replace it with the IP address of the endpoint In uk-london-1.
+How can you automate the failover process?
+A. Create a Health Check that evaluates both regional endpoints. Create a Traffic Management Steering policy with Failover type and associate it with the Health Check.
+B. Create a Traffic Management Steering policy and attach it to a backend set with the backend servers from both eu-frankfurt-1 and uk-london-1 regions.
+C. Create a Traffic Management Steering policy with Load Balancer type and add both eu-frankfurt-1 and uk-london-1 endpoints. Attach the Traffic Management Steering policy to the A record.
+D. Provision a Load Balancer in Frankfurt and associate it with the A record in DNS. Create a backend set with backend servers from both eu-frankfurt-1 and uk-london-1 regions.
+Answer: A
+
+
+Question #: 18
+You have been brought In to help secure an existing application that leverages Object Storage buckets to distribute content. The data is currently being shared from public buckets and the security team Is not satisfied with this approach. They have stated that all data must be stored In storage buckets. Your application should be able to provide secure access to the data. The URL that is provided for access to the data must be rotated every 30 days. Which design option will meet these requirements?
+A. Use Pre-Authentlcated request, even though there will be multiple URLs this will provide better security.
+B. Create a private bucket only to share the data.
+C. Create a new group and map users to this group, create a IAM policy providing access to Object Storage service only to this group. Users can then simply login to OCI console and retrieve needed flies.
+D. Create multiple bucket and classify them as Public and Private. Use public bucket for non-sensitive data and private bucket for sensitive data.
+Answer: A
+
+Question #: 19
+You have a group of developers who launch multiple VM.Standard2.2 compute Instances every day into the compartment Dcv. As a result your OCI tenancy quickly hit the service limit for this shape. Other groups can no longer create new instances using VM.Standard2.2 shape.
+of this, your company has Issued a new mandate that the Dev compartment must include a quota to allow for use of only 20 VM.Standar shapes per Availability Domain. Your solution should not affect any other compartment In the tenancy.
+Which quota statement should be used to implement this new requirement?
+A.1.	zero compute quotas in tenancy
+  2.	set compute quota vm-standard2-2-count to 20 in tenancy dev
+B.1.	zero compute quotas in tenancy
+  2.	set compute quota vm-standard2-2-count to 20 in compartment dev
+C.1.	set compute quota vm-standard2-2-count to 20 in compartment dev
+D.1.	set compute quota vm-standard2-2-count to 20 in compartment dev where request.region = us-phoenix-1
+E.1.	zero compute quotas in tenancy
+  2.	set compute quota vm-standard2-2-count to 20 in tenancy dev
+Answer: C
+
+Question #: 20
+*You have recently Joined a startup company and quickly find that nobody is tracking the amount of money spent on Oracle Cloud Infrastructure (OCI). Seeing an opportunity to help save money you begin creating a solution to better track the cost of resources provisioned by each individual on the team.
+Which option allows you to identify excessive spend across all resources in your tenancy?
+A. Use the Python SDK to write a custom application that will monitor the Audit Log. Look for CREATE events and configure the application to send you an email each time a new resource is created.
+B. Create a budget for each compartment that will send a notification when monthly spend reaches a pre-defined amount.
+C. Create a tag namespace named BILLING with a Tag Key named CostCenter. Tag each of your resources with this Tag Key and the correct value.
+D. Use the Events Service and create rules that will act when a new Object Storage bucket or Compute Instance has been created. Have the rule email you each time one of these events occurs.
+Answer: C
+
+Question #: 21
+Your application is using Object Storage bucket named app-data In the namespace vision, to store both persistent and temporary data. Every week all the temporary data should be deleted to limit the storage consumption.
+Currently you need to navigate to the Object Storage page using the web console, select the appropriate bucket to view all the objects and delete the temporary ones.
+To simplify the task you have configured the application to save all the temporary data with /temp prefix. You have also decided to use the Command Line Interface (CLI) to perform this operation.
+What is the command you should use to speed up the data cleanup?
+A. oci os objectstorage bulk-delete -ns vision -bn app-data --prefix /temp --force
+B. oci os object delete -ns vision -bn app-data --prefix /temp
+C. oci os object delete app-data in version where prefix = /temp
+D. oci os object bulk-delete -ns vision -bn app-data --prefix /temp --force
+Answer: D
+
+Question #: 22
+*You are using Oracle Cloud Infrastructure (0C1) services across several regions: us-phoenlx-1, us- ashburn-1, uk-london-1 and ap-tokyo-1. You have created a separate administrator group for each region: PHX-Admins, ASH-Adrnins, LHR-Admins and NRT-Admins, respectively.
+u want to restrict admin access to a specific region. E.g., PHX-Admlns should be able to manage all resources In the us-phoenlx-1 region only and riot any other OCI regions.
+What IAM policy syntax is required to restrict PHX-Admins to manage OCI resources in the us- phoenix-1 region only?
+A. Allow group PHX-Admins to manage all-resources in tenancy where request.region='phx'
+B. Allow group PHX-Admins to manage all-resources in tenancy
+C. Allow group PHX-Admins to manage all-resources in tenancy where target.group.name = 'ASH-Admins'
+D. Allow group PHX-Admins to use all-resources in tenancy  where request.region != 'ash'
+Answer: A
+
+Question #: 23
+Which two statements about the Oracle Cloud Infrastructure (OCI) Command Line Interface (CLI) are true?
+A. You can filter CLI output using the JMESPath query option for JSON.
+B. The CLI provides the same core functionality as the Console, plus additional commands.
+C. The CLI allows you to use the Python language to Interact with OCI APIs.
+D. The CLI provides an automatic way to connect with Instances provisioned on OCI.
+E. You can run CLI commands from Inside OCI Regions only.
+Answer: A,B
+
+Question #: 24
+*You have been tasked with allocating an identity to one of your compute instances that needs to retrieve and process static files that are stored in an Object Storage bucket.
+After creating a dynamic group with a matching rule that specifies the OCID of the compute instance, you discover the that API calls are failing.
+Which step should you take to resolve this issue?
+A. Create IAM policies to permit users In these groups to make API calls against Oracle Cloud Infrastructure services.
+B. Initial credentials must be initialized using OCI console for the Instance in dynamic group. This can be a bulk operation.
+C. Create IAM policies to permit instances in these groups to make API calls against Oracle Cloud Infrastructure services.
+D. Once instance are in dynamic group no additional steps are required.
+Answer: A
+
+Question #: 25
+You are configuring on alarm In Oracle Cloud Infrastructure (OCI) for a compute instance named vision. The metric needs to be triggered when the ingress network rate is greater than 1MB.
+Which statement will accomplish this?
+A. NetworksBytesIn[1MB]{resourceDisplayName - "vision"}.rate() > 1
+B. NetworksBytesIn[1m]{resourceDisplayName - "vision"}.rate() > 1024
+C. {resourceDisplayName = "vision"}(NetworksBytesIn[lm]).rate() > 1024
+D. {resourceDisplayName = Hvision"}(NetworksBytesIn[1MB]).rate() > 1
+Answer: B
+
+Question #: 26
+You have recently been asked to take over management of your company's infrastructure provisioning efforts,
+utilizing Terraform v0.12 to provision and manage infrastructure resources in Oracle Cloud Infrastructure (OCI).
+For the past few days the development environments have been failing to Provision. Teraform returns the following error:
+Which correction should you make to solve this issue?
+A. Replace the curly braces '{ }' in lines 11 and 16 with square braces '[ ]'
+B. Modify line 15 to be the following: tcp_options = {min » "22", max = "22)
+C. Modify line 15 to be the following: tcp_options { min = "22" max = "22" }
+D. Place a command at the end of line 16
+Answer: C
+
+Question #: 27
+To take advantage of cloud agility and burst computing capability,
+ABC Automobiles have extended their data center to a Virtual Cloud Network (VCN).
+In Oracle Cloud Infrastructure's (OCI) us-phoenlx- 1 region.
+They have several members in their Cloud Operations (CloudOps) team that need I access the OCI management console.
+The security administrator does not want to create new IAM users and credentials that would then need to be ibuted to each CloudOps member.
+Which option will help solution architect meet the needs for CloudOps?
+A. Use an existing SAMAL 2.0 compliant identity provider(IdP) to grant CloudOps members federated access to OCI Console via the OCI single sign-on (SSO) endpoint.
+B. Use Web Identity Federation to retrieve an AuthToken to enable CloudOps members to sign in to the OCI Console.
+C. Use OAuth 2.0 to retrieve temporary credentials to enable your CloudOps members to sign in to the OCI Console.
+D. Use on-premises SAML2.0 compliant identity provider(IdP) to retrieve an AuthToken to enable CloudOps members to sign in to the OCI Console.
+Answer: A
+
+Question #: 28
+You have created several block volumes in the us-phoenix-1 region in a specific compartment. The compartment can be identified by the following Orade Cloud Infrastructure (OCI) unique identifier, or OCID:
+dl- compartment.oc1.phx..exampleuniquelD
+Your manager has asked you to leverage the OCI monitoring service and write a metric query showing all read IOPS at a one-minute interval, filtered to this compartment and aggregated for the maximum.
+Which metric query will you create?
+A. IopsWrite[lm]{compartmentId=Hocidl.compartment.ocl.phx..exampleuniquelD"}.mean()
+B. IopsRead[lm]{compartmentId="ocldl.compartment.ocl.phx..exampleuniquelD"}.max()
+C. IopsRead[lm]{compartmentId="ocidl.compartment.ocl.phx..exampleuniquelD"}.grouping().max()
+D. IopsRead[lm]{compartmentId = "odd 1.compartment.ocl.phx..exampleuniquelD"}.grouping().mean()
+Answer: C
+
+Question #: 29
+Which of the following are essential components of the Oracle Cloud Infrastructure Notifications service?
+A. An alarm with a name unique across the tenancy, a subscription, and a metric with the measurement of interest.
+B. A topic with a name unique across the compartment, a subscription, and a message where content Is published.
+C. A topic with a name unique across the tenancy, a subscription, and a message where content is published.
+D. An alarm with a name unique across the compartment, a subscription, and a metric with the measurement of interest.
+Answer: C
+
+Question #: 30
+One of the compute Instances that you have deployed Is malfunctioning. You have created a console connection to remotely troubleshoot.
+Which two statements about console connections are true?
+A. If you do not disconnect from the session, your serial console connection will automatically be terminated after 24 hours.
+B. For security purpose, the console connection will not let you edit system configuration files.
+C. It is not possible to connect to the serial console to an Instance running Microsoft Windows, however VNC console connection can be used.
+D. VNC console connection uses SSH port forwarding to create a secure connection from your local system to the VNC server attached to your instance's console.
+E. It is not possible to use VNC console connections to connect to Bare Metal Instances.
+Answer: A D
+
+Question #: 31
+Several development teams in your company have each been provided with a budget and a dedicated compartment to be used for testing purpose u are asked to help them to control the costs and avoid any overspending.
+What should you do?
+A. Associate a Budget Tag to each resource with monthly budget amount and use that Information to prepare a weekly report to send to each team.
+B. Contact Oracle support and ask them to associate the monthly budget with the Service Limits In every region for which your tenancy is subscribed. The tenancy administrator will receive an alert email from Oracle when the limit Is reached.
+C. Associate a Budget Tag to each compartment with the monthly budget amount and set an alert rule to notify the developers' teams when they reached a specific percentage of the budget
+D. Configure a Quota for each compartment to prevent provisioning of any bare metal instances.
+Answer: c
+
+Question #: 32
+You are a Cloud Operations administrator who has recently joined a new department. You have created 10 Terraform stacks using Oracle Cloud Infrastructure (OCI) resource manager. Each stack creates a different set of resources In OCI for your development team.
+What determines the cost of these Terraform stacks?
+A. The cost for each stack will be higher for pay as you go (PAYG) than for monthly flex billing.
+B. The length of time It takes to build each resource using these Terraform stacks.
+C. Resource manager stacks are free but you are charged for the resources they create.
+D. The number of lines of text in your Terraform configuration files.
+Answer: C
+
+Question #: 33
+One of your development teams has asked for your help to standardize the creation of several compute instances that must be provisioned each day of the week.
+You initially write several Command Line Interface (CLI) commands with all appropriate configuration parameters to achieve
+this task later determining this method lacks flexibility.
+Which command generates a JSON-based template that Oracle Cloud Infrastructure (OCI) CLI can use to provision these Instances on a regular basis?
+A. ocl compute provision-Instance — generate-full-command-Json-lnput
+B. ocl compute instance create --generate-cll-skeleton
+C. oci compute instance launch --generate-cll-skeleton
+D. oci compute instance launch —generate-full-command-json-input
+Answer: D
+
+
+Question #: 34
+*Which two statements accurately describe Ansible Modules for Oracle Cloud Infrastructure (OCI)?
+A. OCI Ansible Modules represent discrete provisioning tasks or operations that you can not invoke individually from the command line, or else run individually or In sequence from a playbook.
+B. OCI Ansible Modules are units of organization that allows you to abstract configuration, orchestration, and provisioning tasks into roles that you can save and share among playbooks and other users.
+C. OCI Ansible Modules represent discrete provisioning tasks or operations that you can invoke individually from the command line, or else run Individually or in sequence from a playbook.
+D. OCI Ansible Modules enable orchestrating, provisioning, and configuration management tasks on Oracle Cloud Infrastructure.
+E. OCI Ansible Modules is not able to provide you state control of resources.
+Answer: C D
+
+Question #: 35
+Your company has restructured its HR departments. As part of this change, you also need to re- organize compartments within Oracle Cloud Infrastructure (OCI) to align them to the company's new organizational structure. The following change is required:
+Comportment Team_x needs to be moved under a new parent compartment, Project_B
+
+The tenancy has the following policies defined for compartments Project_A and Project_B: Policy1 Allow group G1 to manage instance-family in compartment HR:Project_A Policy2 Allow group G2 to manage instance-family in compartment HR:Project_B Which two statements describe the impacts after the compartment Team_x is moved?
+A. Group G2 can now manage instance-families in compartment Project_B compartment Project_A and compartment Team_x
+B. Group Gl can now manage instance-families in compartment Project_A but not in compartment Team_x
+C. Group Gl can now manage instance-families in compartment project_A,compartment project_B and compartment Team_x
+D. Group G2 can now manage instance-families in compartment Project_B and compartment Team_x
+E. Group G2 can now manage instance-families in compartment Project_A but not in compartment Team_x
+Answer: B,D
+
+Question #: 36
+You have a Linux compute Instance located in a public subnet in a VCN which hosts a web application. The security list attached to subnet containing the compute Instance has the following stateful Ingress rule.
+Which step will resolve the issue?
+A. In the route table, add a rule for your default traffic to be routed to service gateway.
+B. In the security list, add an ingress rule for port 80 (http).
+C. In the security list, remove the ssh rule.
+D. In the route table, add a rule for your default traffic to be routed to NAT gateway.
+Answer: B
+
+Question #: 37
+*Team Implemented a SaaS application that requires a whole system deployment for each new customer.
+The Infrastructure provisioning is already automated via Terraform,
+and now you have been asked to develop an Ansibte playbook to centralize configuration file management and deployment.
+What Is the most effective way to ensure your playbooks are utilizing up-to-date and accurate Inventory?
+A. Implement a Command Line Interface script to list all the resources and run it within Anslble to generate a dynamic inventory list.
+B. Export an inventory list using Terraform apply command.
+C. Export an inventory list from the Oracle Cloud Infrastructure Web console.
+D. Download the dynamic inventory script provided by Oracle Cloud Infrastructure and include It in the playbook Invocation command.
+Answer: D
+
+Question #: 38
+Testing Policy describes when and how you may conduct certain types of security testing of Oracle Cloud Services,
+Including vulnerability and penetration tests, as well as tests Involving data scraping tools.
+What does Oracle allow as part of this testing?
+A. Customers can simulate DoS attack scenarios as long as Its restricted to the customer's own environment.
+B. Customers are allowed to test Oracle Cloud Infrastructure (OCI) hardware related to resources in their tenancy.
+C. Customers are allowed to use their own testing and monitoring tools.
+D. Customers can validate that their network resources are isolated from other customer resources.
+Answer: C
+
+Question #: 39
+You have been asked to provision a new production environment on Oracle Cloud Infrastructure (OCI). After working with the solution architect you dockte that you are going to automate this process.
+Which OCI service can help automate the provisioning of this new environment?
+A. OCI Resource Manager
+B. Oracle Container Engine for Kubernetes
+C. Oracle Functions
+D. OCI Streaming Service
+Answer: A
+
+
+Question #: 40
+You are tasked with creating a group called volumeBackcupAdmins  to manage only block volume backups. Which of the following set of policy/policies would you need to write to meet this requirement?
+A.
+1.	Allow group VolumeBackupAdmins to use volumes in tenancy
+2.	Allow group VolumeBackupAdmins to manage volume-backups in tenancy
+B.
+1.	Allow group VolumeBackupAdmins to use volumes in tenancy
+2.	Allow group VolumeBackupAdmins to manage volume-backups in tenancy
+3.	Allow group VolumeBackupAdmins to use volume-attachments in tenancy
+4.	Allow group VolumeBackupAdmins to use instances in tenancy
+C.
+1.	Allow group VolumeBackupAdmins to manage volume-backups in tenancy
+D.
+1.	Allow group VolumeBackupAdmins to use volumes in tenancy
+2.	Allow group VolumeBackupAdmins to manage volume-backups in tenancy
+3.	Allow group VolumeBackupAdmins to use volume-attachments in tenancy
+Answer: A
+
+Question #: 41
+You are using the Oracle Cloud Infrastructure Command Line Interface to launch a Linux virtual machine. You enter the following command (with correct values for all parameters):
+The command fails.
+Which is NOT a valid parameter in this command?
+A. -shape "<shape_name>"
+B. -t <tenancy_id>
+C. -c <compartment_id>
+D. -image-id <image_id>
+E. -subnet-id <subnet_id>
+Answer: B
+
+Question #: 42
+Your company recently adopted a hybrid cloud architecture which requires them to migrate some of their on-premises web applications to Oracle Cloud Infrastructure OCI). You created a Terraform template which automatically provisions OCI resources such as compute instances, load balancer, and a database instance. After running the stack using the terraform apply command, it successfully launched the compute Instances and the load balancer, but it failed to create a new database Instance with the following error:
+Service error:NotAuthorizedOrNotFound. shape VM.Standard2.4 not found, http status code: 404
+You discovered that the resource quotas assigned to your compartment prevent you from using VM.Standard2.4 instance shapes available in your tenancy. You edit the Terraform script and replace the shape with VM.Standard2.2.
+Which option would you recommend to re-run the terraform command to have required OCI resources provisioned with the least effort?
+A. terraform apply -target=ocl_database_db_system.db_system
+B. terraform refresh -target=oci_database_db_system.db_system
+C. terraform apply -auto-approve
+D. terraform plan -target=oci_database_db_system.db_system
+Answer: A
+
+
+Question #: 43
+In order to manage Alarms In Oracle Cloud Infrastructure (OCI), which three actions can be performed through the OCI Console?
+A. View alarm history for last 3 months.
+B. Manually fire an alarm.
+C. Update the MQL expression of an alarm.
+D. View all the firing alarms.
+E. Move an alarm to a different compartment.
+F. Add multiple suppressions for an alarm.
+Answer: A D E
+
+
+Question #: 44
+You have created the following JSON file to specify a lifecycle policy for one of your object storage buckets:
+How will this policy affect the objects that are stored in the bucket?
+A. Objects containing the name prefix LOGS will be automatically migrated from standard Storage to Archive storage 30 days after the creation date. The objects will be deleted 120 days after creation.
+B. Objects containing the name prefix LOGS will automatically be migrated from standard Storage to Archive storage 30 days then. The objects will be migrated back to standard Storage 120 days after creation.
+C. The objects with prefix "LOGS" will be deleted 30 days after creation date.
+D. Objects with the prefix "LOGS" will be retained for 120 days and then deleted permanently.
+Answer: A
+
+Question #: 45
+Which two statements are true about the Bulk Export of Oracle Cloud Infrastructure Audit Log Events?
+A. You can specify only one region in your bulk export request.
+B. It will be available immediatly after the Bulk Export request.
+C. Exported logs remain available indefinitely.
+D. Exported log files list a single audit event per line using csv format.
+E. Exported logs are available in the object storage buckets in your tenancy.
+Answer: C,E
+
+Question #: 46
+Recently your e-commerce web application has been receiving significantly more traffic than usual. Users are reporting they often encounter a 903 i when trying to access your site. Sometimes the site is very slow.
+You check your instance pool configuration to confirm that the maximum number of instances Is configured to allow 20 compute instances. Currently 14 compute instances have been provisioned by the Instance pool. You also confirm that current CPU utilization across all hosts exceeds the scale- threshold you set in your auto-scaling policy. However, the Instance pool is not provisioning any new instances.
+What can you check to determine why the application is NOT functioning properly?
+A. Verify that the Quality Assurance team is not currently performing load-testing against production.
+B. Verify that the compute resource quota has not been exceeded.
+C. Verify that the new offer feature code did not introduce any performance bugs.
+D. Verify that the database is accessible.
+Answer: B
+
+Question #: 47
+You are using Oracle Cloud Infrastructure (OCI) console to set up an alarm on a budget to track your OCI spending.
+Which two are valid targets for creating a budget In OCI?
+A. Select Tenancy as the type of target for your budget.
+B. Select Cost-Tracking Tags as the type of target for your budget.
+C. Select Compartment as the type of target for your budget.
+D. Select group as the type of target for your budget.
+E. Select user as the type of target for your budget.
+Answer: B,C
+
+Question #: 48
+*Your company will undergo a security audit in one week. Your manager has asked you to download and review recent logs from an Object Storage bucket.
+The current log archive file is approximately 19 GiB In size.
+Which command would you run to download the archive file as quickly as possible?
+A. oci os object get -ns my-namespace -bn my-bucket --name my-large-object --multipart-download-threshold 2000 --part-size 120
+B. oci os object get -ns my-namespace -bn my-bucket --name my-large-object --multipart-download-threshold 2000 --part-size 128
+C. oci os object put -ns my-namespace -bn my-bucket --name my-large-object --multipart-download-threshold 20000 --part-size 128
+D. oci os object get -ns my-namespace -bn my-bucket --name my-large-object --multipart-download-threshold 20000 --part-size 128
+Answer: D
+
+Question #: 49
+What is a key benefit of using Oracle Cloud Infrastructure's Resource Manager for your Terraform provisioning and management activities?
+A. Resource Manager has administrative privileges by design. Even if your IAM user does not have access, you can leverage Resource Manage piovision new resources to any compartment in the Tenancy.
+B. You can use Resource Manager to identify and maintain an Inventory of all Compute and Database Instances across your tenancy.
+C. You can use Resource Manager to apply patches to all existing Oracle Linux Instances In a specified compartment.
+D. Resource Manager manages the Terraform state file for your infrastructure and locks the file so that only one Job at a time can run on a given stack.
+Answer: D
+
+Question #: 50
+Multiple teams are sharing a tenancy in Oracle Cloud Infrastructure (OCI). You are asked to figure out an appropriate method to manage OC1 cost*. NOT a valid technique to accurately attribute costs to resources used by each team?
+A. Create separate compartment for each team. Use the OCI cost analysis tools to filter costs by compartments.
+B. Create a Cost-Tracking tag. Apply this tag to all resources with team Information. Use the OCI cost analysis tools to filter costs by tags.
+C. Create an Identity and Access Management (IAM) group for each team. Create an OCI budget for each group to track spending.
+D. Define and use tags for resources used by each team. Analyze usage data from the OCI Usage Report which has detailed Information about resources and tags.
+Answer: C
+
+Question #: 51
+An organization wants to extend their existing on-premises data centers to the Oracle Cloud Infrastructure (OC1) us-phoenix-1 region. In order to achieve It, they have created an IPSec VPN connection between their Customer-Premises Equipment(CPE) and Dynamic Routing Gateway(DRG) on
+How can you make this connection highly available (HA)?
+A. Add another Dynamic Routing gateway In a different Availability Domain and create another IPSec VPN connection.
+B. Add another Customer-Premises Equipment (CPE) and create second IPSec VPN connection with the same Dynamic Routing Gateway (DRG).
+C. Create a NAT Gateway and route all traffic through a NAT Gateway, which is highly available component.
+D. Add another Dynamic Routing Gateway in a different Availability Domain, and create another IPSec VPN connection with another Customer Premises Equipment (CPE).
+Answer: B
+
+Question #: 52
+You need to set up daily Incremental backups of your database In Oracle Cloud Infrastructure (OCI) Database Service. The backups need to be retained for at least 50 days.
+Which of the following method allows you do accomplish this Is an efficient and cost effective manner?
+A. Enable automatic backups and choose the preset retention period of 60 days.
+B. Enable automatic backups and set the retention period to 50 days.
+C. Set up a cron job with OCI Database Service CreateBackuP API call to take periodic full-backups to OCI Object Store. Delete backups older than 50 days.
+D. Use Recovery Manager (RMAN) to take backups to an OCI Object Store bucket. Delete backups older than 50 days.
+Answer: A
+
+Question #: 53
+You have the following compartment structure within your company's Oracle Cloud Infrastructure (OCI) tenancy:
+You want to create a policy in the root compartment to allow SystemAdmlns to manage VCNs only In CompartmentC.
+Which policy is correct?
+A. Allow group SystemAdmins to manage virtual-network-family in compartment CompartmentC
+B. Allow group SystemAdmins to manage virtual-network-family in compartment CompartmentB:CompartmentC
+C. Allow group SystemAdmins to manage virtual-network-family in compartment CompartmentA:CompartmentB:CompartmentC
+D. Allow group SystemAdmins to manage virtual-network-family in compartment Root
+Answer: C
+
+Question #: 54
+You have received an email from your manager to provision new resources on Oracle Cloud Infrastructure (OCI).
+When researching OCI y detect that you should use OCI Resource Manager.
+Since this is a task that will be done multiple times for development, test, and production need to create a command that can be re-used.
+Which CLI command can be used In this situation?
+A. oci resource-manager stack update --compartment-id <compartment_OCID> --config-source prod.zip --variables file://variables.json --display-name "Production Stack build" --description "Creating new Production environment"
+B. oci resource-manager stack create --compartment-id <compartment_OCID> --config-source prod.zip --variables file://variables.json --display-name "Production Stack build" --description "Creating new Production environment"
+C. oci resource-manager stack create --tenancy-id <tenancy_OCID> --config-source prod.zip --variables file://variables.json --display-name "Production Stack build" --description "Creating new Production environment"
+D. oci resource-manager stack update --tenancy-id <tenancy_OCID> --config-source prod.zip --variables file://variables.json --display-name "Production Stack build" --description "Creating new Production environment"
+Answer: B
+
+Question #: 55
+*You set up a bastion host in your VCN to only allow your IP address (140.19.2.140) to establish SSH connections to your Compute instances that are deployed private subnet. The Compute instances have an attached Network Security Group with a Source Type: Network security Group (NSG) , Source NSG: -050504. To secure the bastion host, you added the following ingress rules to its Network Security Group:
+However, after checking the bastion host logs, you discovered that there are IP addresses other than your own that can access your bastion host.
+What is the root cause of this issue?
+A. A netmask of /32 allows all IP address in the 140.19.2.0 network, other than your IP 110.19.2.140
+B. The port 22 provides unrestneted access to 140.19.2.140 and to other IP address
+C. AI compute instances associated with nso-050504 are also able to connect to the bastion host.
+D. The Security List allows access to all IP address which overrides the Network Security Group ingress rules.
+Answer: C
+
+Question #: 56
+You are asked to Implement the disaster recovery (DR) and business continuity requirements for Oracle Cloud Infrastructure (OCI) Block Volumes. Two OCI regions being used: a primary/source region and a DR/destlnation region.
+The requirements are:
+• There should be a copy of data in the destination region to use If a region-wide disaster occurs in the source region
+• Minimize costs
+Which of the following design will help you meet these requirements?
+A. Clone block volumes. Copy block volume clones from source region to destination region at regular intervals.
+B. Back up block volumes. Use Object Storage llfecycle management to automatically move backup objects to Archive Storage. Copy Archive Storage buckets from source region to destination at regular Intervals.
+C. Back up block volumes. Copy block volume backups from source region to destination region at regular intervals.
+D. Clone block volumes. Use Object Storage lifecycle management to automatically move clone object Archive Storage. Copy Archive Storage buckets from source region to destination at regular intervals.
+Answer: C
+
+Question #: 57
+*Which technique does NOT help you get the optimal performance out of the Oracle Cloud Infrastructure (OC1) File Storage service?
+A. Serialize operations to the file system to access consecutive blocks as much as possible.
+B. Limit access to the same Availability Domain (AD. as the File Storage service where possible.
+C. Right size compute instances from where file system Is accessed based on their network capacity.
+D. Store files across multiple directories in the file system.
+E. Increase concurrency by using multiple threads, multiple clients, and multiple mount targets.
+Answer: A
+
+Question #: 58
+*You are system administrator at a retail company. You Just received a ticket stating that the account team is unable to access an internal application. The application is running behind an Oracle Cloud Infrastructure (OCI) Public Load Balancer and is using a compute instance pool with autoscaling enabled. You noticed some deleted items In the Audit Log while troubleshooting.
+Which resource deletion could have caused this Issue?
+A. NAT Gateway and the Route Table associated with the Virtual Cloud Network (VCN)
+B. Internet Gateway and the Route Table associated with the Virtual Cloud Network (VCN)
+C. an Object Storage bucket containing transaction log backups
+D. the Route Table rules associated with the subnet within the Virtual Cloud Network (VCN)
+Answer: D
+
+Question #: 59
+You have set an alarm to be generated when the CPU usage of a specified instance is greater than 10%. In the alarm behavior view below you not that the critical condition happened around 23:30. You were expecting a notification after 1 minute, however, the alarm firing state did not begin until
+23:23.
+What should you change to fix It?
+A. Change the alarm's metric interval to 1.
+B. Change the alarm condition to be greater than 3%.
+C. Change the alarm's trigger delay minutes value to 1.
+D. Change the notification topic that you previously associated with the alarm
+Answer: C
+
+Question #: 60
+You have created an Autonomous Data Warehouse (ADW) service in your company's Oracle Cloud Infrastructure (OC1) tenancy and you now have to load historical data Into It. You have already extracted this historical data from multiple data marts and data warehouses. This data is stored n> CSV text files and these file are ranging in size from 25 MB to 20 GB.
+Which step Is most efficient and error tolerant method for loading data Into ADW?
+A. Create the tables In the ADW database and then execute SQL*Loader for each CSV file to load the contents Into the corresponding ADW database table.
+B. Create Auth token, use it to create an object storage credential by executing DBMS_CLOUD.CREATE_CREDENTIAL, using OCI CLI upload the CSV files to an OCI object storage bucket, create the tables In the ADW database and then execute Data Pump Import for each CSV file to copy the contents into the corresponding ADW database table.
+C. Create Auth token, use It to create an object storage credential by executing DBMS_CLOUD.CREATE_CREDENTIAL, using the web console upload the CSV files to an OCI object storage bucket, create the tables in the ADW database and then execute DBMS_CLOUD.COPY_DATA for each CSV file to copy the contents into the corresponding ADW database table.
+D. Create Auth token, use it to create an object storage credential by executing DBMS_CLOUD.CREATE_CREDENTIAL, using OCI CLI upload the CSV files to an OCI object storage bucket, create the tables in the ADW database and then execute DBMS_CLOUD.COPY_DATA for each CSV file to copy the contents into the corresponding ADW database table.
+Answer: D
+
+Question #: 61
+Which three statements are true about Object Storage data security and encryption in Oracle Cloud Infrastructure (OCI)?
+A. OCI Key Management is used by default to provide data security.
+B. Server side encryption uses per-object keys which are managed by Oracle.
+C. All traffic to and from Object Storage service is encrypted using TLS.
+D. A VPN connection to OCI is required to ensure security data transfer to an object storage bucket.
+E. Client-side encryption is managed by the customer.
+Answer: B C E
+
+Question #: 62
+You have been asked to investigate a potential security risk on your company's Oracle Cloud Infrastructure (OCI) tenancy. You decide to start by looking through the audit logs for suspicious activity.
+How can you retrieve the audit logs using the OCI Command Line Interface (CLI)?
+A. oci audit event list --start-time $start-time --end-time $end-time --compartment-id $compartment-id
+B. oci audit event list --start-time $start-time --end-time $end-time --tenancy-id $tenancy-id
+C. oci audit event list --start-time $start-time --compartment-id $compartment-id
+D. oci audit event list --end-time $end-time --compartment-id $compartment-id
+Answer: A
+
+
+

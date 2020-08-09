@@ -1,0 +1,707 @@
+Question #: 1 Your company has been running several small applications in Oracle Cloud Infrastructure and is planning a proof of concept (POC) to deploy PeopleSoft. If your existing resources are being maintained In the root compartment, what is the recommended approach for defining security for the upcoming POC ?
+ociaa1A. Create a new tenancy tor the POC. Provision all new resources Into the root compartment. Grant appropriate permissions to create and manage resources within the root compartment
+ociaa1B. Provision all new resources Into the root compartment. Grant permissions that only allow for creation and management of resources specific to the POC.
+ociaa1C. Create a new compartment for the POC and grant appropriate permissions to create and manage resources within the compartment.
+ociaa1D. Provision all new resources into the root compartment. Use defined tags to separate resources that belong to different applications.
+Answer: C
+
+Question #: 2 You have been tasked with creating one virtual cloud network (VCN) each for two line of business (LOB) applications. LOB A and LOB B will need to communicate with each other. To ensure that you can utilize VCN peering, which network CIDR ranges should be used
+ociaa2A. VCN A (10.0.0.0/16) and VCN B (10.1.0.0/16)
+ociaa2B. VCN A (10.0.2.0/16) and VCN B (10.0.2.0/25)
+ociaa2C. VCN A (10.0.0.0/16) and VCN B (10.0.16.0/24)
+ociaa2D. VCN A (172.16.0.0/24) and VCN B (172.16.0.0/28)
+Answer: A
+
+Question #: 3 Which service would you use if your big data workload required shared access and NFS-based connectivity ?
+ociaa3A. block volume
+ociaa3B. archive storage
+ociaa3C. object storage
+ociaa3D. file storage
+Answer: d
+
+Question #: 4 You have hired a new employee to run reports from the Autonomous Data Warehouse (ADW) and are not confident in their SQL writing ability. Into which consumer group will you assign this Individual to minimize the impact of their code?
+ociaa4A. Low
+ociaa4B. Lowest
+ociaa4C. Medium
+ociaa4D. High
+ociaa4E. Highest
+Answer: a
+
+Question #: 5 You deployed a compute instance (VM.Standard2.16) to run a SQL database. After a few weeks, you need to increase disk performance by using NVMe disks; the number of CPUs will not change. As a first step you terminate the instance and preserve the boot volume. What is the next step?
+ociaa5A. Create a new instance using a VM.DenseIO2.16 shape using the preserved boot volume and move the SQL Database data to block volume
+ociaa5B. Create a new instance using a VM.DenseIO2.8 shape using the preserved boot volume and move the SQL Database data to NVMe disks
+ociaa5C. Create a new instance using a VM.Standard1.16 shape using the preserved boot volume and move the SQL Database data to NVMe disks
+ociaa5D. Create a new instance using a VM.DenseIO2.16 shape using the preserved boot volume move the SQL Database data to NVMe disks
+Answer: d
+
+Question #: 6 You have provisioned an Autonomous Transaction Processing (ATP) database and logged into the ATP service console. What are three abilities that can be performed from this service console? (Choose three.
+ociaa6A. scale up/down the CPUs
+ociaa6B. create ATP database users
+ociaa6C. reset the admin password
+ociaa6D. set resource management rules
+ociaa6E. monitor database activity and SQL queries
+Answer: c d e
+
+Question #: 7 Where do you find the tnsnames.ora for your Autonomous Data Warehouse (ADW) database?
+ociaa7A. You can download tnsnames.ora from Oracle Cloud Infrastructure web console under ADW details page
+ociaa7B. The tnsnames.ora file is included in credentials.zip file that you download from service console of ADW
+ociaa7C. The ADW database will place the tnsnames.ora file in an object storage bucket
+ociaa7D. You are automatically prompted to download the tnsnames.ora file upon creation of the ADW database
+Answer: b
+
+Question #: 8 Which statement is true regarding Autonomous Transaction Processing (ATP)?
+ociaa8A. A database name cannot be used concurrently for both an Autonomous Data Warehouse (ADW) and an ATP database
+ociaa8B. After terminating a database, the database name is available for immediate reuse
+ociaa8C. A maximum of 8 cores can be enabled for an ATP database
+ociaa8D. A maximum of 2 TB of storage can be enabled for an ATP database
+Answer: a
+
+Question #: 9 Which two resources reside exclusively in a single availability domain?
+ociaa9A. compute instance
+ociaa9B. object storage
+ociaa9C. groups
+ociaa9D. block volume
+ociaa9E. Web Application Firewall Policy
+Answer: a d
+
+Question #: 10 Which two use Oracle dynamic routing gateway (DRG) for connectivity? (Choose two.)
+ociaa10A. Remote virtual cloud network (VCN) peering across region
+ociaa10B. Oracle IPsec VPN
+ociaa10C. Local VCN peeringtement is true about Oracle Cloud Infrastructure FastConnect?
+ociaa10D. Oracle Cloud Infrastructure FastConnect public peering
+Answer: a b
+
+Question #: 11 You are running a mission-critical database application in Oracle Cloud Infrastructure (OCI). You take regular backups of your DB system to OCI object storage. Recently, you notice a failed database backup status in the console. What two steps can you take to determine the cause of the backup failure? (Choose two.)
+ociaa11A. Ensure the database archiving mode is set to NOARCHIVELOG
+ociaa11B. Ensure that your database host can connect to the OCI object storage
+ociaa11C. Restart the dcsagent program if it has a status of stop or waiting
+ociaa11D. Make sure that the database is not active and running while the backup is in progress
+Answer: b c
+
+Question #: 12 Which statement is true about Oracle Cloud Infrastructure FastConnect?
+ociaa12A. For private peering, FastConnect extends your existing infrastructure to allow you to consume object storage from your on-premises data center
+ociaa12B. For private peering, FastConnect extends your existing infrastructure to a virtual cloud network
+ociaa12C. For public peering, FastConnect extends your existing infrastructure to a virtual cloud network
+ociaa12D. For public peering, a dynamic routing gateway must be configured and attached to the virtual cloud network (VCN)
+Answer: b
+
+Question #: 13 Which two actions will occur when a back-end server that is registered with a backend set is marked to drain connections? (Choose two.)
+ociaa13A. It disallows new connections to that backend server
+ociaa13B. It keeps the connections to that instance open and attempts to complete any in-flight requests
+ociaa13C. It redirects the requests to a user-defined error page.
+ociaa13D. It immediately closes all existing connections to that instance
+ociaa13E. It forcibly closes all connections to that instance after a timeout period
+Answer: a b
+
+Question #: 14 Which two statements ate true about restoring a block volume from a manual or policy based block volume backup?
+ociaa14A. It can be restored as new volumes with different sizes from the backups
+ociaa14B. It can be restored as a new volume to any AD across different regions
+ociaa14C. It must be restored as a new volume to the same availability domain (AD) on which the original block volume backup resides
+ociaa14D. It can be restored as a new volume to any AD in the same region
+Answer: a d
+
+Question #: 15 In what two ways does Oracle Cloud Infrastructure (OCI) file storage service differ from OCI object storage and block volume services?
+ociaa15A. File storage mount target does not provide a private IP address, while the object storage bucket provides one
+ociaa15B. File Storage uses the network file system (NFS) protocol, whereas block volume uses ISCSI
+ociaa15C. Block volume service is NVMe based, while file storage service is not.
+ociaa15D. You can move object storage buckets, block volumes and file storage mount targets between compartments
+Answer: b d
+
+Question #: 16 You have been notified of an application failure indicating that one or more of the Oracle Cloud Infrastructure (0C1) resources have become unavailable. After scanning the Compute and Database consoles, you notice that one of the DD Systems is missing. What would you do to identify the reason for this missing resource?
+ociaa16A. Navigate to the Audit console and search the previous 24 hours for all Delete actions to get a list of any resource that was deleted in the past 24 hours
+ociaa16B. Create a serial console connection to the DB System that does not appear in the management console. Connect to the serial console connection, and then review the system logs under /var/log/messages
+ociaa16C. View the service limits associated with your account to ensure that you have not exceeded the allowable number of DB Systems in your tenancy
+ociaa16D. Navigate to the Audit console and search the previous 24 hours for all List actions to get a list of every event that occurred in the past 24 hours.
+Answer: a
+
+Question #: 17 Which two statements are true about adding secondary VNICs to an existing compute instance? (Choose two.)
+ociaa17A. The primary and secondary VNIC association must be in the same availability domain
+ociaa17B. You can assign an Ephemeral Public IP to a secondary VNIC
+ociaa17C. You can remove the primary VNIC after the secondary VNIC’s attachment is complete
+ociaa17D. The primary and secondary VNIC association can be in different virtual cloud networks (VCNs)
+Answer: a d
+
+Question #: 18 You are designing a high bandwidth, redundant connection between your data center and Oracle Cloud Infrastructure (OCI). While researching for OCI FastConnect locations, you notice that you are co-located with Oracle at one of the Oracle FastConnect locations in the Ashburn region. What is the recommended design in this scenario?
+ociaa18A. Create a cross-connect group and have two or more cross-connects in that group. Create an IPsec VPN connection on this group.
+ociaa18B. Setup two IPsec connections between your data center and OCI Ashburn region. Create an OCI load balancer to distribute the traffic across the two connections
+ociaa18C. Create a cross-connect group and have at least two or more cross-connects in that group. Create at least two or more virtual circuits in the group.
+ociaa18D. Create a cross-connect group and have at least one cross-connect in that group. Create at least one virtual circuit in the group
+Answer: c
+
+Question #: 19 You have created a virtual cloud network (VCN) with three private subnets. Two of the subnets contain application servers and the third subnet contains a DB System. The application requires a shared file system so you have provisioned one using the file storage service (FSS). You also created the corresponding mount target in one of the application subnets. The VCN security lists are properly configured so that both application servers and the DB System can access the file system. The security team determines that the DB System should have read-only access to the file system. What change would you make to satisfy this requirement?
+ociaa19A. Create an NFS export option that allows READ_ONLY access where the source is the CIDR range of the DB System subnet
+ociaa19B. Connect via SSH to one of the application servers where the file system has been mounted. Use the Unix command chmod to change permissions on the file system directory, allowing the database user
+read-only access
+ociaa19D. Modify the security list associated with the subnet where the mount target resides. Change the ingress rules corresponding to the DB System subnet to be stateless.
+ociaa19E. Create an instance principal for the DB System. Write an Identity and Access Management (IAM) policy that allows the instance principal read-only access to the file storage service
+Answer: a
+
+Question #: 20 Which two Oracle Cloud Infrastructure database services allow you to dynamically scale CPU and storage? (Choose two.)
+ociaa20A. bare metal DB system
+ociaa20B. virtual machine DB system
+ociaa20C. Autonomous Data Warehouse (ADW)
+ociaa20D. Autonomous Transaction Processing (ATP)
+Answer: c d
+
+Question #: 21 Your company has decided to move a few applications to Oracle Cloud Infrastructure (OCI) and you have been asked to design a cloud-based disaster recovery (DR) solution. One of the requirements is to deploy the DR resources at least 300 miles from the home OCI region and minimize the network latency. What will be the recommended deployment?
+ociaa21A. Deploy production and DR applications in the same VCN. Create production subnets in one AD, and DR subnets in another AD.
+ociaa21B. Deploy production and DR applications in two separate VCNs in different availability domains (ADs) within your home region, and then use a VCN remote peering connection for connectivity
+ociaa21C. Deploy production and DR applications in two separate VCNs, each in different regions. Connect them using a VCN remote peering connection
+ociaa21D. Deploy production and DR applications in two separate virtual cloud networks (VCNs), each in different regions, and then use VCN local peering gateways for connectivity
+Answer: c
+
+Question #: 22 Which two statements are true about encryption on Oracle Cloud Infrastructure (OCI)?
+ociaa22A. By default, object storage and block storage are encrypted at rest.
+ociaa22B. A customer is responsible for data encryption in all services of OCI
+ociaa22C. By default, DB Systems offers an encrypted database.
+ociaa22D. By default, NVMe drives are encrypted but the block volume service is not
+Answer: a c
+
+Question #: 23 Which two options are available when setting up DNS for your bare metal and virtual machine DB Systems? (Choose two.)
+ociaa23A. Internet and custom resolver
+ociaa23B. Google DNS servers
+ociaa23C. custom resolver
+ociaa23D. Internet and virtual cloud network (VCN) resolver
+Answer: c d
+
+Question #: 24 You have multiple applications installed on a compute Instance and these applications generate a large amount of log files. These log files must reside on the boot volume for a minimum of 15 days. Any files over 15 days do not have to reside on boot volume but still must be retained for at least 60 days. The 60-day retention requirement Is causing an Issue with available disk space. What are the two recommended methods to provide additional boot volume space for this compute instance?
+ociaa24A. Terminate the instance while preserving the boot volume. Create a new instance from the boot volume and select a DenseIO shape to take advantage of local NVMe storage.
+ociaa24B. Create an object storage bucket and use a script that runs daily to move log files older than 15 days to the bucket
+ociaa24C. Create and attach a block volume to the compute instance and copy the log files
+ociaa24D. Create a custom image and launch a new compute instance with a larger boot volume size
+ociaa24E. Write a custom script to remove the log files on a daily basis and free up the space on the boot volume
+Answer: b d
+
+Question #: 25 You are designing a lab exercise for your team that has a large number of graphics with large file sizes. The application becomes unresponsive if the graphics are embedded in the application. You have uploaded the graphics to Oracle Cloud Infrastructure and only added the URL in the application. You need to ensure these graphics are accessible without requiring any authentication for an extended period of time. How can you achieve these requirements?
+ociaa25A. Create pre-authenticated requests (PAR) and specify 00:00:0000 as the expiration time.
+ociaa25B. Make the object storage bucket private and all objects public and use the URL found in the Object “Details”
+ociaa25C. Make the object storage bucket public and use the URL found in the Object “Details"
+ociaa25D. Create PARs and do not specify an expiration date
+Answer: c
+
+Question #: 26 You are deploying a highly available web application in Oracle Cloud Infrastructure and have decided to use a public load balancer. The back end web servers will be distributed across all three availability domains (ADS). How many subnets should you create to deliver a secure, highly available application?
+ociaa26A. two subnets in total; one regional private subnet to host your back-end web servers and one regional public subnet to host your public load load balancer
+ociaa26B. three subnets in total; one regional public subnet to host your back-end web servers and two AD specific private subnets to host your private load toad balancer
+ociaa26C. one subnet In total; one regional private subnet to host your back-end web servers and your public load balancer.
+ociaa26D. two subnets in total; one regional public subnet to host your back-end web servers and one regional private subnet to host your public load load balancer
+Answer: a
+
+Question #: 27 Which two statements about file storage service (FSS) are accurate? (Choose two.)
+ociaa27A. FSS leverages UNIX user group and permission checking for file access security
+ociaa27B. Encryption of file system in FSS is optional
+ociaa27C. Identity and Access Management (IAM) controls which file systems are mountable by which instances
+ociaa27D. Security lists can be used as a virtual firewall to prevent an instance from mounting an FSS mount target within the same subnet
+ociaa27E. Data in transit to an FSS mount target is encrypted
+Answer: a d
+
+Question #: 28 What is true about data guard set up with fast-start failover (FSFO) in Oracle Cloud Infrastructure (OCI)?
+ociaa28A. The best practice for high availability and durability is to run the primary, standby, and observer in separate availability domains (ADs).
+ociaa28B. When you configure data guard using OCI console, the default mode is set to maxprotection.
+ociaa28C. You cannot create the standby DB system in a different AD from the primary DB system.
+ociaa28D. You cannot use database command line interface (CLI) to set up data guard with FSFO.
+Answer: a
+
+Question #: 29 Which two statements about fault domains are true? (Choose two.)
+ociaa29A. A fault domain is a grouping of hardware and infrastructure within an availability domain
+ociaa29B. Each availability domain contains three fault domain
+ociaa29C. A failed instance in a fault domain is automatically relaunched
+ociaa29D. A fault domain is selected automatically based on usage data
+Answer: a b
+
+Question #: 30 You have an application running on Oracle Cloud Infrastructure. You identified that the read and write operations are slowing your application down enough to impair user access. The application is currently using a VM.Standard1.2 compute without any block storage attached to it. Which two options allow you to increase disk performance? (Choose two.)
+ociaa30A. Terminate the compute instance preserving the boot volume. Create a new compute instance using a VM Dense IO shape using the boot volume preserved
+ociaa30B. Terminate the compute instance preserving the boot volume. Create a new compute instance using a VM Standard shape and attach a new block volume to host your application.
+ociaa30C. Create a backup of the boot volume. Create a new compute instance using a VM Dense IO shape and restore the backup
+ociaa30D. Terminate the compute instance and create a backup of the boot volume. Create a new compute instance using a VM Dense IO shape and restore the backup
+Answer: a b
+
+Question #: 31 You are about to upload a large log file (5 TiB size) to Oracle Cloud Infrastructure object storage and have decided to use multipart upload capability for a more efficient and resilient upload. Which two statements are true about multipart upload? (Choose two.)
+ociaa31A. Individual object parts can be as small as 10 MiB or as large as 50 GiB
+ociaa31B. While a multipart upload is still active, you cannot add parts even if the total number of parts is less than 10,000
+ociaa31C. The maximum size for an uploaded object is 10 TiB
+ociaa31D. You do not have to commit the upload after you have uploaded all the object parts
+Answer: a c
+
+Question #: 32 You must implement a backup solution for your Autonomous Data Warehouse (ADW) that will enable you to restore data as old as one year with a recovery point objective (RPO) of 10 days. Which database backup strategy would you select?
+ociaa32A. Take weekly manual backups to supplement the automated backups and preserve them for 12 months.
+ociaa32B. Use the automated backups
+ociaa32C. Take monthly manual backups to supplement the automated backups and preserve them for 12 months
+ociaa32D. Take quarterly manual backups to supplement the automated backups and preserve them for 12 months
+Answer: b
+
+Question #: 33 You have an application server that needs to copy data on Oracle Cloud Infrastrucutre (OCI) object storage in the same region. You have created a service gateway for OCI object storage in your virtual cloud network (VCN) and modified security lists associated with the subnet to allow traffic to the service gateway. You are able to connect to the OCI object storage, however, you notice that the connectivity is over the Internet instead of the service gateway. What is the reason for this behavior?
+ociaa33A. The route table associated with the subnet has no route rule where the destination is object storage service
+ociaa33B. The service gateway created in the VCN resides in a different availability domain
+ociaa33C. The security list associated with the subnet has an egress rule that allows all traffic to be forwarded to a destination CIDR 0.0.0.0/0
+ociaa33D. Identity and Access Management (IAM) policies restrict the access to the object storage bucket
+Answer: a
+
+Question #: 34 You have an Oracle Cloud Infrastructure (OCI) load balancer distributing traffic via an evenly-weighted round robin policy to your backend web servers. You notice that one of your web servers is receiving more traffic than other web servers. How can you resolve this imbalance?
+ociaa34A. Check security lists and route tables of your virtual cloud network (VCN) and fix any issues associated with the rules
+ociaa34B. Create separate listeners for each backend web server
+ociaa34C. Delete and re-create your OCI load balancer
+ociaa34D. Disable session persistence on your backend set
+Answer: d
+
+Question #: 35 Your organization has deployed a large, complex application across multiple compute instances in Oracle Cloud Infrastructure (OCI). These compute instances also have block volume storage attached to them. You want to create a time consistent backup of this block volume storage. Which implementation strategy should be used?
+ociaa35A. Create a manual backup of each volume
+ociaa35B. Use scripts available in OCI to backup block volume storag
+ociaa35C. Group volumes in a volume group first and then use available scripts in OCI
+ociaa35D. Group volumes in a volume group and create a manual backup of the volume group
+Answer: d
+
+Question #: 36 Which two statements are true about an Oracle Cloud Infrastructure (OCI) virtual cloud network (VCN)?
+ociaa36A. A VCN creates the dynamic routing gateway by default
+ociaa36B. A VCN can reside In multiple OCI regions and availability domains
+ociaa36C. A VCN covers a single, contiguous IPv4 CIDR block of your choice
+ociaa36D. The allowable VCN size range is:/16 to /30
+Answer: c d
+
+Question #: 37 Which two options ate necessary for achieving high availability on Oracle Cloud Infrastructure?
+ociaa37A. Store your database across multiple regions so that half of the data resides in one region and the other half resides in another region
+ociaa37B. Attach your block volume form Availability Domain 1 to a compute instance in Availability Domain 2 (and vice versa) so that they are highly available.
+ociaa37C. Configure your database to have Data Guard in another Availability Domain in Sync mode within a region
+ociaa37D. Store your database files on Object Storage so that they are available in all Availability Domains in all regions
+ociaa37E. Distribute your application servers across all Availability Domains within a region
+Answer: c e
+
+Question #: 38 You are designing a two-tier web application in Oracle Cloud Infrastructure (OCI). Your clients want to access the web servers from anywhere, but want to prevent access to the database servers from the Internet. Which is the recommended way to design the network architecture?
+ociaa38A. Create public subnets for web servers and private subnets for database servers in your virtual cloud network (VCN), and associate separate internet gateways for each subnet
+ociaa38B. Create a public subnet for web servers and associate a dynamic routing gateway with that subnet, and a private subnet for database servers with no association to dynamic routing gateway
+ociaa38C. Create public subnets for web servers and private subnets for database servers in your VCN, and associate separate security lists and route tables for each subnet
+ociaa38D. Create a single public subnet for your web servers and database servers, and associate only your web servers to internet gateway
+Answer: c
+
+Question #: 39 Which two statements are true about DB Systems in Oracle Cloud Infrastructure? (Choose two.)
+ociaa39A. Customers can consolidate multiple database homes on a single virtual machine database host
+ociaa39B. Customers have no control over database patching
+ociaa39C. Customers can manage the TDE Wallet after DB Systems are provisioned
+ociaa39D. The database and backups are encrypted by default
+Answer: c d
+
+Question #: 40 A company currently uses Microsoft Active Directory as its identity provider. The company recently purchased Oracle Cloud Infrastructure (OCI) to leverage the cloud platform for its test and development operations. As the administrator, you are now tasked with giving access only to developers so that they can start creating resources in their OCI accounts. Which step will you perform to achieve this requirement?
+ociaa40A. Create a group for developers on OCI and map the group to a similar group in Microsoft Active Directory during the federation process
+ociaa40B. Federate all Microsoft Active Directory groups with OCI to allow users to use their existing credentials
+ociaa40C. Create a new user account for each user, and then create policies to provide access to developers
+ociaa40D. Create a group for developers on OCI, export all the developers from Microsoft Active Directory, and then import them into the Identity and Access Management (IAM) group
+Answer: a
+
+Question #: 41 Which two choices are true for Autonomous Data Warehouse (ADW)? (Choose two.)
+ociaa41A. Billing stops only when the ADW is terminated
+ociaa41B. Billing stops for both CPU usage and storage usage when ADW is stopped
+ociaa41C. Billing for compute stops when ADW is stopped
+ociaa41D. Billing for storage continues when ADW is stopped
+Answer: c d
+
+Question #: 42 As the Cloud Architect for your company, you have been tasked with designing a high performance (HPC) cluster in Oracle Cloud Infrastructure (OCI). The following requirements have been defined : * The cluster must be a minimum of three nodes, but may increase to six nodes when demand requires. * The cluster must be resilient to any potential infrastructure failures. * To minimize latency, all nodes must be deployed within the same availability domain (AD). * Adding or replacing nodes within the cluster should take no more than 30 minutes. Which two steps should be performed to satisfy these requirements in OCI? (Choose two.)
+ociaa42A. Deploy the cluster in a single AD with a shared file system that leverages the file storage service (FSS). Deploy a standby cluster in another AD and configure it to use the same shared file system
+ociaa42B. Deploy the cluster in a single AD. Place each of the nodes in one of the three different fault domains in that AD.
+ociaa42C. Create a backup of your HPC node compute instance boot volume. Launch new compute instances directly from the backup reduce provisioning time
+ociaa42D. Create a custom image of your HPC node compute instance. Launch new compute instances using this image to reduce provisioning time
+ociaa42E. Deploy the cluster in a single AD. Place each of the nodes in a different virtual cloud network (VCN) subnet.
+Answer: b d
+
+Question #: 43 You are about to deploy an e-business application on Oracle Cloud Infrastructure and one of the requirements is to use a shared file system that supports the NFS protocol. Which storage service would meet this requirement?
+ociaa43A. object storage
+ociaa43B. block volume
+ociaa43C. data transfer appliance
+ociaa43D. file storage
+Answer: d
+
+Question #: 44 When terminating a compute instance, which statement is true?
+ociaa44A. The instance needs to be stopped first, and then terminated
+ociaa44B. The boot volume is always deleted
+ociaa44C. All block volumes attached to the instance are terminated
+ociaa44D. Users can preserve the boot volume associated with the instance
+Answer: d
+
+Question #: 45 Your application front end consists of several Oracle Cloud Infrastructure compute instances behind a load balancer. You have configured the load balancer to perform health checks on these instances. If an instance fails to pass the configured health checks, what will happen?
+ociaa45A. The instance is replaced automatically by the load balancer
+ociaa45B. The instance is terminated automatically by the load balancer
+ociaa45C. The instance is taken out of the back end set by the load balancer
+ociaa45D. The load balancer stops sending traffic to that instance
+Answer: d
+
+Question #: 46 You are designing a networking infrastructure in multiple Oracle Cloud Infrastructure regions and require connectivity between workloads in each region. You have created a dynamic routing gateway (DRG) and a remote peering connection. However, your workloads are unable to communicate with each other. What are two reasons for this?
+ociaa46A. The security lists associated with subnets in each virtual cloud network (VCN) do not have the appropriate ingress rules
+ociaa46B. Identity and Access Management (IAM) policies have not been defined to allow connectivity across the two VCNs in different regions
+ociaa46C. A local peering gateway needs to be created in each VCN with a default route rule added in the route table forwarding the traffic to the local peering gateway
+ociaa46D. An Internet gateway needs to be created in each VCN with a default route rule added in the route table forwarding the traffic to the Internet Gateway
+ociaa46E. The route table associated with subnets in each VCN do not have a route rule defined to forward the traffic to their respective DRGs
+Answer: a e
+
+Question #: 47 Which two options are true for Autonomous Transaction Processing (ATP) database? (Choose two.)
+ociaa47A. You can add/remove Diskgroup in ATP
+ociaa47B. You can scale storage up or down in ATP
+ociaa47C. You can scale CPU up or down in ATP
+ociaa47D. You can add more Pluggable Databases for consolidating multiple databases in ATP
+ociaa47E. You can add new ORACLE_HOME for bringing older versions of on-premises databases to ATP
+Answer: b c
+
+Question #: 48 How can you provide users access to an existing compartment?
+ociaa48A. by granting users access to a compartment when the compartment is created
+ociaa48B. by adding users to a group and defining a policy to provide the group access to the compartment
+ociaa48C. by adding users to a compartment; all users in the compartment will have access to the objects in the compartment.
+ociaa48D. by granting access directly to the user when the user is created
+Answer: b
+
+Question #: 49 Which two are a valid image source when launching a new compute instance? (Choose two.)
+ociaa49A. bare metal instance
+ociaa49B. object storage
+ociaa49C. custom image
+ociaa49D. boot volume
+Answer: c d
+
+Question #: 50 Which three load-balancing policies can be used with a backend set? (Choose three.)
+ociaa50A. throughput
+ociaa50B. IP hash
+ociaa50C. weighted round robin
+ociaa50D. CPU utilization
+ociaa50E. least connections
+Answer: b c e
+
+Question #: 51 Which two statements are true about an Oracle Cloud Infrastructure object storage bucket? (Choose two.)
+ociaa51A. You can associate a bucket with multiple compartments
+ociaa51B. You cannot change a bucket from private to public after it is created
+ociaa51C. You can associate a bucket with only a single compartment
+ociaa51D. You cannot edit or append data to an object, but you can replace the entire object
+Answer: c d
+
+Question #: 52 You are a network architect and have designed the network infrastructure of a three-tier application on Oracle Cloud Infrastructure (OCI). In the architecture, back-end DB servers are in a private subnet. One of your DB administrators requests to have access to OCI object storage service. How can you meet this requirement?
+ociaa52A. Create a service gateway, add a new route rule to the private subnet route table that uses storage as your service gateway target type
+ociaa52B. Create a dynamic routing gateway (DRG) and attach it your virtual cloud network (VCN). Add a default route rule to the private subnets route table and set the target as DRG
+ociaa52C. Attach a public IP address to the instances in the private subnet, and then add a new route rule to the private subnet route table to route default traffic to the internet gateway
+ociaa52D. Add a new route rule to the private subnet route table to route default traffic to the internet gateway
+Answer: a
+
+Question #: 53 What is a valid option when exporting a custom image?
+ociaa53A. object storage URL
+ociaa53B. archive storage URL
+ociaa53C. file storage service
+ociaa53D. block volume
+Answer: a
+
+Question #: 54 You are an administrator with an application running on OCI. The company has a fleet of OCI compute virtual instances behind an OCI Load Balancer. The OCI Load Balancer Backend Set health check API is providing a ‘Critical’ level warning. You have confirmed that your application is running healthy on the backend servers. What is the possible reason for this ‘Critical’ warning?
+ociaa54A. A user does not have correct IAM credentials on the Backend Servers
+ociaa54B. The Backend Server VCN’s Route Table does not include the route for OCI LB
+ociaa54C. OCI Load Balancer Listener is not configured correctly
+ociaa54D. The Backend Server VCN’s Security List does not include the IP range for the source of the health check requests
+Answer: d
+
+Question #: 55 You have created a public subnet in a VCN, and your public subnet has a Route Table, a Security List, and an Internet Gateway. However, none of the compute instances can connect to the Internet. Which two are possible reasons for the connectivity issue? (Choose two.)
+ociaa55A. There is no Dynamic Routing Gateway (DRG) associated with the VCN.
+ociaa55B. The Route Table has no default route for routing traffic to the Internet Gateway
+ociaa55C. There is no stateful ingress rule in the Security List associated with the public subnet
+ociaa55D. There is no stateful egress rule in the Security List associated with the public subnet
+Answer: b d
+
+Question #: 56 Your on-premises hosted application uses Oracle database server. Your database administrator must have access to the database server for managing the application. Your database server is sized for seasonal peak workloads, which results in high licensing costs. You want to move your application to Oracle Cloud Infrastructure (OCI) to take advantage of CPU scaling options. Which database offering on OCI would you select?
+ociaa56A. bare metal DB systems
+ociaa56B. VM DB systems
+ociaa56C. Autonomous Transactions Processing (ATP)
+ociaa56E. Autonomous Data Warehouse (ADW)
+Answer: a
+
+Question #: 57 You want an Oracle Cloud Infrastructure (OCI) compute instance in your compartment to make API calls to other services within OCI without storing credentials in a configuration file. What do you need to do?
+ociaa57A. Create a dynamic group with appropriate matching rules to include the instance, and reference this group in your IAM policy statement
+ociaa57B. Instances cannot access services outside their compartment
+ociaa57C. VM instances are treated as users. Create a user, assign the user to that VM instance, and reference the instance in your Identity and Access Management (IAM) policy statement
+ociaa57D. By default, all VM instances are created with an instance principal. Reference this instance principal in your IAM policy statement
+Answer: a
+
+Question #: 58 You have an application deployed in Oracle Cloud Infrastructure running only in the Phoenix region. You were asked to create a disaster recovery (DR) plan that will protect against the loss of critical data. The DR site must be at least 500 miles from your primary site and data transfer between the two sites must not traverse the public Internet. Which is the recommended disaster recovery plan?
+ociaa58A. Create a new virtual cloud network (VCN) in the Phoenix region and create a subnet in one availability domain (AD) that is not currently being used by your production systems. Establish VCN peering between the production and DR sites.
+ociaa58B. Create a DR environment in Ashburn. Associate a DRG with the VCN in each region and create a remote peering connection between the two VCNs.
+ociaa58C. Create a DR environment in Ashburn and provision a FastConnect virtual circuit using DRG between the regions.
+ociaa58D. Create a DR environment in Ashburn. Associate a dynamic routing gateway (DRG) with the VCN in each region and configure an IPsec VPN connection between the two regions.
+Answer: b
+
+Question #: 59 You have successfully configured identity federation between Oracle Cloud Infrastructure (OCI) and Oracle Identity Cloud Services (IDCS). A new project manager wants access to OCI for her team and provides the name of an existing group within IDCS to use when granting access. How do you configure federation to allow the project team access to OCI resources?
+ociaa59A. Create a new IAM group in OCI and map it to the existing IDCS group. Create a new policy in IDCS and reference the name of the IAM group.
+ociaa59B. Create a new Identity and Access Management (IAM) policy in OCI and reference the name of the IDCS group in each policy statement.
+ociaa59C. Create a new compartment in OCI with the same name as the existing IDCS group. Create an IAM policy that references the new compartment and the name of the IDCS group
+ociaa59D. Create a new IAM group in OCI and map it to the existing IDCS group. Create a new IAM policy and reference the name of the IAM group in each policy statement.
+Answer: d
+
+Question #: 60 You are managing a tier-1 OLTP application on an Autonomous Transaction Processing (ATP) database. Your business needs to run hourly batch processes on this ATP database that may consume more CPUs than what is available on the server. How can you limit these batch processes to not interfere with the OLTP transactions?
+ociaa60A. Copy OLTP data into new tables in a new table space and run batch processes against these new tables
+ociaa60B. ATP is designed for OLTP workload only; you should not run batch processes on ATP
+ociaa60C. Disable automated backup during the batch process operations
+ociaa60D. Configure ATP resource management rules to manage runtime and IO consumption for the consumer group of batch processes
+Answer: d
+
+Question #: 61 You need to create a high performance shared file system, and have been advised to use file storage service (FSS). You have logged into the Oracle Cloud Infrastructure console, created a file system, and followed the steps to mount the shared file system on your Linux instance. However, you are still unable to access the shared file system from your Linux instance. What is the likely reason for this?
+ociaa61A. There are no security list rules for mount target traffic
+ociaa61B. There is no internet gateway set up for mount target traffic
+ociaa61C. There is no Identity and Access Management (IAM) policy set up to allow you to access the mount target
+ociaa61D. There is no route in your virtual cloud network’s (VCN) route table for mount target traffic
+Answer: a
+
+Question #: 62 You have one database style application that frequently makes many random reads and writes across the dataset Which storage offering supports this application?
+ociaa62A. block volume service
+ociaa62B. file storage service
+ociaa62C. object storage service
+ociaa62D. archive storage service
+Answer: a
+
+Question #: 63 Which statement is true about Oracle Cloud Infrastructure (OCI) object storage support for server-side encryption?
+ociaa63A. You must manually enable server-side encryption for each object as you upload to OCI object storage
+ociaa63B. Objects are automatically encrypted as they are uploaded to object storage and decrypted upon retrieval
+ociaa63C. You must manually decrypt the data when retrieving from OCI object storage
+ociaa63D. Only the object data is encrypted and the user-defined metadata that is associated with the object is not encrypted
+Answer: b
+
+Question #: 64 Which statement is true about Data Guard Implementation in DB systems?
+ociaa64A. Both DB systems must be in the same compartment, and they must be the same shape
+ociaa64B. You cannot manage Oracle database Initialization parameters at a global level
+ociaa64C. You can define the backup window and set custom backup retention period for the automatic database backup schedule
+ociaa64D. You cannot manage the database as ays/sysdba
+Answer: a
+
+Question #: 65 Which two options are valid for loading data directly into Autonomous Data Warehouse (ADW)? (Choose two.)
+ociaa65A. Data Integrator
+ociaa65B. Data Pump
+ociaa65C. Data Transfer Service
+ociaa65D. SQL *Loader
+Answer: b d
+
+Question #: 66 You are designing a shared storage solution for your company in Oracle Cloud Infrastructure. The proposed storage solution should allow users to create a hierarchical structure (similar to the directory structure in Linux or Windows based systems). The solution should provide data encryption and a large amount of storage space. Which would be the best implementation strategy?
+ociaa66A. Use block storage. Create and attach a large block storage volume to one compute instance. Assign a public IP to the compute instance. Store data on the block storage and access it by connecting to the compute instance.
+ociaa66B. Use object storage. Create a single namespace and multiple buckets to create the hierarchical directory structure.
+ociaa66C. Use object storage. Create multiple namespaces with one bucket each. Make the buckets publicly accessible.
+ociaa66D. Use file storage service. Create a file system and a mount target. Share the private IP of the mount target.
+Answer: d
+
+Question #: 67 The Oracle Cloud Infrastructure Block Volume service lets you expand the size of block and boot volumes. Which three options below can you use to increase the size of your block volumes?
+ociaa67A. Clone an existing volume to a new, larger volume
+ociaa67B. You can only expand block volumes and not boot volumes
+ociaa67C. Expand an existing volume in place with offline resizing
+ociaa67D. Take a backup of your existing volume and restore from the volume backup to a larger volume
+ociaa67E. Expand an existing volume in place with online resizing
+Answer: a c d
+
+Question #: 68 Which two statements are true regarding cloning a block volume?
+ociaa68A. You can change the block volume performance when creating a clone
+ociaa68B. You can clone block volumes across regions
+ociaa68C. You can change the block volume size when creating a clone
+ociaa68D. You can skip block volume encryption when creating a clone
+Answer: a c
+
+Question #: 69 You have deployed a compute instance (VM.Standard2.24) to run an Oracle database. With this set up, you run into some performance issues and want to leverage an OCI Dense IO shape (VM.DenseIO2.24), with which you get 25.6 TB local NVMe SSD. You do not want to lose the configuration changes you made to the instance. Which of the following TWO steps ARE NOT required to make this transition?
+ociaa69A. Terminate the VM.Standard2.24 instance and do not preserve the boot volume
+ociaa69B. Create a new instance using the VM.Dense102.24 shape using the preserved boot volume and move the Oracle Database data to NVMe disks
+ociaa69C. Terminate the VM.Standard2.24 instance and preserve the boot volume
+ociaa69D. Create a new instance using a VM.DenseIO2.24 shape using the preserved boot volume and move the Oracle Database data to block volumes
+Answer: a d
+
+Question #: 70 You are running several Linux based operating systems in your on .premises environment that you want to import to OCI as custom images. You can launch your imported images as OCI compute Virtual machines. Which two modes below can be used to launch these imported Linux VMs?
+ociaa70A. Native
+ociaa70B. Mixed
+ociaa70C. Paravirtualized
+ociaa70D. Emulated
+Answer: c d
+
+Question #: 71 You have an application deployed in Oracle Cloud Infrastructure running in the US East region. You have been asked to create a disaster recovery plan that will protect against the loss of critical data. The DR site must be at least a few hundred miles from your primary site and data transfer between the two sites must not traverse the public Internet. Which is the lowest latency and lowest cost recommended disaster recovery plan?
+ociaa71A. Create a DR environment in the US West region and provision a FastConnect virtual circuit using Dynamic Routing Gateways between the regions
+ociaa71B. Create a DR environment in the US West region. Associate a Dynamic Routing Gateway (DRG) with the VCN in each region and configure an IPsec VPN connection between the two regions
+ociaa71C. Create a DR environment in the US West region. Associate a Dynamic Routing Gateway (DRG) with the VCN in each region and create a remote peering connection between the two VCNs
+ociaa71D. Create a DR environment in the US West region. Associate a Local Peering Gateway with the VCN in each region and create a local peering connection between the two VCNs
+Answer: c
+
+Question #: 72 Which two statements are true about Oracle Cloud Infrastructure IPSec VPN Connect?
+ociaa72A. Each OCI IPSec VPN consists of multiple redundant IPSec tunnels
+ociaa72B. OCI IPSec VPN tunnel supports only static routes to route traffic
+ociaa72C. OCI IPSec VPN can be configured in tunnel mode only
+ociaa72D. OCI IPSec VPN can be configured in trans port mode only
+Answer: a c
+
+Question #: 73 Which two Oracle Cloud Infrastructure services use a Dynamic Routing Gateway?
+ociaa73A. OCI FastConnect Public Peering
+ociaa73B. Local Peering
+ociaa73C. OCI FastConnect Private Peering
+ociaa73D. Internet Gateway
+ociaa73E. OCI IPSec VPN Connect
+Answer: c e
+
+Question #: 74 You have an instance running in a development compartment that needs to make API calls against other OCI services, but you do not want to configure user credentials or a store a configuration file on the instance. How can you meet this requirement?
+ociaa74A. Create a dynamic group with matching rules to include your instance
+ociaa74B. Instances can automatically make calls to other OCI services
+ociaa74C. Instances are secure and cannot make calls to other OCI services
+ociaa74D. Create a dynamic group with matching rules to include your instance and write a policy for this dynamic group
+Answer: d
+
+Question #: 75 You have the following compartment structure in your tenancy. Root compartment->Training->Training-subl ->Training-sub2 You create a policy in the root compartment to allow the default admin for the account (Administrators) to manage block volumes in compartment Training-sub2. What policy would you write to meet this requirement?
+ociaa75A. Allow group Administrators to manage volume-family in root compartment
+ociaa75B. Allow group Administrators to manage volume-family in compartment Training-sub1 :Training-sub2
+ociaa75C. Allow group Administrators to manage volume-family in compartment Training: Training-sub 1 :Training-sub2
+ociaa75D. Allow group Administrators to manage volume-family in compartment Training-sub2
+Answer: c
+
+Question #: 76 You have created a new compartment called Production to host some production apps. You have also created users in your tenancy and added them to a Group called "production group". Your users are still unable to access the Production compartment. How can you resolve this situation?
+ociaa76A. Every compartment you create comes with a predefined set of policies, so no further action is needed
+ociaa76B. Your users get automatic access to all compartments, so no further action is needed
+ociaa76C. Write an IAM Policy for each specific user granting them access to the production compartment
+ociaa76D. Write an IAM Policy for "production_group" granting it access to the production compartment
+Answer: d
+
+Question #: 77 You have two line of business operations (LOB1, LOB2) leveraging Oracle Cloud Infrastructure. LOB1 is deployed in VCN1 in the OCI US East region, while LOB2 is deployed in VCN2 in the US West region. You need to peer VCN1 and VCN2 for disaster recovery and data backup purposes. To ensure you can utilize the OCI Virtual Cloud Network remote peering feature, which CIDR ranges should be used?
+ociaa77A. VCN1 (10.0.0.0/16) and VCN2 (10.0.1.0/24)
+ociaa77B. VCN1 (10.0.0.0/16) and VCN2 (172.16.0.0/16)
+ociaa77C. VCN1 (172.16.1.0/24) and VCN2 (172.16.1.0/27)
+ociaa77D. VCN1 (192.168.0.0/16) and VCN2 (192.168.1.0/27)
+Answer: b
+
+Question #: 78 You deployed a web server in Oracle Cloud Infrastructure using an Ephemeral Public IP address. While making configuration changes, an admin inadvertently deleted your web seNer. You redeploy your web server, but many of your LOB apps depend on this web server's public IP address and would need an update. What can you do to prevent this from happening again?
+ociaa78A. Create a reserved public IP and associate it with the security list for the subnet being used by your compute instance
+ociaa78B. Create a reserved public I P and associate it with the hosts file of your web server
+ociaa78C. Create a reserved public IP and associate it with the subnet of your compute instance
+ociaa78D. Create a reserved public IP and associate it with the virtual NIC of your compute instance
+Answer: d
+
+Question #: 79 You have launched a compute instance running Oracle database in a private subnet in the Oracle Cloud Infrastructure US East region. You have also created a Service Gateway to back up the data files to OCI Object Storage in the same region. You have modified the security list associated with the private subnet to allow traffic to the Service Gateway, but your instance still cannot access OCI Object Storage. How can you resolve this issue?
+ociaa79A. Add a stateful rule that enables ingress HTTPS (TOP port 443) traffic to 001 Object Storage in the security list associated with the private subnet
+ociaa79B. Add a stateful rule that enables egress HTTPS (TCP port 443) traffic to OCI Object Storage in the security list associated with the private subnet
+ociaa79C. Add a rule in the Route Table associated with the private subnet with Target type as "Service Gateway" and destination service as all IAD services in the Oracle Service Network.'
+ociaa79D. Use the default Security List, which has ports open for OCI Object Storage
+Answer: c
+
+Question #: 80 You are a network architect of an application running on Oracle Cloud Infrastructure (OCI). Your security team has informed you about a security patch that needs to be applied immediately to one of the backend web servers. What should you do to ensure that the OCI load balancer does not forward traffic to this backend server during maintenance?
+ociaa80A. Drain all existing connections to this backend server and mark the backend web server offline
+ociaa80B. Create another OCI load balancer for the backend web servers, which are active and handling traffic
+ociaa80C. Edit the security list associated with the subnet to avoid traffic connectivity to this backend serve
+ociaa80D. Stop the load balancer for maintenance and restart the load balancer after the maintenance is finished
+Answer: a
+
+Question #: 81 Your application consists of three Oracle Cloud Infrastructure compute instances running behind a public load balancer. You have configured the load balancer to perform health checks on these instances, but one of the three instances fails to pass the configured health check. Which of the following action will the load balancer perform?
+ociaa81A. Stop sending traffic to the instance that failed health check
+ociaa81B. Terminate the instance that failed health check
+ociaa81C. Stop the instances that failed health check
+ociaa81D. Remove the instance that failed the health check from the backend set
+Answer: a
+
+Question #: 82 Which three items must be configured for a load balancer to accept incoming traffic?
+ociaa82A. A route table entry pointing to the listener IP address
+ociaa82B. A security list that is open on the listener port
+ociaa82C. A backend set with at least one backend server
+ociaa82D. SSL certificate
+ociaa82E. A listener
+Answer: b c e
+
+Question #: 83 Your IT department wants to cut down storage costs, but also meet compliance requirements as set up by the central audit group. You have a legacy bucket with both Word does (*.docx) and Excel files (*.xlsx). Your auditors want to retain only Excel files for compliance purposes. Your IT departments wants to keep all other files for 365 days only. What two steps can you take to meet this requirement?
+ociaa83A. Create Object Storage Lifecycle rules to archive objects from the legacy bucket after 365 days without any pattern matching
+ociaa83B. Create Object Storage Lifecycle rules to delete objects from the legacy bucket after 365 days with a filter type - include by pattern: ''.docx
+ociaa83C. It is not possible to meet this requirement
+ociaa83D. Create Object Storage Lifecycle rules to delete objects from the legacy bucket after 365 days with a filter type - exclude by pattern: ''.xlsx"
+ociaa83E. Create Object Storage Lifecycle rules to delete objects from the legacy bucket after 365 days without any pattern matching
+Answer: b d
+
+Question #: 84 You have a working application in the US East region. The app is a 3-tier app with a database backend - you take regular backups of the database into OCI Object Storage in the US East region. For Business continuity; you are leveraging OCI Object Storage cross-region copy feature to copy database backups to the US West region. Which of the following three steps do you need to execute to meet your requirement?
+ociaa84A. Write an IAM policy and authorize the Object Storage service to manage objects on your behalf
+ociaa84B. Specify an existing destination bucket
+ociaa84C. Specify the bucket visibility for both the source and destination buckets
+ociaa84D. Provide a destination object name
+ociaa84E. Provide an option to choose bulk copying of objects
+ociaa84F. Choose an overwrite rule
+Answer: a b f
+
+Question #: 85 Which of the following statement is true regarding Oracle Cloud Infrastructure Object Storage Pre-Authenticated Requests?
+ociaa85A. It Is not possible to create pre-authenticated requests for "archive" storage tier
+ociaa85B. Changing the bucket visibility does not change existing pre-authenticated requests
+ociaa85C. It is not possible to create pre-authenticated requests for the buckets, but only for the objects
+ociaa85D. Pre-authenticated requests don't have an expiration
+Answer: b
+
+Question #: 86 You have two NFS clients running in two different subnets within the same Oracle Cloud Infrastructure (OCI) Virtual Cloud Network (VCN). You have created a shared file system for the two NFS clients who want to connect to the same file system, but you want to restrict one of the clients to have READ access while the other has READ/Write access. Which OCr feature would you leverage to meet this requirement?
+ociaa86A. Use VCN security rules to control access for the NFS clients
+ociaa86B. Use OCI Identity Access Management to control access for the NFS clients
+ociaa86C. Use File Storage NFS Export Options to control access for the NFS clients
+ociaa86D. Use NFS security to control access for the NES clients
+Answer: c
+
+Question #: 87 Which statement is true about the Oracle Cloud Infrastructure File Storage Service Mount Target?
+ociaa87A. You can access multiple file systems through a single mount target
+ociaa87B. Mount target has a public IP address and DNS name
+ociaa87C. Mount target lives in a single subnet of your choice, but is not highly available
+ociaa87D. Each mount target requires six internal IP addresses in the subnet to function
+Answer: a
+
+Question #: 88 Which statement is true about the Oracle Cloud Infrastructure File Storage Service Snapshots?
+ociaa88A. Snapshots are created under the root folder of file system, in a hidden directory named .snapshot
+ociaa88B. Snapshots are not incremental
+ociaa88C. You can restore the whole snapshot, but not the individual files
+ociaa88D. It Is not possible to create snapshots from OCI console, but just the CLI
+Answer: a
+
+Question #: 89 Which two statements are true about Oracle Cloud Infrastructure (OCI) DB Systems Data Guard service?
+ociaa89A. Both DB systems must use the same VCN, and port 1521 must be open
+ociaa89B. Data guard configuration on the OCI is limited to a virtual machine only
+ociaa89C. Data guard implementation for Bare Metal shapes requires two DB Systems, one containing the primary database and one containing the standby database.
+ociaa89D. Data guard implementation requires two DB Systems, one running the primary database on a virtual machine and the standby database running on bare metal.
+Answer: a c
+
+Question #: 90 Which two characteristics do you need to consider when choosing a method to migrate a database to Oracle Cloud Infrastructure (OCI)?
+ociaa90A. On-premises connectivity using remote and local virtual cloud network (VCN) peering
+ociaa90B. On-premises database character set and application version
+ociaa90C. On-premises host operating system platform and network bandwidth
+ociaa90D. On-premises database version and quantity of data, including indexes
+Answer: c d
+
+Question #: 91 Which is a customer's responsibility on an Oracle Cloud Infrastructure DB System?
+ociaa91A. Applying patches to the database and OS
+ociaa91B. Installing the operating system (OS), Grid Infrastructure, and database software
+ociaa91C. Creating the first database on the DB System
+ociaa91D. Creating an ASM diskgroup for data file or temp file storage
+Answer: a
+
+Question #: 92 Which two options are available within the service console of Autonomous Transaction Processing?
+ociaa92A. Monitor the health of the database server including CPU, memory and query performance
+ociaa92B. Configure resource management rules and reset the admin password
+ociaa92C. Perform a manual backup of the ATP database
+ociaa92D. Fine tune a long running query using optimizer hints
+Answer: a b
+
+Question #: 93 Which of the following two tasks can be performed in the Oracle Cloud Infrastructure Console for Autonomous Data Warehouse?
+ociaa93A. Adjust Network Bandwidth
+ociaa93B. Scale up/down Memory
+ociaa93C. Increase Storage allocated for Database
+ociaa93D. Scale up/down CPU
+Answer: c d
+
+Question #: 94 Which two statements are true about Autonomous Data Warehouse (ADW) backup
+ociaa94A. You can perform manual backups to OCI object storage in addition to automated backups available on ADW
+ociaa94B. You can backup ADW database only to a standard bucket type in OCI object storage
+ociaa94C. Oracle Cloud Infrastructure (OCI) recommends backing up ADW databases manually to on-premises storage devices
+ociaa94D. You must backup ADW database to object storage bucket named ADW_backup
+Answer: a b
+
+Question #: 95 Which two statements are true about the Oracle Cloud Infrastructure object storage service?
+ociaa95A. It provides strong consistency
+ociaa95B. It provides higher lOPS than block storage.
+ociaa95C. It can be directly attached to or detached from a compute instance
+ociaa95D. Data is stored redundantly across multiple availability domains (ADs) in a multi-AD region
+Answer: a d
+
+Question #: 96 You have five different company locations spread across the US. For a proof-of-concept (POC) you need to setup secure and encrypted connectivity to your workloads running in a single virtual cloud network (VCN) in the Oracle Cloud Infrastructure Ashburn region from all company locations. What would meet this requirement?
+ociaa96A. Create five internet gateways in your VCN and have separate route table for each internet gateway.
+ociaa96B. Create five virtual circuits using FastConnect for each company location and terminate those connections on a single dynamic routing gateway (DRG). Attach that DRG to your VCN
+ociaa96C. Create five IPsec connections with each company location and terminate those connections on a single DRG. Attach that DRG to your VCN.
+ociaa96D. Create five IPsec VPN connections with each company location and terminate those connections on five separate DRGs. Attach those DRGs to your VCN
+Answer: c
+
+Question #: 97 A customer has launched a compute instance In the Virtual Cloud Network (VCN), which has an internet gateway, a service gateway, a default security lists and a default route table. Customer has opened up Port 22 In the security lists attached to the compute Instance subnet, however is still unable to connect to compute Instances using ssh. Which option would remedy this situation?
+ociaa97A. Modify the route table associated with the VCN subnet in which the instance resides. Add a following route to the route table.
+Destination CIDB: 0.0.0.0/0 Target: Internet Gateway <"GM)
+ociaa97C. Modify the route table associated with the VCN subnet in which the instance resides. Add a following route to the route table.
+Destination CIDP: 0.0.0.0/0
+Target: Dynamic Routing Gateway (ORG)
+ociaa97F. Modify the security list associated with the VCN subnet In which the Instance resides. Add a stateful egress rule to allow ichp traffic in addition to the port 22
+ociaa97G. Modify the route table associated with the VCN subnet In which the Instance resides. Add a following route to the route table.
+Destination CIDR: 0.0.0.0/0 Target: Service Gateway (SGW)
+Answer: a
+
+Question #: 98 You are tasked with creating a highly available clustered application on Oracle Cloud Infrastructure consisting of three nodes. The round-trip latency between nodes must be less than 500 μs (micro-seconds) and your cluster should be resilient to hardware failure. What is the recommended deployment strategy?
+ociaa98A. Deploy the cluster nodes in a single region and deploy each node into a different AD. Select the same fault domain in each AD to ensure consistency.
+ociaa98B. Deploy the cluster nodes in two separate regions and take advantage of multiple availability domains (ADs) in each region.
+ociaa98C. Deploy the cluster nodes in a single region and deploy each node into a different AD.
+ociaa98D. Deploy the cluster nodes in a single region and deploy each node in different fault domains within a single AD.
+Answer: d

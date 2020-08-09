@@ -1,0 +1,632 @@
+
+Question #: 1
+Which is the correct subset of services offered via OCI-CLI (command line interface) for Autonomous
+Database (ABD) via calls made to the OCI API's?
+A. Create, Query, Update, List, Start
+B. Create, Query, List, Stop, Restore
+C. Create, Get, List, Stop, Restore
+D. Start, Delete, Update, Query, Stop
+Answer: B
+
+
+Question #: 2
+Which three tasks by default are taken care of by the Autonomous Database?
+A. Database Upgrades
+B. Application User Creation
+C. Backups
+D. Firmware Patching
+E. Data Loading
+Answer: A C E
+
+Question #: 3
+Which three data dictionary views contain information about analytic view objects?
+A. ALL_ANALYTIC_VIEW_PATHS
+B. ALL_ANALYTIC_VIEW_DIM_CLASS
+C. ALL_ANALYTIC_VIEW_ID_ATTRS
+D. ALL_ANALYTIC_VIEW_LVLGRPS
+E. ALL_ANALYTIC_VIEW_KEYS
+Answer: B D E
+
+Question #: 4
+What are three methods to load data into the Autonomous Database?
+A. Transportable Tablespace
+B. Oracle Data Pump
+C. RMAN Restore
+D. Oracle GoldenGate
+E. SQL*Loader
+Answer: B D E
+
+Question #: 5
+Which of these database features is NOT part of the Autonomous Database?
+
+A. Flashback Database
+B. Java in the Database
+C. Real Application Clusters (RAC)
+D. Online Indexing
+Answer: C
+
+Question #: 6
+Which task is NOT automatically performed by the Oracle Autonomous Database?
+A. Automatically optimize the workload
+B. Backing up the database
+C. Mask your sensitive data
+D. Patching the database
+Answer: A
+
+Question #: 7
+The 3rd party application that your customer wants to migrate to Autonomous Database (ADB) has
+some specific demands like tablespace names, usernames and init.ora parameters. The decision was
+made to adhere to the suggested migration method using an instant client and the datapump version
+that was suggested (and came with it).
+Which statement is true about the migration of the application's database success?
+A. The tablespace names will result in a blocking error during datapump import because of ADB
+limitations.
+B. The migration can be technically a success but the 3-rd party vendor needs to support the result.
+C. The migration can be a success, both technically and functional due to datapump enhancements.
+D. The suggested datapump version will create an alias for non-standard tablespace names so the
+migration is successful.
+Answer: D
+
+Question #: 8
+Which Autonomous Database Service is NOT used to connect to an Autonomous Transaction
+Processing instance?
+A. TPPERFORMANT
+B. TPURGENT
+C. LOW
+D. MEDIUM
+E. HIGH
+Answer: A
+
+
+Question #: 9
+Which statement about the Export Wizard used to export database objects and data is NOT correct?
+A. If "Dependents" is checked as a DDL Option, for non-privileged users, only dependent objects in
+their schema are exported.
+B. Export DDL includes features such as "Show schema," "Storage," and "Terminator."
+C. If "Grants" Is checked as a DDL Option, GRANT statements are Included for any grant objects on
+the exported objects, including those owned by the SYS schema.
+D. If "Clipboard" is selected as the "Output," the output will be placed on the system clipboard, so
+that it can be pasted into a file, a command line, or other location appropriate for the format.
+Answer: C
+
+Question #: 10
+Given the steps:
+1. Create Oracle Machine Learning User
+2. Create projects
+3. Create workspaces
+4. Create Notebooks
+5. Run SQL Scripts
+Which two steps are out of order when working with Oracle Machine learning?
+A. Run SQL Scripts
+B. Create Notebooks
+C. Create workspaces
+D. Create projects
+E. Create Oracle Machine Learning User
+Answer: A D
+
+Question #: 11
+Which method can be used to migrate on-premises databases to Autonomous Databases in cloud?
+A. RMAN backup & restore
+B. Physical migration method like database cloning
+C. Data Pump
+D. Original Import/Export tools
+Answer: C
+
+Question #: 12
+Which Java Database Connectivity (JDBC) thin client version supports the use of HTTP proxy settings
+that does NOT support TCP to connect to Autonomous Data Warehouse?
+A. 17.4 onwards
+B. Any version
+C. 12c Release 2 onwards
+D. 18.1 onwards
+
+Answer: D
+
+Question #: 13
+In which way can a SQL Developer help you test your data loading scenario to Autonomous Database
+(ADB)?
+A. In the TEST phase, a temporary table will be populated with the records before inserting them in
+the destination table.
+B. In the Column Definition Phase, the system cross-references with the file-contents and shows the
+conflicts with the definition.
+C. In the TEST phase of the wizard, a subset of accepted records are displayed based on your
+definition.
+D. In the TEST phase of the wizard a list is generated containing the records that would be rejected
+during import.
+Answer: C
+
+Question #: 14
+Which statement is true regarding database client credentials file required to connect to your
+Autonomous Database?
+A. When you share the credential files with authorized users, mail the wallet password and the file in
+the same email.
+B. The Transparent Data Encryption (TDE) wallet can be used for your client credentials to connect to
+your database.
+C. Place the credential files on a share drive that all users can use to connect to the database.
+D. Store credential files in a secure location and share the files only with authorized users to prevent
+unauthorized access to the database.
+Answer: B
+
+Question #: 15
+Your customer receives information in various formats like .csv files from their suppliers. The
+business user would like to collect all of this information and store it in a ATP environment. The
+Oracle adviser recommends to use Oracle Data Sync for this.
+Which statement is true regarding Oracle Data Sync?
+A. Data Sync can only load files into tables (insert-only), the customer has to write the additional
+code.
+B. Data Sync can not transform your data while loading it into the destination table.
+C. Data Sync can load a combination of data source, such as xsv, .xlsx and Oracle relational files.
+D. Data Sync can only load data from one source into one destination table.
+Answer: C
+
+Question #: 16
+Your customer has upgraded their on premise 11.2 database to 12.2. During this migration the
+
+database was migrated to a pluggable database and is now in production.
+How should the customer unplug their database to migrate to Autonomous Database (ADB)?
+A. Unplug into a pdb archive which can be uploaded to object storage.
+B. Create a database link from source database to the ADB environment and clone the PDB.
+C. Pluggable databases cannot be migrated to ADB using plug, unplug or clone.
+D. Unplug to an xml file so database files and xml file can be uploaded to object storage.
+Answer: B
+
+Question #: 17
+When you connect Oracle Analytics Cloud to the Autonomous Data Warehouse, what file needs to be
+uploaded?
+A. OJDBC.PROPERTIES
+B. CWALLET.SSO
+C. SQLNET.ORA
+D. TNSNAMES.ORA
+Answer: B
+
+Question #: 18
+When running lots of high concurrent queries in Autonomous Database, you should use which
+predefined service connection?
+A. DBNAME_MEDIUM
+B. DBNAME_HIGH
+C. DBNAME_CONCURRENT
+D. DBNAME_LOW
+Answer: B
+
+Question #: 19
+How many pre-defined service names are configured in tnsnames.ora for a single Autonomous
+Transaction Processing database instance, and what are they called?
+A. Five. They are called tpurgent, tp, high, medium and low.
+B. Three. They are called high, medium and low.
+C. None. There are no pre-defined service names in tnsnames.ora.
+D. Two. They are called ATP and ADW.
+Answer: A
+
+Question #: 20
+What two tasks can be executed from the service console for Autonomous Databases?
+A. Autonomous Databases monitoring for usage and query performance.
+B. Wizard to download connection wallet for connection from desktop tools.
+
+C. Creating and scaling of Autonomous Database service.
+D. Creating schemas.
+Answer: C D
+
+Question #: 21
+What are two security features enabled by default by the Autonomous Database?
+A. Encrypted Database Links
+B. SQL Net Encryption
+C. One SYSDBA account
+D. Read Only access to OS Audit logs
+E. Transparent Data Encryption
+Answer: A E
+
+Question #: 22
+As a database architect you are tasked with configuring a high concurrency, production OLTP
+application to connect to an Autonomous Transaction Processing database with a requirement to
+have some reporting queries run in parallel mode.
+Which connection service is appropriate for such a workload?
+A. MEDIUM
+B. TP
+C. HIGH
+D. TPURGENT
+Answer: C
+
+Question #: 23
+Which two PL/SQL functions can be used to validate an analytic view?
+A. VALIDATE_ANALYTIC_VIEW
+B. VALIDATE_LEVELS
+C. VALIDATE_MEASURES
+D. VALIDATE_DIMENSION
+E. VALIDATE_HIERARCHY
+Answer: A E
+
+Question #: 24
+The default eight day retention period for Autonomous Database performance data can be modified
+
+using which DBMS_WORKLOAD_REPOSITORY subprogram procedure?
+A. MODIFY_SNAPSHOT_SETTINGS
+B. UPDATE_OBJECT_INFO
+C. CREATE_BASELINE_TEMPLATE
+D. UPDATE_OBJECT_INFO
+Answer: A
+
+Question #: 25
+Which operating system can Data Visualization Desktop be run on?
+A. Linux
+B. Solaris
+C. Windows
+D. AIX
+Answer: C
+
+Question #: 26
+When exporting a notebook, what type of file is created?
+A. SQL
+B. JSON
+C. ASCII
+D. XML
+E. TXT
+Answer: B
+
+Question #: 27
+If you need to connect to Autonomous Data Warehouse (ADW) using Java Database Connectivity
+(JDBC) via an HTTP proxy, where do you set the proxy details?
+A. cwallet.sso
+B. keystore.jks
+C. ojdbc.properties
+D. sqlnet.ora
+E. tnsnames.ora
+Answer: E
+
+
+Question #: 28
+Which three statements are true regarding how Autonomous Database provides data security?
+A. Network connections from clients to Autonomous Database are encrypted using the client
+credentials wallet.
+B. Data is encrypted at rest using transparent data encryption.
+C. Oracle automatically applies security updates to ensure data is not vulnerable to known attack
+vectors.
+D. Users are given OS logons or SYSDBA privileges to prevent phishing attacking.
+Answer: A C D
+
+Question #: 29
+Which three statements are true about procedures in the DBMS_CLOUD package?
+A. The DBMS_CLOUD.DELETE_FILE procedure removes the credentials file from the Autonomous Data Warehouse database.
+B. The DBMS_CLOUD.CREATE_CREDENTIAL procedure stores Cloud Object Storage credentials in the Autonomous Data Warehouse database.
+C. The DBMS_CLOUD.PUT_OBJECT procedure copies a file from Cloud Object Storage to the Autonomous Data Warehouse.
+D. The DBMS_CLOUD.VALIDATE_EXTERNAL_TABLE procedure validates the source files for an external table, generates log information, and stores the rows that do not match the format options specified for the external table in a badfile table on Autonomous Data Warehouse.
+E. The DBMS_CLOUD.CREATE_EXTERNAL_TABLE procedure creates an external table on files in the cloud. You can run queries on external data from the Autonomous Data Warehouse.
+Answer: A C D
+
+Question #: 30
+Which statement is true in regards to database links?
+A. Connect from Autonomous Database to remote database using a database link.
+B. Connect to Autonomous Database from remote database using a database link.
+C. You can call PL/SQL procedures and functions using a database link.
+D. Create a database link from one Autonomous Database to another Autonomous Database
+instance.
+Answer: A
+
+Question #: 31
+A customer wants to migrate to Autonomous Database (ADB) but only allows for a very small
+window of downtime. Golden Gate was advised to be used during the migration. For maximum
+reassurance of their end-users, the customer also would like to use Golden Gate as a fall-back
+scenario for the first 6 months after the migration. If customers complain, the on-premise data can
+be synchronised with the ADB instance for a switch back.
+Which statement about the migration using Golden Gate is correct?
+
+A. The fallback scenario is not possible using Golden Gate because the capture-process cannot be
+installed on ADB.
+B. Migration to ADB is not possible using Golden Gate because the apply-process cannot be installed
+on ADB.
+C. Golden Gate on premise Is not certified with ADB because Golden Gate Cloud Service exists for
+this.
+D. Only the migration to ADB is possible from an on-premise installation of Golden Gate.
+E. The described scenario is correct, can be used for migration and fallback scenarios.
+Answer: D
+
+Question #: 32
+While Autonomous Transaction Processing and Autonomous Data Warehouse use the same Oracle
+database, which statement is true about the workloads?
+A. Autonomous Data Warehouse workloads are optimized for mixed workloads.
+B. Autonomous Transaction Processing workloads are optimized for data warehouse, data mart, and
+data lake.
+C. Data that Is bulk loaded, by default, uses the row format in Autonomous Transaction Processing
+where Autonomous Data Warehouse data format Is columnar.
+D. Autonomous Transaction Processing memory usage optimizes workloads for parallel joins and
+aggregations.
+Answer: A
+
+Question #: 33
+Which two statements are true with regards to Oracle Data Sync?
+A. Data Sync can use a normal OCI (thick) client connection to connect to an Oracle database.
+B. Data Sync has default drivers available that supported loading data from DB2, Microsoft SQL
+Server, MySQL and Teradata.
+C. Data Sync can connect to any jdbc compatible source like MongoDB, RedShift and Sybase.
+D. Data Sync can load your data in parallel in order to speed up the loading process.
+Answer: D
+
+Question #: 34
+What are two advantages of using Data Pump to migrate your Oracle Databases to Autonomous
+Database?
+A. Data Pump creates the tablespaces used by your Autonomous Database.
+B. Data Pump can exclude migration of objects like indexes and materialized views that are not
+needed by Autonomous Database.
+C. Data Pump is faster to migrate database than using RMAN.
+D. Data Pump is platform independent - it can migrate Oracle Databases running on any platform.
+Answer: A D
+
+
+Question #: 35
+What is the default retention period for both Automatic and Manual Autonomous Database
+Backups?
+A. One Year
+B. 90 days
+C. 7 days
+D. 30 days
+E. 60 days
+Answer: D
+
+Question #: 36
+Which is correct about security features that are available in Oracle Autonomous Database?
+A. Neither Data Redaction nor TDE are supported .
+B. Data Redaction but not TDE
+C. TDE but not Data Redaction
+D. Data Redaction and TDE are both supported
+Answer: A
+
+Question #: 37
+What predefined user is created when an Autonomous Database (ADB) instance is created that you
+connect to in order to create other users and grant roles?
+A. SCOTT
+B. ADMIN
+C. SYS
+D. DWDEV
+Answer: B
+
+Question #: 38
+What are the two methods that could be used during the migration of your existing Oracle database
+to Autonomous Database?
+A. CSV files copied to Autonomous Database block storage
+B. Data Pump
+C. Golden Gate
+D. Recovery Manager (RMAN)
+Answer: A C
+
+Question #: 39
+Which two are correct actions to take in order to Download the Autonomous Database Credentials?
+
+A. Find the Service Console for your Autonomous Database, then pick Administration, then
+Download the Client Credentials (Wallet).
+B. Click the Compute section of the menu, then choose Instance Configurations, then Download
+Wallet.
+C. Click on the Autonomous Data Warehouse section, pick a database, then Choose Actions, then
+Download the Wallet.
+D. Click on the Autonomous Data Warehouse in the menu, click a database name, then Choose DB
+Connection button, then Download the Wallet.
+E. Click on the Object Storage and find your Autonomous Bucket and Download the Wallet
+Credentials.
+Answer: C D
+
+Question #: 40
+Which two statements are true about the The Oracle Cloud Infrastructure (OCI)?
+A. Because availability domains do not share infrastructure such as power or cooling, or the internal
+availability domain network, a failure at one availability domain within a region is unlikely to impact
+the availability of the others within the same region.
+B. Regions are dependent on other regions and must be located with 5 thousand kilometers of each
+other.
+C. A single fault domain can be associated with multiple regions and availability domains.
+D. An OCI region is a localized geographic area, and an availability domain is one or more data
+centers located within a region.
+Answer: A C
+
+Question #: 41
+A Corporation is building a web application to allow its customers to schedule service requests
+online. There is also a need to run operational reports at times during non-peak hours. The
+architecture team is debating whether such reports should be run on the OLTP database or in a
+separate data mart. The DBA Manager does not want to add anymore admin responsibility to the
+team and is looking for a database option that's low to zero maintenance, but meets their strict
+performance requirements as well.
+Which Oracle Cloud Infrastructure database service is appropriate for this scenario?
+A. ATP. Using 'tpurgenf and 'high' TNS services to separate connection types
+B. ADW since operational reporting is a higher priority in this scenario.
+C. Since the application needs to be highly available, It should to be deployed on a Kubernetes
+Cluster.
+D. It is best to build a separate data warehouse, and move the OLTP data on a nightly basis.
+Answer: D
+
+Question #: 42
+Migrating an on-premise database to Autonomous Database (ADB) for large amounts of data
+involves multiple steps like creating a credential object, creating (access to) a storage
+object/location, running datapump export and running a datapump import.
+
+Which three statements are true for SQL Developer (18.3 and up) in combination with ADB Data
+Loading?
+A. SQL Developer can only export/move/import files using datapump from databases running on
+Linux systems.
+B. SQL Developer can import .csv files into ADB which are located on the system where SQL
+Developer is running.
+C. SQL Developer can be used to export/move/import of a database to ADB in l set of wizard steps.
+D. SQL Developer can be started from the ADB Cloud console but only for data loading scenarios.
+E. SQL Developer can import files (.dmp and .csv for example) into ADB which are located on Amazon
+S3 Object storage.
+Answer: A B D
+
+Question #: 43
+When you choose to scale your Autonomous Database, which statement is true in regards to OCPUs
+and storage?
+A. OCPUs and storage can be scaled independently.
+B. OCPUs and storage must remain in sync.
+C. Increasing OCPUs will automatically increase storage.
+D. Storage in TB cannot be larger than the number of OCPUs.
+Answer: C
+
+Question #: 44
+Which open source orchestration tool can be used to provision autonomous database resources in
+Oracle Cloud Infrastructure?
+A. Terraform
+B. Enterprise Manager
+C. REST API
+D. Dlocker
+Answer: A
+
+Question #: 45
+What two methods can you use to define Machine Learning Users?
+A. Use DBMS_CLOUD_ADMIN package
+B. SQL/Developer
+C. Oracle Cloud Infrastructure Console
+D. Client tools
+
+Answer: A C
+
+Question #: 46
+Which two statements are true when running DBMS_CLOUD.COPY_DATA?
+A. valid credential must be created prior to running the DBMS_CLOUD.COPY_DATA procedure.
+B. The source files can reside in Oracle Object Storage, Amazon S3 Object storage, or Azure Blob
+storage.
+C. The source file can be in either Oracle Standard Storage or Oracle Archive Storage bucket in the
+Object Store.
+D. The target table will be created in Autonomous Database if it does not already exist.
+E. The source file will be automatically removed after the DBMS_CLOUD.COPY_DATA procedure
+finishes successfully.
+Answer: B D
+
+Question #: 47
+Which two options are available to restore an Autonomous Data Warehouse?
+A. Select the snapshot of the backup.
+B. Specify the point in time (timestamp) to restore
+C. Select the archived redo logs.
+D. Backup and recovery must be done using Recovery Manager(RMAN).
+E. Select the backup from which restore needs to be done.
+Answer: A D
+
+Question #: 48
+Which can be Scaled independently of the number of CPUs in an Autonomous Database?
+A. Concurency
+B. Memory
+C. Parallelism
+D. Storage
+E. Sessions
+Answer: B
+
+Question #: 49
+What REST verb is used to create an Autonomous Database service using REST APIs?
+A. A "POST" REST call
+B. A "GET" REST call
+C. An "INSERT" REST call
+D. A "PUT" REST call
+Answer: D
+
+
+Question #: 50
+Autonomous Data Warehouse configures and optimizes your database for you, therefore you do not
+need to perform some of the administration operations for configuring the database.
+Which statement is true regarding the default configuration of the Autonomous Data Warehouse?
+A. Adding, removing, or modifying tablespaces is allowed.
+B. Degree of parallelism for SQL statements is set based on the number of OCPUs in the system and
+the database service the user is connecting to.
+C. In Autonomous Data Warehouse direct access to the database node and the local file system is
+allowed.
+D. Compression is not enabled by default and you must specify the compression method for your
+tables with the compression clause in your CREATE TABLE and ALTER TABLE commands.
+Answer: A
+
+Question #: 51
+Which two methods can you use to create users and grant roles in Autonomous Database services?
+A. through SQLPIus
+B. through the Oracle Cloud Infrastructure service console
+C. using DBMS_CLOUD_ADMIN package
+D. through SQL/Developer
+Answer: B
+
+Question #: 52
+Which two system privileges does a user need to create analytic views?
+A. CREATE ATTRIBUTE DIMENSION
+B. CREATE ANALYTIC VIEW
+C. CREATE ANALYTIC MEASURE
+D. CREATE ANALYTIC LEVEL
+E. CREATE ANALYTIC HIERARCHY
+Answer: B D
+
+Question #: 53
+When scaling OCPUs in Autonomous Database, which statement is true in regards to active
+transactions?
+A. Scaling cannot happen while there are active transactions in the database.
+B. Active transactions are terminated and rolled back.
+C. Active transactions are paused.
+D. Active transactions continue running unaffected.
+Answer: A
+
+
+Question #: 54
+Users are required to select a service when connecting to Autonomous Data Warehouse and these
+services match to one of three different consumer groups: High, Medium, and Low.
+Which statement about these consumer groups is correct?
+A. High provides highest concurrency and lowest resources, and DoP is i.
+B. Medium provides intermediate resource and concurrency, and queries run in a serial.
+C. High provides highest resources, lowest concurrency, and DoP is 1.
+D. Low provides highest concurrency, lowest resources, and DoP =1.
+Answer: D
+
+Question #: 55
+Once you have a connection to the Autonomous Data Warehouse, how do you import tables into the
+Oracle Analytics Cloud (OAC)?
+A. Import Table
+B. Create a Data Set
+C. Replicate the table using Golden Gate
+D. Load data using Data Pump
+Answer: D
+
+Question #: 56
+How can an Autonomous Database resource be provisioned without logging into the Oracle Cloud
+Infrastructure console?
+A. Connecting to the Cloud Infrastructure Command console via SSH wallet.
+B. It cannot be done.
+C. Using Database Configuration Assistant (DBCA) on the database server.
+D. Using the Oracle Cloud Infrastructure Command Line interface tool or REST API calls.
+Answer: A
+
+Question #: 57
+Which Autonomous Database Cloud service ignores hints in SQL Statements by default?
+A. Autonomous Data Warehouse .
+B. Neither service ignores hints by default
+C. Autonomous Transaction Processing
+D. Both services ignore hints by default
+Answer: C
+
+Question #: 58
+Which is NOT required to connect to Autonomous Database from SQL developer?
+A. Service name
+
+B. Wallet file
+C. Database name
+D. Username and password
+Answer: C
+
+Question #: 59
+Which Autonomous Database Cloud service ignores hints in SQL Statements by default?
+A. Autonomous Data Warehouse
+B. Neither service ignores hints by default
+C. Autonomous Transaction Processing
+D. Both services ignore hints by default
+Answer: C
+
+Question #: 60
+Which Autonomous Database Cloud service ignores hints in SQL Statements by default?
+A. Autonomous Data Warehouse
+B. Neither service ignores hints by default
+C. Autonomous Transaction Processing
+D. Both services ignore hints by default
+Answer: C
+
+Question #: 61
+Where can a user's public ssh key be added on the Oracle Cloud Infrastructure Console in order to
+execute API calls?
+A. On the Autonomous Database Console.
+B. SSH keys are not required In Oracle Cloud Infrastructure.
+C. SSH keys cannot be added from console. They have to be added using REST APIs only.
+D. Navigate to Identity, select Users panel on the console and select "Add Public Key".
+Answer: C
+
+Question #: 62
+What are the two methods that could be used during the migration of your existing Oracle database
+to Autonomous Database?
+A. CSV files copied to Autonomous Database block storage
+B. Data Pump
+C. Golden Gate
+D. Recovery Manager (RMAN)
+Answer: A C
